@@ -15,7 +15,7 @@
 <div class="header-actions"><button id="basisBtn" class="quiet">建模依据 <span class="info-icon">i</span></button><button id="drawingBtn" class="drawing-btn">PCB 图纸</button><button id="printBtn" class="print-btn">打印外壳</button><button id="exportBtn" class="export-btn">导出 GLB <svg viewBox="0 0 24 24"><path d="M12 3v12m-4-4 4 4 4-4M5 15v5h14v-5"/></svg></button></div>
 </header>
 <main class="workspace">
-<section class="stage" id="stage" aria-label="交互式三维模型，拖动旋转，滚轮缩放">
+<section class="stage" id="stage" tabindex="0" aria-label="交互式三维模型，拖动旋转，滚轮缩放">
 <div id="canvasWrap"></div>
 <div class="stage-top"><div class="scene-heading"><div class="eyebrow">CH592 / PRINT 06</div><h1>CH592 小键盘</h1><p>五键 · 按压旋钮 · RGB</p><div class="dimension-chips"><span>70 × 56 mm</span><span>6° 倾斜</span><span>圆弧上盖</span></div></div><button id="sideToggle" class="icon-btn" aria-label="打开零件面板">☷</button></div>
 <div class="view-switch" role="group" aria-label="展示模式"><button data-mode="assembled" class="active">整机</button><button data-mode="exploded">分层拆解</button><button data-mode="pcb">电路板</button></div>

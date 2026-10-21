@@ -1,3 +1,4 @@
+import { mountLayerColors, layerIndicatorPreview } from './layer-colors.js';
 import {
   setRotaryMode,
   setDialPrecision,
@@ -165,6 +166,7 @@ function syncPreview() {
     brightness: config.brightness,
     effect: config.effect,
     color: config.color,
+    indicator: layerIndicatorPreview(config, editingProfile),
   });
 }
 function showTab(id) {
@@ -695,28 +697,8 @@ function renderEditingContext() {
     profileActivationRequested && config.profile === editingProfile
       ? '保存后以此层启动'
       : '将此层设为启动层';
-  const colors = config.layers?.colors || [
-    [32, 190, 170],
-    [180, 95, 255],
-    [255, 155, 45],
-  ];
-  $('layerLegend').replaceChildren(
-    ...colors.map((c, i) => {
-      const button = document.createElement('button');
-      button.textContent = `配置 ${i + 1}`;
-      button.style.setProperty('--layer', `rgb(${c.join(',')})`);
-      button.classList.toggle('active', i === active);
-      button.title = i === active ? '设备当前使用此层' : '点击浏览这一层';
-      button.onclick = () => {
-        editingProfile = i;
-        showTab('keys');
-        $('profile').value = i;
-        renderBinding();
-        renderEditingContext();
-      };
-      return button;
-    }),
-  );
+  layerColorsEditor.render({ active, editing: editingProfile });
+  syncPreview();
 }
 function renderDial() {
   $('dialPrecision').hidden = config.encoderMode !== 0;
@@ -785,6 +767,7 @@ function setControls() {
           (e.hasAttribute('data-device') && !link.connected) ||
           e.dataset.fixedDisabled === 'true'),
     );
+  layerColorsEditor.setBusy(locked);
   $('recordMacro').disabled = busy;
   $('addStep').disabled = locked || config.macros[macroSlot].length >= 16;
   $('macroCombo').disabled = locked || config.macros[macroSlot].length > 14;
@@ -1000,6 +983,22 @@ const statusLightEditor = mountStatusLightEditor({
   root: $('statusLightEditor'),
   getConfig: () => config,
   changed: draftChanged,
+});
+const layerColorsEditor = mountLayerColors({
+  root: $('layerLegend'),
+  getConfig: () => config,
+  changed: () => {
+    draftChanged();
+    layerEditor.render();
+    statusLightEditor.render();
+  },
+  selectProfile: (i) => {
+    editingProfile = i;
+    showTab('keys');
+    $('profile').value = i;
+    renderBinding();
+    renderEditingContext();
+  },
 });
 const specialEditor = mountSpecialFunctions({
   root: $('specialFunctions'),
@@ -1249,16 +1248,9 @@ window.addEventListener('message', (e) => {
       connected: link.connected,
     });
   }
-  if (e.data.type === 'scroll') {
-    const delta = Number(e.data.deltaY);
-    if (Number.isFinite(delta))
-      document.querySelector('.panels').scrollBy({
-        top: Math.max(
-          -2000,
-          Math.min(2000, delta * (e.data.deltaMode === 1 ? 18 : e.data.deltaMode === 2 ? 400 : 1)),
-        ),
-        behavior: 'instant',
-      });
+  if (e.data.type === 'interact') {
+    $('connectionOptions').open = false;
+    $('moreSettings').open = false;
     return;
   }
   if (

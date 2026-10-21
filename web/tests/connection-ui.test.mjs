@@ -107,6 +107,7 @@ function fixture() {
     hapticEditor: { setState() {} },
     calibrationEditor: { setState() {} },
     layerEditor: { setState() {} },
+    layerColorsEditor: { setBusy() {} },
     statusLightEditor: { setState() {} },
     clone: (x) => JSON.parse(JSON.stringify(x)),
     stopMacroRecording() {},

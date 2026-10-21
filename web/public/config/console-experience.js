@@ -16,6 +16,56 @@ guide.rel = 'noopener';
 guide.textContent = '连接帮助 ↗';
 $('environmentNotice').append(guide);
 
+const connectionMenu = $('connectionOptions');
+const connectionSummary = connectionMenu.querySelector('summary');
+function closeConnectionMenu(restoreFocus = false) {
+  connectionMenu.open = false;
+  if (restoreFocus) connectionSummary.focus();
+}
+$('closeConnectionOptions').onclick = () => closeConnectionMenu(true);
+document.addEventListener('pointerdown', (event) => {
+  if (!connectionMenu.contains(event.target)) closeConnectionMenu();
+  const more = $('moreSettings');
+  if (!more.contains(event.target)) more.open = false;
+});
+function expandPreview(expanded) {
+  document.body.classList.toggle('preview-expanded', expanded);
+  $('expandPreview').setAttribute('aria-pressed', String(expanded));
+  $('expandPreview').textContent = expanded ? '返回设置 ↙' : '放大预览 ↗';
+}
+$('expandPreview').onclick = () =>
+  expandPreview(!document.body.classList.contains('preview-expanded'));
+for (const button of document.querySelectorAll('[data-model-view]'))
+  button.onclick = () =>
+    $('model').contentWindow?.postMessage(
+      {
+        source: 'c5-console',
+        type: 'view',
+        action: button.dataset.modelView,
+      },
+      location.origin,
+    );
+function escapeWorkspace() {
+  if (connectionMenu.open) closeConnectionMenu(true);
+  $('moreSettings').open = false;
+  if (document.body.classList.contains('preview-expanded')) {
+    expandPreview(false);
+    $('expandPreview').focus();
+  }
+}
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') escapeWorkspace();
+});
+window.addEventListener('message', (event) => {
+  if (
+    event.source !== $('model').contentWindow ||
+    event.origin !== location.origin ||
+    event.data?.source !== 'c5-model'
+  )
+    return;
+  if (event.data.type === 'escape') escapeWorkspace();
+});
+
 function syncVariant() {
   const motorless = link.connected && Boolean(link.noHaptics);
   $('hapticControls').disabled = motorless;

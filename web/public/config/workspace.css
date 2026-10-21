@@ -1,0 +1,337 @@
+/* Device and editor share the workspace; connection detail stays in its menu. */
+header {
+  height: 72px;
+}
+main {
+  grid-template-columns: minmax(360px, 1.08fr) minmax(450px, 1fr);
+  max-width: 1920px;
+  height: calc(100dvh - 72px);
+  min-height: 0;
+}
+.model-area {
+  padding: 0 22px 20px;
+}
+.model-heading {
+  padding: 16px 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  pointer-events: auto;
+}
+.model-heading h1 {
+  font-size: 17px;
+  margin: 0;
+  letter-spacing: 0;
+}
+.model-heading .eyebrow {
+  letter-spacing: 1px;
+}
+.model-viewport {
+  position: relative;
+  flex: 1;
+  min-height: 220px;
+  margin: 0 -22px;
+}
+.model-area .model-viewport iframe {
+  display: block;
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  min-height: 0;
+  max-height: none;
+}
+.preview-tools {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.preview-tools button {
+  padding: 7px 10px;
+  min-width: 32px;
+  font-size: 12px;
+  background: #192432;
+}
+.preview-tools .zoom-step {
+  font-size: 17px;
+  line-height: 1;
+}
+.model-caption {
+  margin: 10px 0 12px;
+  padding: 0;
+  font-size: 11px;
+}
+.model-foot {
+  padding: 10px 0 12px;
+}
+.model-gesture {
+  font-size: 10px;
+  color: var(--muted);
+}
+.model-area .input-strip {
+  padding: 0;
+  gap: 6px;
+}
+.input-strip button {
+  flex: 1;
+  padding: 9px 4px;
+}
+.device-live {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 5px 12px;
+}
+.device-live strong {
+  font-size: 16px;
+  margin: 0;
+  grid-column: 2;
+  grid-row: 1 / 3;
+  text-align: right;
+  align-self: center;
+}
+.layer-legend {
+  grid-column: 1 / -1;
+  margin-top: 7px;
+  display: block;
+}
+.layer-chips {
+  display: flex;
+  gap: 8px;
+}
+.layer-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: #202d3b;
+  padding: 6px 9px;
+}
+.layer-chip.active {
+  border-color: var(--layer);
+}
+.layer-legend .layer-chip button {
+  padding: 3px 0;
+  border: 0;
+  background: transparent;
+  font-size: 12px;
+}
+.layer-legend .layer-chip button::before {
+  display: none;
+}
+.layer-chip button[aria-pressed='true'] {
+  color: var(--text);
+}
+.layer-swatch {
+  display: block;
+  margin: 0;
+  width: 20px;
+  height: 20px;
+}
+.layer-swatch input[type='color'] {
+  display: block;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+.layer-swatch input::-webkit-color-swatch-wrapper {
+  padding: 2px;
+}
+.layer-swatch input::-webkit-color-swatch {
+  border: 1px solid #ffffff55;
+  border-radius: 50%;
+}
+.layer-follow {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  margin: 8px 0 5px;
+  color: var(--muted);
+}
+.layer-follow input {
+  accent-color: var(--accent);
+}
+.layer-legend small {
+  color: var(--muted);
+  font-size: 10px;
+}
+.editor-top {
+  padding-top: 22px;
+  padding-bottom: 16px;
+}
+.editor-top h2 {
+  font-size: 21px;
+}
+.editor-top .eyebrow {
+  display: none;
+}
+.tabs {
+  gap: 24px;
+}
+.panels {
+  padding-top: 18px;
+}
+details.binding-presets {
+  padding: 0;
+  margin: 18px 0;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+details.binding-presets > summary {
+  padding: 12px 14px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.binding-presets > summary span {
+  float: right;
+  font-size: 11px;
+}
+.binding-presets[open] > summary {
+  border-bottom: 1px solid var(--line);
+}
+.binding-presets .preset-body {
+  padding: 0 14px 14px;
+}
+.special-function-row {
+  display: flex;
+  align-items: end;
+  gap: 10px;
+}
+.special-function-row label {
+  flex: 1;
+  margin-bottom: 0;
+  min-width: 0;
+}
+.special-function-row button {
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+.connection-options:not([open]) > div,
+#moreSettings:not([open]) > div {
+  display: none !important;
+}
+.connection-panel-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.connection-options .connection-panel-heading button {
+  width: auto;
+  padding: 4px 9px;
+  margin: 0;
+  font-size: 17px;
+}
+.connection-panel-heading strong {
+  font-size: 13px;
+}
+.connection-options .connection-guide {
+  margin-top: 12px;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+  font-size: 11px;
+}
+.connection-guide summary {
+  color: var(--muted);
+}
+.connection-options .bridge-links {
+  margin-top: 12px;
+}
+.preview-expanded main {
+  grid-template-columns: 1fr;
+}
+.preview-expanded .editor {
+  display: none;
+}
+.preview-expanded .model-area {
+  border: 0;
+}
+.preview-expanded .model-viewport {
+  min-height: 0;
+}
+.preview-expanded .device-live,
+.preview-expanded .input-strip,
+.preview-expanded .model-foot,
+.preview-expanded .model-caption {
+  display: none;
+}
+@media (max-width: 1000px) and (min-width: 761px) {
+  main {
+    grid-template-columns: minmax(320px, 1fr) minmax(390px, 1fr);
+  }
+  .model-area {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .model-viewport {
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+  .preview-tools button {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+}
+@media (max-width: 760px) {
+  header {
+    height: auto;
+  }
+  main {
+    height: auto;
+    min-height: 0;
+  }
+  .model-area {
+    padding: 0 16px 16px;
+  }
+  .model-heading {
+    display: flex;
+    padding: 16px 0 10px;
+  }
+  .model-heading .eyebrow {
+    display: none;
+  }
+  .model-heading h1 {
+    font-size: 15px;
+  }
+  .model-viewport {
+    flex: none;
+    height: 280px;
+    min-height: 0;
+    margin: 0 -16px;
+  }
+  .model-caption {
+    display: none;
+  }
+  .model-gesture {
+    display: none;
+  }
+  .device-live {
+    margin: 12px 0 0;
+  }
+  .preview-expanded main {
+    height: calc(100dvh - 72px);
+  }
+  .preview-expanded .model-area {
+    height: 100%;
+  }
+  .preview-expanded .model-viewport {
+    flex: 1;
+    height: auto;
+  }
+  .special-function-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .binding-presets > summary span {
+    display: none;
+  }
+}

@@ -47,6 +47,7 @@ function between(start, end) {
 }
 function model() {
   const messages = [],
+    zooms = [],
     events = new Map(),
     context = vm.createContext({
       clockwiseAngle,
@@ -66,6 +67,8 @@ function model() {
       document: { querySelector: () => null },
       $: () => ({ setAttribute() {} }),
       readyToPlay: () => true,
+      zoomModel: (factor) => zooms.push(factor),
+      setView: (view) => zooms.push(view),
       pick: () => ({ knob: true }),
       modelEvent() {
         throw Error('live input invoked preview action');
@@ -93,6 +96,7 @@ function model() {
     context,
     events,
     messages,
+    zooms,
     read: (expression) => vm.runInContext(expression, context),
     status: (data) =>
       events.get('message')({
@@ -103,7 +107,7 @@ function model() {
   };
 }
 
-test('embedded model forwards scroll to the console without rotating the preview', () => {
+test('embedded wheel zooms the model without scrolling the settings or changing rotary input', () => {
   const m = model();
   let prevented = 0;
   m.events.get('wheel')({
@@ -117,10 +121,48 @@ test('embedded model forwards scroll to the console without rotating the preview
   assert.equal(prevented, 1);
   assert.equal(m.read('state.knobTarget'), 0);
   const scroll = m.messages.filter((m) => m.data.type === 'scroll');
-  assert.equal(scroll.length, 1);
-  assert.equal(scroll[0].origin, 'http://localhost:8792');
-  assert.equal(scroll[0].data.deltaY, 1);
-  assert.equal(scroll[0].data.deltaMode, 1);
+  assert.equal(scroll.length, 0);
+  assert(m.zooms[0] > 1, 'wheel down should zoom out');
+  assert.equal(m.messages.at(-1).origin, 'http://localhost:8792');
+  assert.equal(m.messages.at(-1).data.type, 'interact');
+});
+
+test('model view commands honor parent identity and origin and leave keyboard state untouched', () => {
+  const m = model(),
+    handler = m.events.get('message');
+  const command = (action) => ({
+    source: m.context.window.parent,
+    origin: m.context.location.origin,
+    data: { source: 'c5-console', type: 'view', action },
+  });
+  handler({ ...command('in'), origin: 'https://evil.example' });
+  handler({ ...command('in'), source: {} });
+  handler(command('unknown'));
+  assert.deepEqual(m.zooms, []);
+  for (const action of ['in', 'out', 'reset']) handler(command(action));
+  assert.deepEqual(m.zooms, [0.8, 1.25, 'iso']);
+  assert.equal(m.read('state.knobTarget'), 0);
+});
+
+test('actual camera zoom preserves its target and clamps near and far distances', async () => {
+  const { Vector3 } = await import('../public/three.module.js');
+  const camera = { position: new Vector3(0, 0, 100) };
+  const controls = { target: new Vector3(), minDistance: 32, maxDistance: 1000, update() {} };
+  const context = vm.createContext({ camera, controls });
+  vm.runInContext(
+    'let viewTween={};' + between('function zoomModel(factor){', 'function createAnnotations(){'),
+    context,
+  );
+  context.zoomModel(0.8);
+  assert.equal(camera.position.z, 80);
+  context.zoomModel(0.0001);
+  assert.equal(camera.position.z, 32);
+  context.zoomModel(1000);
+  assert.equal(camera.position.z, 1000);
+  context.zoomModel(NaN);
+  context.zoomModel(-1);
+  assert.equal(camera.position.z, 1000);
+  assert.equal(controls.target.length(), 0);
 });
 
 test('actual model handlers ignore duplicate HID wheel/key releases and preserve held inputs on blur', () => {

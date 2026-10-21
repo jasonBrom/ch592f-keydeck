@@ -29,12 +29,12 @@ await walk(output);
 // The shared console import must have the same URL in both entry modules.
 const revisionHash = createHash('sha256');
 for (const path of [...files].sort()) {
-  if (relative(output, path).startsWith('config') || extname(path) === '.html')
+  if (['.js', '.css', '.html'].includes(extname(path)))
     revisionHash.update(relative(output, path)).update(await readFile(path));
 }
 const revision = revisionHash.digest('hex').slice(0, 12);
 for (const path of files) {
-  if (relative(output, path).startsWith('config') && extname(path) === '.js') {
+  if (extname(path) === '.js') {
     const text = await readFile(path, 'utf8');
     await writeFile(
       path,
@@ -45,12 +45,13 @@ for (const path of files) {
     );
   } else if (extname(path) === '.html') {
     const text = await readFile(path, 'utf8');
+    const assets = text.replace(
+      /((?:src|href)="(?!https?:)[^":?]+\.(?:js|css))(?:\?[^" ]*)?"/g,
+      `$1?v=${revision}"`,
+    );
     await writeFile(
       path,
-      text.replace(
-        /((?:src|href)="config\/[^"?]+\.(?:js|css))(?:\?[^" ]*)?"/g,
-        `$1?v=${revision}"`,
-      ),
+      assets.replace(/(src="assembly\.html\?[^"\s]*?)(?:&amp;|&)v=[^"&]+/g, `$1&amp;v=${revision}`),
     );
   }
 }

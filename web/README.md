@@ -21,15 +21,16 @@ Windows 可以双击 `StartConsole.cmd`；需要配对蓝牙管理时安装 `req
 ## 主要代码
 
 - `public/index.html`：页面结构和控件。
-- `public/config/console.css`、`console-shell.css`：与原本地版一致的深色界面；`connection-ui.css` 补充连接指引。
+- `public/config/console.css`、`console-shell.css`：与原本地版一致的深色界面；`connection-ui.css` 补充连接指引，`workspace.css` 定义模型/编辑器比例与紧凑布局。
 - `public/config/console.js`：草稿、改键、宏和统一试用/保存流程。
 - `public/config/console-experience.js`：运行环境、无震动版提示与键盘导航。
+- `public/config/layer-colors.js`：稳定的配置层色块控件与独立指示灯预览，沿用固件现有 RGB 字段。
 - `public/config/schema.js`：1024 字节配置编解码、校验和协议帧。
 - `public/config/transport.js`：USB/BLE 传输、分包、事务、回读。
 - `public/config/connection.js`：已授权设备发现与连接优先级。
 - `public/config/windows-bluetooth.js`：本地服务客户端；官方在线站点可显式连接回环服务。
 - `public/config/*-editor.js`：触觉、配置层、状态灯等独立编辑器。
-- `public/assembly.html`、`app.js`：可选三维装配视图。默认使用原本地版的三维交互视图，保留输入编号选择。
+- `public/assembly.html`、`app.js`：可选三维装配视图。默认使用三维交互视图，保留输入编号选择。模型区域滚轮缩放，支持加减、复位和放大预览；按 Esc 返回编辑器。
 - `start-console.py`、`windows_ble.py`：本地服务。保留 loopback 监听、Host / Origin 检查、按来源区分的令牌、会话租约与命令白名单。跨站只放行官方 HTTPS Origin 下的配置 API，拒绝任意来源和静态文件跨站读取。
 
 ## 使用顺序
