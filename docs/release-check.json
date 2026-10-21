@@ -4,18 +4,22 @@
   "gitBranch": "main",
   "remoteConfigured": true,
   "remoteUrl": "https://github.com/jasonBrom/ch592f-keydeck.git",
-  "githubPagesDeployed": false,
+  "githubPagesDeployed": true,
   "webTestsPassed": 61,
   "pythonTestsPassed": 6,
   "crossLanguageChecksPassed": 34,
   "hapticBinaryMatchesOriginal115": true,
-  "variants": [
-    "haptic",
-    "no-haptic"
-  ],
+  "variants": ["haptic", "no-haptic"],
   "sdkUnmodified": true,
   "physicalHardwareWritten": false,
   "licenseChosen": false,
   "largeFilesOver100MiB": 0,
-  "pathsOrCredentialsFound": false
+  "pathsOrCredentialsFound": false,
+  "pagesUrl": "https://jasonbrom.github.io/ch592f-keydeck/",
+  "httpsEnforced": true,
+  "initialPublishedCommit": "8d5c9559fb4c96fa41777ec9a65d47e9e54dec40",
+  "ciRunUrl": "https://github.com/jasonBrom/ch592f-keydeck/actions/runs/39627148785",
+  "pagesRunUrl": "https://github.com/jasonBrom/ch592f-keydeck/actions/runs/39627637193",
+  "liveResourcesPassed": 39,
+  "liveFirmwareHashesMatched": 4
 }

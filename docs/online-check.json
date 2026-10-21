@@ -1,0 +1,224 @@
+{
+  "url": "https://jasonbrom.github.io/ch592f-keydeck/",
+  "https": true,
+  "passed": true,
+  "resourceChecks": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "path": "help.html",
+      "status": 200,
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "path": "assembly.html",
+      "status": 200,
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "path": "app.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "style.css",
+      "status": 200,
+      "type": "text/css; charset=utf-8"
+    },
+    {
+      "path": "three.module.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "input-motion.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "components.json",
+      "status": 200,
+      "type": "application/json; charset=utf-8"
+    },
+    {
+      "path": "pads.json",
+      "status": 200,
+      "type": "application/json; charset=utf-8"
+    },
+    {
+      "path": "enclosure-v6.json",
+      "status": 200,
+      "type": "application/json; charset=utf-8"
+    },
+    {
+      "path": "pcb-mechanical-data.json",
+      "status": 200,
+      "type": "application/json; charset=utf-8"
+    },
+    {
+      "path": "C49352235-mesh.json",
+      "status": 200,
+      "type": "application/json; charset=utf-8"
+    },
+    {
+      "path": "PEC11L-dimensions.json",
+      "status": 200,
+      "type": "application/json; charset=utf-8"
+    },
+    {
+      "path": "favicon.svg",
+      "status": 200,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "config/catalog.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "config/connection.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "config/console-experience.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "config/console-light.css",
+      "status": 200,
+      "type": "text/css; charset=utf-8"
+    },
+    {
+      "path": "config/console-shell.css",
+      "status": 200,
+      "type": "text/css; charset=utf-8"
+    },
+    {
+      "path": "config/console.css",
+      "status": 200,
+      "type": "text/css; charset=utf-8"
+    },
+    {
+      "path": "config/console.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "config/environment.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "config/haptic-basic.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "config/haptic-calibration-editor.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "config/haptic-editor.css",
+      "status": 200,
+      "type": "text/css; charset=utf-8"
+    },
+    {
+      "path": "config/haptic-editor.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "config/haptic-schema.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "config/haptic-tuning.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "config/layer-editor.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "config/layer-schema.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "config/recorder.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "config/rotary-settings.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "config/schema.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "config/special-functions.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "config/status-light-editor.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "config/status-light-schema.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "config/status-monitor.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "config/transport.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "config/windows-bluetooth.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8"
+    }
+  ],
+  "firmwareChecks": [
+    {
+      "file": "KeyDeck-CH592F-haptic.hex",
+      "bytes": 509788,
+      "sha256": "bd29bc830ded1f9eb2e32277ef68d44ec72c96ab9197c076630227bae742346c"
+    },
+    {
+      "file": "KeyDeck-CH592F-haptic.bin",
+      "bytes": 181232,
+      "sha256": "29db6a835ebd759f7f457bc4f79be5145e532427292eddf879b53ae60ffbf0be"
+    },
+    {
+      "file": "KeyDeck-CH592F-no-haptic.hex",
+      "bytes": 493355,
+      "sha256": "2d64673c10b64843d6b2de2f00bd31fe6735521ab1ff96d6d1fa7ac8918563bb"
+    },
+    {
+      "file": "KeyDeck-CH592F-no-haptic.bin",
+      "bytes": 175388,
+      "sha256": "c4d86972cda98a5d5680365740bfbe9e36ca349de44641e1952b591dc0bb5460"
+    }
+  ]
+}

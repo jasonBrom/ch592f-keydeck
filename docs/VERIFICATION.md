@@ -18,6 +18,6 @@
 
 CMake 备用配置已增加两版选项，但本机未安装 CMake，本次未执行该路径。实际构建使用固定版本 WCH GCC 8.2.0 / Make。
 
-GitHub 仓库 `jasonBrom/ch592f-keydeck` 已创建，本地已绑定远程。当前远程为空，尚未推送，因此没有执行远程 Actions，也没有已上线的 Pages 地址。已准备 `ci.yml`、`pages.yml` 和部署说明；需要作者完成首次提交、推送并在 Settings → Pages 选择 GitHub Actions。
+GitHub 仓库已推送到 `main`，云端 CI 与两种固件构建通过，Pages 已通过自定义 Actions 工作流发布。HTTPS 地址为 <https://jasonbrom.github.io/ch592f-keydeck/>。在线检查覆盖首页和 39 个网页/模型资源地址，4 个固件文件的 SHA-256 均匹配本地发布版本；页面能显示在线运行环境，初始控制台无脚本错误。记录见 [部署验证](DEPLOYMENT.md)。
 
 新整理的无震动镜像仍需在对应硬件上验证 USB/BLE、灯光、输入和保存。带震动版二进制与旧镜像一致，但本次未重新上板验收。链接器预留栈已计入 RAM 区域，带震动版布局接近 26 KiB 上限；继续增加全局缓冲前应核对 map 和实测栈使用。

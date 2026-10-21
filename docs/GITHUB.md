@@ -2,23 +2,25 @@
 
 建议仓库名称：`ch592f-keydeck`。描述：`基于 CH592F 的五键旋钮小键盘，支持 USB/BLE、网页改键、宏、RGB 与可选触觉反馈。`
 
-远程仓库已创建：[jasonBrom/ch592f-keydeck](https://github.com/jasonBrom/ch592f-keydeck)。本地目录已初始化 Git，并绑定 `origin`。当前远程仍为空仓库；尚未推送、提交或上线。
+远程仓库已创建：[jasonBrom/ch592f-keydeck](https://github.com/jasonBrom/ch592f-keydeck)。本地目录已初始化 Git，并绑定 `origin`。代码已推送到 `main`，Pages 已采用 GitHub Actions 发布并启用 HTTPS。
 
 ## 推送
 
-远程仓库已就绪。在本地 `ch592f-keydeck` 目录完成首次提交并推送。
+本仓库已完成首次提交与推送。后续修改在本地 `ch592f-keydeck` 目录提交并推送即可，下面保留通用操作步骤。
 
 在本目录打开终端，执行：
 
 ```sh
 git add .
-git commit -m "Initial KeyDeck web console and dual firmware variants"
+git commit -m "Describe your changes"
 git push -u origin main
 ```
 
 如果从 ZIP 解压出全新目录，先运行 `git init -b main` 和 `git remote add origin https://github.com/jasonBrom/ch592f-keydeck.git`，再执行上面的提交与推送命令。先在 GitHub 设置好自己的身份验证，命令不会保存或生成访问令牌。
 
-## 启用 Pages
+## Pages 部署
+
+本仓库已完成以下配置；Fork 到其他仓库时可按此启用：
 
 1. 打开仓库 **Settings → Pages**。
 2. **Build and deployment → Source** 选择 **GitHub Actions**。

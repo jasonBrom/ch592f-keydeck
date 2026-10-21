@@ -18,7 +18,7 @@
 </div>
 
 > [!NOTE]
-> KeyDeck 是工程代号，正式项目名称为「基于CH592F的自定义小键盘」。本仓库基于 1.15 功能基线整理，提供带震动和无震动两种构建。新整理版本仍需分别上板验收；在线地址在首次 Pages 部署完成后生效。
+> KeyDeck 是工程代号，正式项目名称为「基于CH592F的自定义小键盘」。本仓库基于 1.15 功能基线整理，提供带震动和无震动两种构建。新整理版本仍需分别上板验收；在线控制台已通过 HTTPS 发布。
 
 ## 项目简介
 
@@ -176,7 +176,7 @@ bash firmware/tests/run_integration_tests.sh
 
 目标地址：**[jasonbrom.github.io/ch592f-keydeck](https://jasonbrom.github.io/ch592f-keydeck/)**。
 
-首次推送 `main` 后，在 [Settings → Pages](https://github.com/jasonBrom/ch592f-keydeck/settings/pages) 将 Source 设为 **GitHub Actions**，然后运行 [Deploy console to GitHub Pages](https://github.com/jasonBrom/ch592f-keydeck/actions/workflows/pages.yml)。
+仓库已启用 **GitHub Actions** 部署与 HTTPS。后续推送 `main` 会自动更新网页；运行记录见 [Deploy console to GitHub Pages](https://github.com/jasonBrom/ch592f-keydeck/actions/workflows/pages.yml)，首次上线检查见 [部署记录](docs/DEPLOYMENT.md)。
 
 部署任务从当前提交编译两版固件，更新网页下载文件，检查相对路径，再发布 `web/dist/`。Windows 已配对蓝牙仍需本地启动器；在线页不探测本地蓝牙服务。完整步骤见 [发布说明](docs/GITHUB.md)。
 
