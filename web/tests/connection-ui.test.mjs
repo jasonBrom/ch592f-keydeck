@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
-import { StatusMonitor } from '../public/config/status-monitor.js';
+import { StatusMonitor, chargingStatusText } from '../public/config/status-monitor.js';
 import { defaults, encode, decode } from '../public/config/schema.js';
 import { effectiveTransitions } from '../public/config/layer-schema.js';
 import { encoderDelta } from '../public/config/status-monitor.js';
@@ -101,6 +101,7 @@ function fixture() {
     inputButtons: [],
     decode,
     encoderDelta,
+    chargingStatusText,
     effectiveTransitions,
     renderEditingContext() {},
     hapticBasic: { setState() {}, status() {} },
@@ -243,6 +244,30 @@ test('render synchronizes the rotary mode selector after reads and preset change
       f.context.render();
       assert.equal(f.node('encoderMode').value, mode);
     }
+  } finally {
+    f.context.statusMonitor.stop();
+  }
+});
+
+test('charging display uses STAT without mistaking Bluetooth, USB or 100 percent for a full-charge signal', () => {
+  const f = fixture();
+  try {
+    for (const percent of [6, 100, 255])
+      for (const flags of [0, 1, 2, 3, 4, 5, 6, 7]) {
+        f.context.updateDeviceStatus({
+          flags,
+          percent,
+          profile: 0,
+          keys: 0,
+          millivolts: 3530,
+          encoder: 0,
+          route: 2,
+          usbMs: 0,
+          bleUnits: 6,
+        });
+        assert.equal(f.node('chargeStatus').textContent, flags & 4 ? '充电中' : '未在充电');
+      }
+    assert.equal(chargingStatusText(undefined), '状态未知');
   } finally {
     f.context.statusMonitor.stop();
   }

@@ -35,7 +35,7 @@ export function mountLayerColors({ root, getConfig, changed, selectProfile }) {
         `<div class="layer-chip"><label class="layer-swatch" title="修改配置 ${i + 1} 的指示灯颜色"><input type="color" aria-label="配置 ${i + 1} 的指示灯颜色" data-layer-color="${i}"></label><button type="button" data-layer-profile="${i}">配置 ${i + 1}</button></div>`,
     )
     .join('')}</div>
-    <label class="layer-follow"><input type="checkbox" data-layer-follow> 指示灯跟随配置层颜色</label><small>点色块改色 · 试用或保存后在键盘生效</small>`;
+    <label class="layer-follow"><input type="checkbox" data-layer-follow> 指示灯跟随配置层颜色</label><small>点色块改色 · 测试或保存后在键盘生效</small>`;
   let busy = false,
     current = {};
   const colors = [...root.querySelectorAll('[data-layer-color]')];

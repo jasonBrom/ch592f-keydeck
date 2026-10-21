@@ -85,6 +85,98 @@ test('automatic connection asks for a choice when multiple C5 devices are author
     );
   assert.equal(attempts, 0);
 });
+
+test('a granted USB connects before any online bridge prompt even if several browser BLE grants exist', async () => {
+  let probes = 0;
+  const calls = [];
+  const usb = { id: 'usb' };
+  await autoConnect(
+    { connect: async (kind, options) => calls.push([kind, options.device]) },
+    {
+      interactive: true,
+      discover: async () => [
+        { kind: 'usb', device: usb },
+        { kind: 'ble', device: {} },
+        { kind: 'ble', device: {} },
+      ],
+      bridgeStatus: async () => {
+        probes++;
+        throw Error('USB should have connected first');
+      },
+    },
+  );
+  assert.equal(probes, 0);
+  assert.deepEqual(calls, [['usb', usb]]);
+});
+
+test('automatic connect click discovers Windows paired access before browser Bluetooth', async () => {
+  const calls = [],
+    probes = [];
+  const result = await autoConnect(
+    {
+      connect: async (kind) => {
+        calls.push(kind);
+        return 'INFO';
+      },
+    },
+    {
+      interactive: true,
+      discover: async () => [{ kind: 'ble', device: {} }],
+      bridgeStatus: async (options) => {
+        probes.push(options);
+        return { available: true };
+      },
+    },
+  );
+  assert.equal(result, 'INFO');
+  assert.deepEqual(probes, [{ interactive: true }]);
+  assert.deepEqual(calls, ['windows-ble']);
+});
+
+test('unavailable Windows bridge falls back to granted Bluetooth and never runs during passive discovery', async () => {
+  const device = { name: 'C5 Rev.E' },
+    calls = [];
+  await autoConnect(
+    { connect: async (kind, options) => calls.push([kind, options.device]) },
+    {
+      interactive: true,
+      discover: async () => [{ kind: 'ble', device }],
+      bridgeStatus: async () => ({ available: false }),
+    },
+  );
+  assert.deepEqual(calls, [['ble', device]]);
+  await assert.rejects(
+    autoConnect(
+      {},
+      {
+        discover: async () => [],
+        bridgeStatus: async () => assert.fail('Passive discovery must not request loopback access'),
+      },
+    ),
+    (error) => error.needsChoice,
+  );
+});
+
+test('an occupied Windows bridge never falls through to a competing browser BLE session', async () => {
+  const calls = [];
+  await assert.rejects(
+    autoConnect(
+      {
+        connect: async (kind) => {
+          calls.push(kind);
+          throw Object.assign(Error('另一网页正在管理 C5'), { status: 409 });
+        },
+      },
+      {
+        interactive: true,
+        discover: async () => [{ kind: 'ble', device: {} }],
+        bridgeStatus: async () => ({ available: true }),
+      },
+    ),
+    /另一网页/,
+  );
+  assert.deepEqual(calls, ['windows-ble']);
+});
 test('layer settings roundtrip in reserved bytes without changing macro steps or key mappings', () => {
   const c = defaults();
   c.macros[0] = [

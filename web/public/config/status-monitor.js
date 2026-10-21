@@ -103,3 +103,10 @@ export function decodeStatus(payload) {
 export function encoderDelta(current, previous) {
   return previous === null ? 0 : ((current - previous + 32768) & 65535) - 32768;
 }
+
+export function chargingStatusText(flags) {
+  if (!Number.isInteger(flags) || flags < 0 || flags > 255) return '状态未知';
+  // Rev.E exposes active-low STAT only. Neither a high STAT nor a voltage-
+  // estimated 100% proves charge completion or the presence of USB power.
+  return flags & 4 ? '充电中' : '未在充电';
+}

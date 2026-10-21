@@ -126,8 +126,8 @@ export function mountCalibrationEditor({
  <div class="cal-fields">${fields.slice(0, 3).map(fieldHTML).join('')}</div><p id="calVoltage" class="hint"></p>
  <details><summary>展开制动、共振与采样参数</summary><div class="cal-fields">${fields.slice(3).map(fieldHTML).join('')}</div><p class="hint">DRIVE_TIME 是共振初值；闭环仍自动跟踪。制动和环路增益过高可能回弹或不稳定。只开放 AAC0809 的电压范围和闭环参数；补偿、BEMF 结果由芯片产生，不允许手填。切换采样时间会重新计算额定电压寄存器。</p></details>
  <div class="haptic-actions"><button id="calSearch" data-cal-device>自动排查 4 档频率初值</button></div>
- <p id="calPersistence" class="hint" role="status"></p><p class="hint">校准通过会同步到页面草稿，仍需底部保存；只有「试用」时重启会恢复已保存参数。保存的是脉冲、电压、制动等设置；补偿、BEMF 和增益档在每次上电时由芯片重新校准产生。</p>
- <p class="hint">自动排查只寻找芯片能够通过校准的一组参数，无法自动评判清脆度。校准结果会同步草稿，再用底部「试用」或「保存」。日常旋转反馈在上方调整；快速旋转会合并触觉，输入格数保留。Windows 接管轮盘触觉时仍遵守短脉冲及防连续嗡振限制。</p>
+ <p id="calPersistence" class="hint" role="status"></p><p class="hint">校准通过会同步到页面草稿，仍需底部保存；只有「测试」时重启会恢复已保存参数。保存的是脉冲、电压、制动等设置；补偿、BEMF 和增益档在每次上电时由芯片重新校准产生。</p>
+ <p class="hint">自动排查只寻找芯片能够通过校准的一组参数，无法自动评判清脆度。校准结果会同步草稿，再用底部「测试」或「保存」。日常旋转反馈在上方调整；快速旋转会合并触觉，输入格数保留。Windows 接管轮盘触觉时仍遵守短脉冲及防连续嗡振限制。</p>
  <details><summary>装壳／桌面传递对比与导出</summary><p class="hint">马达贴在 PCB 上时，振动要经过 PCB、编码器和转轴到达手指。固定同一参数和测试波形，依次比较裸板、装壳拿起、硬桌面、鼠标垫；对比过程中不重新校准。若拿起后恢复，优先改善支撑隔振；若按住编码器附近 PCB 强而旋钮弱，重点检查 PCB 到轴的传递。</p>
  <div class="cal-fields"><label>测试环境<select id="calEnvironment"><option>裸 PCB</option><option>装壳拿起</option><option selected>装壳硬桌面</option><option>装壳鼠标垫</option></select></label><label>旋钮振感（主观 1–5）<input id="calStrength" type="number" min="1" max="5" value="3"></label><label>清脆度（主观 1–5）<input id="calCrispness" type="number" min="1" max="5" value="3"></label><label>备注<input id="calNotes" maxlength="200" placeholder="胶层、脚垫、螺丝状态等"></label></div>
  <div class="haptic-actions"><button id="calCompareTest" data-cal-device>播放相同短点击 #4</button><button id="calRecord">记录此环境</button><button id="calExport">导出参数与对比记录</button><button id="calImport">导入参数草稿</button><input id="calFile" type="file" accept=".json,application/json" hidden></div><div id="calRecords" class="hint"></div>
@@ -221,7 +221,7 @@ export function mountCalibrationEditor({
     $('calCompatibility').textContent = !connected
       ? '可离线准备参数，连接固件 1.12 后校准。'
       : supported
-        ? '支持断电保存：校准只先试用，点击底部「保存到设备」才会写入设备。'
+        ? '支持断电保存：校准只先测试，点击底部「保存到设备」才会写入设备。'
         : '当前固件不支持高级校准，请升级 1.12。';
     root
       .querySelectorAll('button,input,select')
@@ -233,9 +233,9 @@ export function mountCalibrationEditor({
     $('calStop').disabled = !connected || !supported || (!running && busy);
     $('calUndo').disabled = busy || running || !connected || !supported || !snapshot?.canUndo;
     $('calPersistence').textContent = !snapshot
-      ? '参数保留在草稿；底部试用／保存时会应用参数并自动校准。'
+      ? '参数保留在草稿；底部测试／保存时会应用参数并自动校准。'
       : !verifiedForm()
-        ? '草稿与驱动不同，或驱动尚未就绪；可自动校准，底部试用／保存也会应用参数。'
+        ? '草稿与驱动不同，或驱动尚未就绪；可自动校准，底部测试／保存也会应用参数。'
         : savedKey === tuningKey(snapshot.tuning)
           ? '设备已确认保存并回读一致；参数断电保留，上电后按此设置重新自动校准。'
           : '驱动已就绪；「通过」表示校准成功，当前为试调状态，请点底部保存以断电保留。';

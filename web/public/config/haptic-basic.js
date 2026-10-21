@@ -20,7 +20,7 @@ export function mountHapticBasic({ root, getConfig, changed, test }) {
  <div class="settings-card"><label>强度 <output id="hapticOut"></output><input id="haptic" type="range" min="0" max="100"></label>
  <div class="two"><label>旋转反馈<select id="simpleTurn"><option value="126">短促脉冲</option><option value="4">锐利点击</option><option value="24">轻刻度</option><option value="0">关闭</option><option value="custom" disabled>自定义效果（高级）</option></select></label><label>短脉冲时长<select id="simplePulse"><option value="18">18 ms · 更短</option><option value="24">24 ms · 标准</option><option value="36">36 ms · 更明显</option><option value="custom" disabled>自定义（高级）</option></select></label></div>
  <details><summary>按键与旋钮按压</summary><div class="two"><label>按键反馈<select id="simpleKey"></select></label><label>旋钮按压<select id="simplePress"></select></label></div></details>
- <button id="testHaptic" data-device>试听已应用的脉冲</button><p class="hint">修改先留在草稿，底部「试用」生效，「保存」断电保留。自定义波形和马达参数在下方高级设置中。</p></div>`;
+ <button id="testHaptic" data-device>试听已应用的脉冲</button><p class="hint">修改先留在草稿，底部「测试」生效，「保存」断电保留。自定义波形和马达参数在下方高级设置中。</p></div>`;
   const $ = (id) => root.querySelector('#' + id);
   for (const id of ['simpleKey', 'simplePress']) $(id).innerHTML = $('simpleTurn').innerHTML;
   function render() {

@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { DeviceLink } from '../public/config/transport.js';
+import { autoConnect } from '../public/config/connection.js';
 import { windowsBluetoothStatus, windowsBridgeBase } from '../public/config/windows-bluetooth.js';
 import { defaults, encode, frame, parseFrame } from '../public/config/schema.js';
 
@@ -172,6 +173,16 @@ test('explicit online Windows connection reads the paired device over the loopba
   assert(!f.calls.some((op) => [3, 4, 5, 6].includes(op)), 'connection must not write settings');
   await f.link.disconnect();
   assert(!f.active);
+});
+
+test('automatic online connect discovers and reads the paired Windows device without configuration writes', async (t) => {
+  const f = fixture(t, { hosted: true }),
+    before = f.config.slice();
+  await autoConnect(f.link, { interactive: true, discover: async () => [] });
+  assert.equal(f.link.kind, 'windows-ble');
+  assert.deepEqual(await f.link.read(), before);
+  assert(!f.calls.some((op) => [3, 4, 5, 6].includes(op)));
+  await f.link.disconnect();
 });
 
 test('other sites and unsupported older bridges cannot acquire the native session', async (t) => {

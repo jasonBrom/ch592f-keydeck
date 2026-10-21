@@ -1,5 +1,5 @@
 // Local discovery is silent; the official online console probes loopback only
-// after the user explicitly chooses Windows paired-device management.
+// after the user clicks automatic connect or Windows paired-device management.
 export function windowsBridgeBase({ interactive = false, page = globalThis.location } = {}) {
   if (['localhost', '127.0.0.1'].includes(page?.hostname)) return '';
   if (

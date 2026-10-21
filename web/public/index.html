@@ -20,11 +20,11 @@
       ><button id="connectDevice" class="primary">连接设备</button
       ><button id="disconnect" hidden>断开</button>
       <details id="connectionOptions" class="connection-options">
-        <summary>连接选项</summary>
+        <summary>手动选择</summary>
         <div>
           <div class="connection-panel-heading">
             <strong>连接设备</strong
-            ><button id="closeConnectionOptions" type="button" aria-label="关闭连接选项">×</button>
+            ><button id="closeConnectionOptions" type="button" aria-label="关闭连接菜单">×</button>
           </div>
           <button id="connectUSB">USB · 首次授权或手动连接</button
           ><button id="connectPairedBLE">Windows 已配对 · 直接管理</button
@@ -147,7 +147,7 @@
                 <details>
                   <summary>五键音频方案</summary>
                   <p class="hint">
-                    将当前层的五键设为音量减、音量加、扬声器静音、麦克风开关和播放暂停。先载入草稿，再试用或保存。
+                    将当前层的五键设为音量减、音量加、扬声器静音、麦克风开关和播放暂停。先载入草稿，再测试或保存。
                   </p>
                   <button data-audio-keys>载入五键音频方案</button>
                 </details>
@@ -389,7 +389,12 @@
               </div>
               <div>
                 <dt>充电状态</dt>
-                <dd id="chargeStatus">—</dd>
+                <dd
+                  id="chargeStatus"
+                  title="根据设备充电信号显示；未在充电不能区分未接电源和充电已结束。"
+                >
+                  —
+                </dd>
               </div>
               <div>
                 <dt>编码器累计格数</dt>
@@ -448,9 +453,9 @@
           <div class="save-meta">
             <span id="draftStatus" class="pill">尚未修改</span>
             <details class="save-help">
-              <summary>试用和保存有什么区别？</summary>
+              <summary>测试和保存有什么区别？</summary>
               <p>
-                试用立即应用草稿，重启后恢复已保存设置；保存会写入设备并回读校验，断电保留。高级校准通过后也要保存。
+                测试立即应用草稿，重启后恢复已保存设置；保存会写入设备并回读校验，断电保留。高级校准通过后也要保存。
               </p>
             </details>
           </div>
@@ -463,7 +468,7 @@
               <summary>更多操作</summary>
               <button id="read" data-device>重新读取设备</button>
             </details>
-            <button id="apply" data-device>试用</button
+            <button id="apply" data-device title="临时应用草稿，重启后恢复已保存设置">测试</button
             ><button id="save" class="primary" data-device>保存到设备</button>
           </div>
         </footer>

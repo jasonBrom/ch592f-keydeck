@@ -27,4 +27,4 @@
 
 首次工作流在 Pages 尚未启用时停在 `configure-pages`。现已通过 GitHub 官方 API 启用 Actions 发布与 HTTPS，重跑后部署成功，无需更换代码或降低检查要求。
 
-在线版不运行 Python。Windows 已配对蓝牙需在电脑上运行 `web/StartConsole.cmd`。新版在线页可通过「连接选项 → Windows 已配对」连接这个回环服务，浏览器可能询问本机网络权限；也可直接使用本地页面。USB / 浏览器蓝牙在支持相应接口的桌面浏览器中使用。
+在线版不运行 Python。Windows 已配对蓝牙需在电脑上运行 `web/StartConsole.cmd`。新版在线页可通过「手动选择 → Windows 已配对」连接这个回环服务，浏览器可能询问本机网络权限；也可直接使用本地页面。USB / 浏览器蓝牙在支持相应接口的桌面浏览器中使用。

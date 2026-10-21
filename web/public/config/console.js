@@ -14,7 +14,11 @@ import { mountHapticEditor } from './haptic-editor.js';
 import { defaults, encode, encodeForDevice, decode, validate } from './schema.js';
 import { DeviceLink } from './transport.js?v=paired-ble-20261007';
 import { windowsBluetoothStatus } from './windows-bluetooth.js';
-import { StatusMonitor, encoderDelta } from './status-monitor.js?v=timer-fix-20261007';
+import {
+  StatusMonitor,
+  encoderDelta,
+  chargingStatusText,
+} from './status-monitor.js?v=timer-fix-20261007';
 import {
   keys,
   media,
@@ -73,7 +77,7 @@ function setMessage(text, kind = '') {
 function draftChanged(source = 0) {
   dirty = true;
   renderEditingContext();
-  setMessage('草稿已修改；点「试用」测试，或「保存到设备」断电保留。');
+  setMessage('草稿已修改；点「测试」测试，或「保存到设备」断电保留。');
   $('draftStatus').textContent = '草稿未保存';
   syncPreview();
   if (source !== 1 && calibrationEditor) calibrationEditor.render();
@@ -132,7 +136,7 @@ function updateDeviceStatus(status) {
         : '背光由设备灯效控制。',
   );
   if (previousProfile !== profile) renderEditingContext();
-  setText('chargeStatus', flags & 4 ? '充电中' : '未充电 / 已充满');
+  setText('chargeStatus', chargingStatusText(flags));
   setText('activeProfile', `第 ${profile + 1} 层`);
   setText('activeTransport', ['未连接', 'USB', '蓝牙'][route] ?? '未知');
   setText('encoderCount', enc);
@@ -715,7 +719,7 @@ function renderDial() {
     );
   $('dialModeHint').textContent = rotaryDescription(config, firmwareMinor);
   $('rotaryPresetNotice').textContent =
-    '修改先进入草稿；底部试用或保存后设备才切换。旋钮用途为三层共用。';
+    '修改先进入草稿；底部测试或保存后设备才切换。旋钮用途为三层共用。';
 }
 function render() {
   $('profile').value = editingProfile;
@@ -832,8 +836,17 @@ async function connect(kind = 'auto') {
       const info =
         kind === 'auto'
           ? await autoConnect(link, {
-              onAttempt: (k) =>
-                setMessage(k === 'usb' ? '正在连接已授权 USB…' : '正在连接已配对蓝牙…'),
+              interactive: true,
+              onAttempt: (kind) =>
+                setMessage(
+                  {
+                    usb: '正在连接已授权 USB…',
+                    'detect-windows-ble':
+                      '正在识别 Windows 已配对蓝牙；如浏览器询问本机访问，请允许…',
+                    'windows-ble': '正在连接 Windows 已配对蓝牙…',
+                    ble: '正在连接已授权浏览器蓝牙…',
+                  }[kind],
+                ),
             })
           : await link.connect(kind);
       setInfo(info);
@@ -895,7 +908,7 @@ async function saveConfig(persist, progress) {
   deviceConfig = decode(bytes);
   profileActivationRequested = false;
   dirty = false;
-  $('draftStatus').textContent = persist ? '已保存到设备' : '已试用 · 未保存';
+  $('draftStatus').textContent = persist ? '已保存到设备' : '已临时应用 · 未保存';
   if (tuningStatus && calibrationEditor.applied) calibrationEditor.applied(tuningStatus);
   if (persist && typeof calibrationEditor !== 'undefined' && calibrationEditor)
     calibrationEditor.saved(deviceConfig.advancedHaptic?.tuning);
@@ -1041,6 +1054,7 @@ link.addEventListener('disconnect', () => {
   $('liveDot').classList.remove('on');
   $('modelState').textContent = '离线编辑 · 模型预览';
   $('battery').textContent = '电量 —';
+  $('chargeStatus').textContent = '—';
   $('liveProfile').textContent = '未连接';
   $('liveMode').textContent = '—';
   $('actualUSB').textContent = $('actualBLE').textContent = '—';
@@ -1279,7 +1293,7 @@ windowsBluetoothStatus().then((status) => {
   pairedBLEAvailable = status.available === true;
   $('connectionHint').textContent = pairedBLEAvailable
     ? '连接时自动选择已授权 USB 或 Windows 已配对蓝牙。'
-    : 'USB 可直接授权；Windows 已连接蓝牙请在连接选项中选择「Windows 已配对」。';
+    : '点击「连接设备」自动识别可用通道；首次 USB 或浏览器蓝牙授权请用「手动选择」。Windows 已配对管理需先运行本地服务。';
   setControls();
 });
 window.addEventListener('pagehide', () => {

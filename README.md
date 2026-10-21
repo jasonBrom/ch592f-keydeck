@@ -43,7 +43,7 @@ flowchart LR
 
 ### 设备控制台
 
-线上与本地使用同一套深色控制台，模型与编辑器各占约一半宽度。3D 支持滚轮缩放、视角复位和放大预览；左侧色块可直接设置各配置层的指示灯颜色。按键、旋钮、触觉、灯光、宏和设备设置保留；底部统一处理试用与保存。
+线上与本地使用同一套深色控制台，模型与编辑器各占约一半宽度。3D 支持滚轮缩放、视角复位和放大预览；左侧色块可直接设置各配置层的指示灯颜色。按键、旋钮、触觉、灯光、宏和设备设置保留；底部统一处理测试与保存。
 
 ![与本地一致的深色控制台：三维预览、配置层、映射编辑与设备保存](docs/images/console-desktop.png)
 
@@ -95,10 +95,10 @@ python start-console.py
 
 用桌面 Chrome / Edge 打开 `http://localhost:8792/`。
 
-1. 点击「连接设备」。首次连接时，从「连接选项」选择 USB 或蓝牙并授权。
+1. 点击「连接设备」。首次连接时，从「手动选择」选择 USB 或蓝牙并授权。
 2. 控制台读取设备配置；若已有未保存草稿，会保留草稿。
 3. 点击按键或输入编号，选择动作。切换顶部配置层可以浏览其他映射。
-4. 点击「试用」临时应用，或「保存到设备」写入 Flash 并完整回读校验。
+4. 点击「测试」临时应用，或「保存到设备」写入 Flash 并完整回读校验。
 
 Windows 已配对蓝牙需要本地服务；启动器可将 `requirements-windows.txt` 的依赖安装到 `.runtime/`。不需要该方式时，也可使用普通静态 localhost 或 HTTPS 站点。不要直接通过 `file://` 打开 HTML。
 
@@ -168,7 +168,7 @@ bash firmware/tests/run_integration_tests.sh
 
 需要格式化源码时，在 `web/` 中执行 `npm install`、`npm run format`。生产网页的打包脚本只使用 Node 内置模块。
 
-当前验证包含 67 项网页测试、8 项本地服务测试、固件主机验证，以及主协议 34 项 C / JS 交叉检查。带震动 BIN 与原来已实测的 1.15 镜像逐字节一致；无震动版已通过能力位、HID 描述符、命令拒绝与校准配置保留检查。
+当前验证包含 73 项网页测试、8 项本地服务测试、固件主机验证，以及主协议 34 项 C / JS 交叉检查。带震动 BIN 与原来已实测的 1.15 镜像逐字节一致；无震动版已通过能力位、HID 描述符、命令拒绝与校准配置保留检查。
 
 详细范围见 [验证记录](docs/VERIFICATION.md)，配置格式见 [协议速查](docs/PROTOCOL.md)，界面规则见 [设计规范](docs/DESIGN-SYSTEM.md)。
 
@@ -178,7 +178,7 @@ bash firmware/tests/run_integration_tests.sh
 
 仓库已启用 **GitHub Actions** 部署与 HTTPS。后续推送 `main` 会自动更新网页；运行记录见 [Deploy console to GitHub Pages](https://github.com/jasonBrom/ch592f-keydeck/actions/workflows/pages.yml)，首次上线检查见 [部署记录](docs/DEPLOYMENT.md)。
 
-部署任务从当前提交编译两版固件，更新网页下载文件，检查相对路径，再发布 `web/dist/`。Windows 已配对蓝牙需先运行 `web/StartConsole.cmd`，再在在线页的「连接选项」点击「Windows 已配对」。浏览器首次可能询问访问本机网络；允许后直接在在线页管理。完整步骤见 [发布说明](docs/GITHUB.md)。
+部署任务从当前提交编译两版固件，更新网页下载文件，检查相对路径，再发布 `web/dist/`。Windows 已配对蓝牙需先运行 `web/StartConsole.cmd`，再在在线页的「手动选择」点击「Windows 已配对」。浏览器首次可能询问访问本机网络；允许后直接在在线页管理。完整步骤见 [发布说明](docs/GITHUB.md)。
 
 ## 已知边界
 
