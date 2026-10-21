@@ -1,0 +1,553 @@
+/* Daily controls first; technical tools remain available behind disclosure. */
+header {
+  height: 76px;
+  padding: 0 32px;
+  gap: 16px;
+}
+.brand small {
+  letter-spacing: 1.4px;
+}
+main {
+  grid-template-columns: minmax(300px, 0.75fr) minmax(510px, 1.5fr);
+  height: calc(100dvh - 76px);
+  min-height: 620px;
+  max-width: 1640px;
+  margin: auto;
+}
+.model-heading {
+  position: static;
+  padding: 32px 28px 0;
+}
+.model-heading h1 {
+  font-size: 25px;
+  letter-spacing: -0.6px;
+}
+.model-heading p {
+  max-width: 32ch;
+}
+.model-area iframe {
+  min-height: 230px;
+  max-height: 430px;
+}
+.model-area {
+  background: #111923;
+}
+.model-foot {
+  padding: 0 26px 18px;
+}
+.model-caption {
+  line-height: 1.8;
+  margin-top: 15px;
+}
+.input-strip {
+  flex-wrap: wrap;
+  padding: 0 20px;
+  gap: 6px;
+}
+.input-strip button {
+  padding: 10px;
+}
+.editor-top {
+  padding: 27px 32px 18px;
+}
+.editor-top h2 {
+  font-size: 24px;
+}
+.profile-picker {
+  margin: 0;
+  font-size: 10px;
+}
+.profile-picker select {
+  width: 132px;
+  font-size: 12px;
+  padding: 9px;
+  margin-top: 7px;
+}
+.tabs {
+  margin: 0 32px;
+  gap: 29px;
+  overflow: visible;
+}
+.tabs button {
+  font-size: 13px;
+}
+.panels {
+  padding: 22px 32px;
+}
+.editing-context {
+  font-size: 11px;
+  margin: 15px 32px 0;
+  line-height: 1.8;
+}
+.settings-card {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #131d28;
+  margin: 18px 0;
+}
+.settings-card > summary {
+  color: #bdcedb;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.settings-card[open] > summary {
+  margin-bottom: 20px;
+}
+.settings-card .settings-card {
+  padding: 14px;
+  background: transparent;
+}
+.settings-card label:last-child {
+  margin-bottom: 0;
+}
+.settings-card h3 {
+  margin-top: 10px;
+}
+.source-note {
+  font-size: 12px;
+  border-left: 2px solid var(--accent);
+  padding: 10px 14px;
+  background: #172d2a;
+  margin: 0 0 20px;
+  line-height: 1.8;
+}
+.pill {
+  font-size: 10px;
+  line-height: 1.6;
+  border-radius: 20px;
+  padding: 5px 10px;
+  background: #223a34;
+  color: var(--accent);
+}
+.profile-warning {
+  color: #f2bc82;
+  background: #352a1f;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 11px;
+  line-height: 1.8;
+  margin: 10px 32px 0;
+}
+.connection-options {
+  position: relative;
+}
+.connection-options > summary {
+  font-size: 11px;
+  padding: 10px 0;
+  list-style: none;
+}
+.connection-options > div,
+#moreSettings > div {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 20;
+  min-width: 275px;
+  padding: 15px;
+  background: #1c2936;
+  border: 1px solid #415064;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px #0008;
+}
+.connection-options button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+.connection-options p {
+  font-size: 11px;
+  margin: 10px 0 0;
+}
+.badge {
+  font-size: 12px;
+  margin-right: 0;
+}
+#moreSettings {
+  position: relative;
+  margin-left: auto;
+  align-self: center;
+}
+#moreSettings > summary {
+  padding: 12px 0;
+  color: var(--muted);
+}
+#moreSettings button,
+#moreSettings a {
+  display: block;
+  text-align: left;
+  width: 100%;
+  padding: 12px;
+  border: 0;
+  background: transparent;
+  font-size: 12px;
+}
+#moreSettings > div {
+  min-width: 170px;
+  top: 36px;
+}
+.device-live {
+  margin: 25px 24px 0;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #151f2b;
+}
+.device-live > span {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+}
+.device-live strong {
+  display: block;
+  font-size: 23px;
+  font-weight: 500;
+  margin: 10px 0;
+}
+.layer-legend {
+  display: flex;
+  gap: 6px;
+  margin-top: 17px;
+}
+.layer-legend button {
+  font-size: 10px;
+  padding: 8px 9px;
+  border-color: transparent;
+  background: #202d3b;
+}
+.layer-legend button::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--layer);
+  margin-right: 6px;
+}
+.layer-legend .active {
+  border-color: var(--layer);
+}
+.three {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.check-label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  line-height: 1.8;
+}
+.check-label input,
+.chord-row input {
+  accent-color: var(--accent);
+}
+.chord-row {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding: 14px;
+  margin: 14px 0;
+}
+.chord-row legend {
+  color: var(--muted);
+  font-size: 11px;
+}
+.chord-row label {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+}
+.savebar {
+  padding: 17px 32px 21px;
+}
+.save-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.save-help {
+  position: relative;
+}
+.save-help summary {
+  font-size: 10px;
+}
+.save-help p {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  width: min(350px, 75vw);
+  background: #263444;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 16px;
+  z-index: 20;
+  font-size: 12px;
+}
+.save-actions {
+  align-items: center;
+  gap: 10px;
+}
+.save-actions > details {
+  margin-right: auto;
+  position: relative;
+}
+.save-actions > details > button {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  white-space: nowrap;
+  z-index: 10;
+}
+.save-actions > button {
+  min-width: 90px;
+}
+.savebar #message {
+  min-height: 22px;
+  margin-bottom: 10px;
+}
+#calibrationEditor > .rule,
+#hapticEditor > .rule:first-child {
+  display: none;
+}
+#calibrationEditor .cal-status {
+  font-size: 12px;
+}
+#calibrationEditor .haptic-actions button {
+  font-size: 11px;
+}
+.haptic-tabs {
+  gap: 5px;
+}
+.haptic-tabs button {
+  padding: 9px;
+}
+.haptic-effect-list {
+  max-height: 220px;
+}
+@media (min-width: 1500px) {
+  .panels,
+  .editor-top {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+  .tabs {
+    margin: 0 45px;
+  }
+  .editing-context {
+    margin-left: 45px;
+    margin-right: 45px;
+  }
+  .model-heading {
+    padding-top: 45px;
+  }
+  .model-heading h1 {
+    font-size: 29px;
+  }
+}
+@media (max-width: 1000px) {
+  header {
+    padding: 0 20px;
+    gap: 10px;
+  }
+  main {
+    grid-template-columns: 300px minmax(390px, 1fr);
+  }
+  .model-heading {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+  .model-heading h1 {
+    font-size: 21px;
+  }
+  .tabs {
+    gap: 20px;
+    margin: 0 23px;
+  }
+  .panels {
+    padding: 20px 23px;
+  }
+  .editor-top {
+    padding: 23px;
+  }
+  .editing-context {
+    margin-left: 23px;
+    margin-right: 23px;
+  }
+  .savebar {
+    padding-left: 23px;
+    padding-right: 23px;
+  }
+  .badge {
+    display: inline;
+  }
+  .settings-card {
+    padding: 15px;
+  }
+  .device-live {
+    margin-left: 18px;
+    margin-right: 18px;
+  }
+}
+@media (max-width: 760px) {
+  header {
+    min-height: 72px;
+    height: auto;
+    padding: 14px 16px;
+    gap: 10px;
+  }
+  .brand small {
+    font-size: 8px;
+  }
+  .brand span {
+    font-size: 12px;
+  }
+  .badge {
+    font-size: 10px;
+  }
+  .connection-options > summary {
+    font-size: 10px;
+  }
+  .connection-options > div {
+    min-width: 260px;
+  }
+  main {
+    display: flex;
+    height: auto;
+    min-height: 0;
+  }
+  .model-heading {
+    padding: 23px 22px 0;
+  }
+  .model-heading h1 {
+    font-size: 23px;
+  }
+  .model-area iframe {
+    height: 225px;
+    min-height: 225px;
+    flex: none;
+  }
+  .model-foot {
+    padding-bottom: 14px;
+  }
+  .device-live {
+    margin: 20px 20px 0;
+    padding: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+  }
+  .device-live strong {
+    font-size: 20px;
+    margin: 0;
+    grid-row: 1/3;
+    grid-column: 2;
+    text-align: right;
+  }
+  .layer-legend {
+    grid-column: 1/-1;
+    margin-top: 10px;
+  }
+  .model-caption {
+    font-size: 10px;
+    padding-bottom: 17px;
+  }
+  .editor {
+    min-height: 620px;
+  }
+  .editor-top {
+    padding: 23px 20px 15px;
+  }
+  .tabs {
+    margin: 0 20px;
+    gap: 23px;
+  }
+  .editing-context {
+    margin: 14px 20px 0;
+  }
+  .panels {
+    padding: 20px;
+  }
+  .savebar {
+    position: sticky;
+    bottom: 0;
+    z-index: 15;
+    padding: 14px 20px;
+    background: #151d27f5;
+    backdrop-filter: blur(12px);
+  }
+  .save-actions > button {
+    flex: 0 1 110px;
+  }
+  .save-meta {
+    gap: 8px;
+  }
+  .save-help summary {
+    font-size: 9px;
+  }
+  .three {
+    gap: 9px;
+  }
+  .settings-card {
+    padding: 16px;
+  }
+  .badge {
+    display: none;
+  }
+}
+
+/* Keep settings and layer state within reach on narrow screens. */
+@media (max-width: 760px) {
+  .model-area {
+    padding: 16px 20px;
+  }
+  .model-area iframe,
+  .model-heading,
+  .model-caption {
+    display: none;
+  }
+  .model-foot {
+    padding: 0 0 14px;
+  }
+  .model-area .input-strip {
+    padding: 0;
+    gap: 4px;
+  }
+  .device-live {
+    margin: 14px 0 0;
+    padding: 12px;
+  }
+  .device-live strong {
+    font-size: 18px;
+  }
+  .editor-top {
+    padding-top: 20px;
+  }
+  .editor-top .eyebrow {
+    display: none;
+  }
+}
+
+.rotary-purpose button {
+  font-size: 12px;
+  line-height: 1.8;
+  white-space: normal;
+  padding: 14px 10px;
+}
+.rotary-purpose {
+  margin-bottom: 14px;
+}
+
+.rotary-purpose button[aria-pressed='true'] {
+  border-color: var(--accent);
+  background: #253e36;
+  color: var(--accent);
+}

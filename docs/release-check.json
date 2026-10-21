@@ -1,0 +1,21 @@
+{
+  "fileCount": 285,
+  "bytes": 47628639,
+  "gitBranch": "main",
+  "remoteConfigured": true,
+  "remoteUrl": "https://github.com/jasonBrom/ch592f-keydeck.git",
+  "githubPagesDeployed": false,
+  "webTestsPassed": 61,
+  "pythonTestsPassed": 6,
+  "crossLanguageChecksPassed": 34,
+  "hapticBinaryMatchesOriginal115": true,
+  "variants": [
+    "haptic",
+    "no-haptic"
+  ],
+  "sdkUnmodified": true,
+  "physicalHardwareWritten": false,
+  "licenseChosen": false,
+  "largeFilesOver100MiB": 0,
+  "pathsOrCredentialsFound": false
+}

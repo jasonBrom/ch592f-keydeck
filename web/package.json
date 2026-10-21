@@ -1,0 +1,14 @@
+{
+  "name": "keydeck-console",
+  "version": "1.15.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "build": "node scripts/build.mjs",
+    "serve": "python start-console.py",
+    "format": "prettier --write public/index.html public/help.html public/config scripts tests ../scripts ../docs/*.md ../README.md ../.github/workflows"
+  },
+  "engines": {"node": ">=22"},
+  "devDependencies": {"prettier": "3.6.2"}
+}

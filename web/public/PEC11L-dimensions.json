@@ -1,0 +1,380 @@
+{
+  "manufacturer": "Bourns",
+  "mpn": "PEC11L-4115K-S0020",
+  "status": "Recommended substitution for preview; not user-purchased or final procurement; no verified LCSC part number for K shaft",
+  "source": {
+    "url": "https://www.bourns.com/docs/product-datasheets/pec11l.pdf",
+    "revision": "04/26",
+    "dimension_page_1_based": 2,
+    "web_pdf_ref": "turn483964view0",
+    "web_page_image_ref": "turn470460view3",
+    "local_pdf": "PEC11L_Bourns_datasheet.pdf",
+    "download_url": "https://bourns.com/docs/product-datasheets/pec11l.pdf?sfvrsn=7b1089f1_11",
+    "local_full_dimension_image": "PEC11L_Bourns_dimensions.png",
+    "local_footprint_detail_image": "PEC11L_Bourns_pins_detail.png",
+    "validation": "High-resolution local PDF rendering independently inspected by encoder6 and drawing6; this supersedes earlier low-resolution web-image readings."
+  },
+  "units": "mm",
+  "coordinates": {
+    "origin": "shaft axis at PCB top surface",
+    "x_positive": "right",
+    "y_positive": "toward two switch contacts/rear/USB",
+    "z_positive": "above PCB",
+    "view": "component top view, shaft facing viewer; use the terminal labels in OEM outline and verify pad numbering in ECAD"
+  },
+  "mounting": "Through-hole five signal pins plus two side shell anchor slots",
+  "encoder": {
+    "detents": 20,
+    "pulses_per_revolution": 20,
+    "output": "2-bit quadrature mechanical contact",
+    "contact_rating_mA": 10,
+    "contact_rating_VDC": 5
+  },
+  "body": {
+    "height_above_pcb": 4.5,
+    "nominal_x_core": 11.8,
+    "nominal_y_core": 12.0,
+    "y_core_derivation": "OEM top view gives 6.0 from shaft center to each Y edge",
+    "outer_x_with_shell_ears": 13.2,
+    "outer_x_lower_hook_envelope": 13.6,
+    "conservative_xy_nominal_envelope": [
+      13.6,
+      12.0
+    ],
+    "note": "13.2 and 13.6 are lateral X extents in different views/features; 13.2 is not Y body length. Mechanical clearance may use 13.6 x 13.6 square as an explicitly conservative design choice. No exact OEM STEP downloaded.",
+    "outer_x_lower_hook_envelope_note": "13.6 refers to lower anchor-hook lateral span below seating plane, not PCB-top main-body width."
+  },
+  "shaft": {
+    "style": "metal knurled split shaft",
+    "teeth": 18,
+    "diameter": 6.0,
+    "diameter_tolerance_minus": 0.1,
+    "diameter_tolerance_plus": 0.0,
+    "L_from_body_top": 15.0,
+    "L_tolerance_plus_minus": 0.5,
+    "tip_z_nominal": 19.5,
+    "tip_z_nominal_derivation": "4.5 mm PCB-to-body top + 15 mm actuator L",
+    "thread": "M7 x 0.75",
+    "bushing_height_B": 5.0,
+    "knurl_P": 7.0,
+    "slot_A": 6.0,
+    "drawing_dimension_C": 7.0,
+    "drawing_dimension_F_for_flat_version_only": 7.0,
+    "cap_compatibility": "Compatible only if existing knob insert is for 6 mm / 18 teeth knurl; user cap tooth count and insertion depth not yet verified",
+    "bushing_top_z_nominal": 9.5,
+    "bushing_top_z_derivation": "4.5 mm body + B=5.0 mm M7 bushing"
+  },
+  "push_switch": {
+    "type": "Momentary SPST normally open",
+    "travel_nominal": 0.5,
+    "travel_spec_page_min": 0.2,
+    "travel_spec_page_max": 0.8,
+    "travel_drawing_page_min": 0.2,
+    "travel_drawing_page_max": 0.9,
+    "conservative_travel_clearance": 0.9,
+    "actuation_force_gf": 610,
+    "force_tolerance_plus_minus_gf": 306,
+    "note": "OEM page 1 specification says 0.5 +/-0.3; page 2 drawing says 0.5 +0.4/-0.3. Reserve at least 0.9 travel plus design clearance; do not collapse this discrepancy."
+  },
+  "signal_holes": [
+    {
+      "terminal": "A",
+      "x": -2.5,
+      "y": -7.5,
+      "drill": 1.0,
+      "drill_tolerance_plus": 0.2,
+      "drill_tolerance_minus": 0
+    },
+    {
+      "terminal": "C",
+      "x": 0.0,
+      "y": -7.5,
+      "drill": 1.0,
+      "drill_tolerance_plus": 0.2,
+      "drill_tolerance_minus": 0
+    },
+    {
+      "terminal": "B",
+      "x": 2.5,
+      "y": -7.5,
+      "drill": 1.0,
+      "drill_tolerance_plus": 0.2,
+      "drill_tolerance_minus": 0
+    },
+    {
+      "terminal": "SW1",
+      "x": -2.5,
+      "y": 7.0,
+      "drill": 1.0,
+      "drill_tolerance_plus": 0.2,
+      "drill_tolerance_minus": 0
+    },
+    {
+      "terminal": "SW2",
+      "x": 2.5,
+      "y": 7.0,
+      "drill": 1.0,
+      "drill_tolerance_plus": 0.2,
+      "drill_tolerance_minus": 0
+    }
+  ],
+  "shell_anchor_slots": [
+    {
+      "id": "left",
+      "x": -5.7,
+      "y": 0.0,
+      "width_x": 1.4,
+      "length_y": 2.1,
+      "shape": "rect",
+      "corner_radius": "not specified by OEM drawing"
+    },
+    {
+      "id": "right",
+      "x": 5.7,
+      "y": 0.0,
+      "width_x": 1.4,
+      "length_y": 2.1,
+      "shape": "rect",
+      "corner_radius": "not specified by OEM drawing"
+    }
+  ],
+  "pcb_notes": [
+    "Hole/slot values are OEM recommended PCB mounting hole dimensions. Copper annuli and any plated shell-pad choice must be added by PCB designer.",
+    "Encoder A-C-B adjacent pitch 2.5 mm, outer A-B span 5.0. Switch contacts span 5.0 mm.",
+    "OEM 12.8 callout runs between the outside edges of the two 1.4-wide slots (not their center lines). Center-to-center distance = 12.8 - 1.4 = 11.4, giving x=±5.7 about shaft center. Encoder A-B total span is 5.0, giving A/C/B x=-2.5/0/+2.5.",
+    "Five signal pin insertion length is nominal 3.0 mm below body seating plane.",
+    "OEM general dimension tolerance: <10 mm +/-0.3; >=10 mm +/-0.5 unless explicitly stated.",
+    "Manufacturer recommends wave soldering Sn95.5/Ag2.8/Cu0.7, no-clean flux, 260 +/-5 C for 3-5 seconds. Hand soldering not recommended."
+  ],
+  "comparison": {
+    "original_mpn": "ALPS EC11N1525404",
+    "original_tip_z_as_given": 24.5,
+    "new_tip_z": 19.5,
+    "nominal_reduction": 5.0,
+    "knob_outer_diameter_unchanged": 20.0,
+    "knob_outer_height_unchanged": 10.0,
+    "knob_top_z_formula": "19.5 + 10 - shaft_insertion_depth",
+    "important": "Original ALPS item is a flat shaft; existing flower insert compatibility cannot be assumed for that original item."
+  },
+  "name": "Bourns PEC11L-4115K-S0020 / short encoder recommended substitution",
+  "source_url": "https://www.bourns.com/docs/product-datasheets/pec11l.pdf",
+  "retrieved": "2026-09-07",
+  "procurement": {
+    "lcsc": null,
+    "lcsc_note": "K shaft exact SKU not found/verified at LCSC; F shaft C143799 is NOT the same shaft style.",
+    "retail_url": "https://www.digikey.com/en/products/detail/bourns-inc/PEC11L-4115K-S0020/4699169",
+    "retail_part": "118-PEC11L-4115K-S0020-ND",
+    "retail_stock_at_lookup": 1035,
+    "retail_min_qty": 1,
+    "retail_price_1_usd_at_lookup": 2.75,
+    "retail_evidence_ref": "turn806989search0",
+    "status": "Preview recommendation only; user has not selected/purchased replacement."
+  },
+  "pads": [
+    {
+      "number": "A",
+      "type": "pth",
+      "shape": "circle",
+      "at3d": [
+        -2.5,
+        -7.5,
+        0
+      ],
+      "size": [
+        1.0,
+        1.0
+      ],
+      "drill": {
+        "shape": "circle",
+        "size": [
+          1.0,
+          1.0
+        ]
+      },
+      "copper_layer": null,
+      "copper_annulus_specified": false,
+      "classification_note": "OEM hole position and Ø1.0 +0.2/-0 drill. Size field denotes hole only; copper annulus intentionally unspecified. Signal PTH is design intent."
+    },
+    {
+      "number": "C",
+      "type": "pth",
+      "shape": "circle",
+      "at3d": [
+        0.0,
+        -7.5,
+        0
+      ],
+      "size": [
+        1.0,
+        1.0
+      ],
+      "drill": {
+        "shape": "circle",
+        "size": [
+          1.0,
+          1.0
+        ]
+      },
+      "copper_layer": null,
+      "copper_annulus_specified": false,
+      "classification_note": "OEM hole position and Ø1.0 +0.2/-0 drill. Size field denotes hole only; copper annulus intentionally unspecified. Signal PTH is design intent."
+    },
+    {
+      "number": "B",
+      "type": "pth",
+      "shape": "circle",
+      "at3d": [
+        2.5,
+        -7.5,
+        0
+      ],
+      "size": [
+        1.0,
+        1.0
+      ],
+      "drill": {
+        "shape": "circle",
+        "size": [
+          1.0,
+          1.0
+        ]
+      },
+      "copper_layer": null,
+      "copper_annulus_specified": false,
+      "classification_note": "OEM hole position and Ø1.0 +0.2/-0 drill. Size field denotes hole only; copper annulus intentionally unspecified. Signal PTH is design intent."
+    },
+    {
+      "number": "SW1",
+      "type": "pth",
+      "shape": "circle",
+      "at3d": [
+        -2.5,
+        7.0,
+        0
+      ],
+      "size": [
+        1.0,
+        1.0
+      ],
+      "drill": {
+        "shape": "circle",
+        "size": [
+          1.0,
+          1.0
+        ]
+      },
+      "copper_layer": null,
+      "copper_annulus_specified": false,
+      "classification_note": "OEM hole position and Ø1.0 +0.2/-0 drill. Size field denotes hole only; copper annulus intentionally unspecified. Signal PTH is design intent."
+    },
+    {
+      "number": "SW2",
+      "type": "pth",
+      "shape": "circle",
+      "at3d": [
+        2.5,
+        7.0,
+        0
+      ],
+      "size": [
+        1.0,
+        1.0
+      ],
+      "drill": {
+        "shape": "circle",
+        "size": [
+          1.0,
+          1.0
+        ]
+      },
+      "copper_layer": null,
+      "copper_annulus_specified": false,
+      "classification_note": "OEM hole position and Ø1.0 +0.2/-0 drill. Size field denotes hole only; copper annulus intentionally unspecified. Signal PTH is design intent."
+    },
+    {
+      "number": "SHIELD_LEFT",
+      "type": "npth",
+      "shape": "rect",
+      "at3d": [
+        -5.7,
+        0.0,
+        0
+      ],
+      "size": [
+        1.4,
+        2.1
+      ],
+      "drill": {
+        "shape": "rect",
+        "size": [
+          1.4,
+          2.1
+        ]
+      },
+      "copper_layer": null,
+      "classification_note": "OEM 1.4 x 2.1 rectangular slot envelope; corner radius and fabrication method unspecified. NPTH is drawing placeholder; plating/copper remain PCB design choices."
+    },
+    {
+      "number": "SHIELD_RIGHT",
+      "type": "npth",
+      "shape": "rect",
+      "at3d": [
+        5.7,
+        0.0,
+        0
+      ],
+      "size": [
+        1.4,
+        2.1
+      ],
+      "drill": {
+        "shape": "rect",
+        "size": [
+          1.4,
+          2.1
+        ]
+      },
+      "copper_layer": null,
+      "classification_note": "OEM 1.4 x 2.1 rectangular slot envelope; corner radius and fabrication method unspecified. NPTH is drawing placeholder; plating/copper remain PCB design choices."
+    }
+  ],
+  "drawing_rows": [
+    "PEC11L-4115K-S0020: recommended replacement; 20 detents / 20 pulses; not yet purchased.",
+    "PCB top to shaft tip 19.5 = body 4.5 + L15; Ø6 knurled shaft, 18 teeth.",
+    "Signal holes Ø1.0 +0.2/-0: A/C/B at (-2.5,-7.5)/(0,-7.5)/(2.5,-7.5); SW at (±2.5,7).",
+    "Shell slots 1.4 × 2.1 at (±5.7,0); 12.8 outside-edge span gives 11.4 centers. Copper/plating TBD.",
+    "Press travel 0.5 nominal; reserve 0.9 + clearance. K-shaft cap tooth count/fit to be checked."
+  ],
+  "shell_anchor_outer_edge_span": 12.8,
+  "shell_anchor_center_span": 11.4,
+  "derived_dimension_note": "OEM 12.8 callout runs between the outside edges of the two 1.4-wide slots (not their center lines). Center-to-center distance = 12.8 - 1.4 = 11.4, giving x=±5.7 about shaft center. Encoder A-B total span is 5.0, giving A/C/B x=-2.5/0/+2.5.",
+  "footprint_crosscheck": {
+    "description": "Same PEC11L body F shaft variant C143799 LCSC-owned EasyEDA footprint independently confirms signal and shell center positions; do not use flat-shaft model as K-shaft geometry.",
+    "url": "https://lceda.cn/api/products/C143799/components?version=6.5.51",
+    "local_file": "PEC11L_F_variant_easyeda_crosscheck.json",
+    "native_origin_shaft": [
+      4000.0,
+      3016.339
+    ],
+    "native_units_to_mm": 0.254,
+    "native_anchor_x": [
+      3977.559,
+      4022.441
+    ],
+    "derived_anchor_x_mm": [
+      -5.700014,
+      5.700014
+    ],
+    "native_acb_x": [
+      3990.158,
+      4000.0,
+      4009.843
+    ],
+    "derived_acb_x_mm": [
+      -2.499868,
+      0.0,
+      2.500122
+    ],
+    "note": "Native EDA copper/drill sizes are library design choices and were not copied into OEM-only drawing source."
+  }
+}

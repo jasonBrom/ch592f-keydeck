@@ -1,0 +1,48 @@
+name: Deploy console to GitHub Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - run: npm test
+        working-directory: web
+      - run: bash firmware/scripts/fetch_sdk.sh
+      - run: sha256sum --check SHA256SUMS.txt
+        working-directory: firmware/vendor
+      - run: bash firmware/scripts/verify_host.sh
+      - run: bash firmware/scripts/fetch_toolchain.sh
+      - name: Build both variants from the deployed commit
+        run: |
+          make -C firmware -j4 VARIANT=haptic CROSS_COMPILE="$HOME/.cache/c5-dial-tools/riscv-none-embed-gcc-8-linux-1.91/bin/riscv-none-embed-"
+          make -C firmware -j4 VARIANT=no-haptic CROSS_COMPILE="$HOME/.cache/c5-dial-tools/riscv-none-embed-gcc-8-linux-1.91/bin/riscv-none-embed-"
+          node scripts/package-release.mjs
+      - run: npm run build
+        working-directory: web
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: web/dist
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-24.04
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

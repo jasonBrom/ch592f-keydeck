@@ -1,0 +1,38 @@
+{
+  "version": "1.15.0",
+  "sdkCommit": "a46e0086f1ffb5e5502703970bff94888e67f4cb",
+  "toolchain": "WCH MounRiver 1.91 / GCC 8.2.0",
+  "hardwareTested": false,
+  "variants": {
+    "haptic": {
+      "haptics": true,
+      "artifacts": [
+        {
+          "file": "KeyDeck-CH592F-haptic.hex",
+          "bytes": 509788,
+          "sha256": "bd29bc830ded1f9eb2e32277ef68d44ec72c96ab9197c076630227bae742346c"
+        },
+        {
+          "file": "KeyDeck-CH592F-haptic.bin",
+          "bytes": 181232,
+          "sha256": "29db6a835ebd759f7f457bc4f79be5145e532427292eddf879b53ae60ffbf0be"
+        }
+      ]
+    },
+    "no-haptic": {
+      "haptics": false,
+      "artifacts": [
+        {
+          "file": "KeyDeck-CH592F-no-haptic.hex",
+          "bytes": 493355,
+          "sha256": "2d64673c10b64843d6b2de2f00bd31fe6735521ab1ff96d6d1fa7ac8918563bb"
+        },
+        {
+          "file": "KeyDeck-CH592F-no-haptic.bin",
+          "bytes": 175388,
+          "sha256": "c4d86972cda98a5d5680365740bfbe9e36ca349de44641e1952b591dc0bb5460"
+        }
+      ]
+    }
+  }
+}

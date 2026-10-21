@@ -1,0 +1,19 @@
+# Reproducible build products
+firmware/build/
+firmware/build-*/
+firmware/*.log
+*.log
+web/dist/
+web/node_modules/
+# Local bridge dependencies, secrets and editor caches
+web/.runtime/
+**/__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak

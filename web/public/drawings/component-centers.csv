@@ -1,0 +1,16 @@
+﻿ref,name,x,y,rotation_deg,layer,footprint,datum,app_base,actuator_outward_app,press_direction_app
+SW4,SAMZO 28115181DM + C49352235 hot-swap,-20,10,0,B.Cu,SOCKET-C49352235,switch stem axis; pads supplied in PCB top view,,,
+D2,GL6028RGB01H-W reverse RGB,-20,4.8,0,B.Cu,LED_GL6028RGB01H-W_ReverseMount,,,,
+SW5,SAMZO 28115181DM + C49352235 hot-swap,0,10,0,B.Cu,SOCKET-C49352235,switch stem axis; pads supplied in PCB top view,,,
+D3,GL6028RGB01H-W reverse RGB,0,4.8,0,B.Cu,LED_GL6028RGB01H-W_ReverseMount,,,,
+SW6,SAMZO 28115181DM + C49352235 hot-swap,-20,-10,0,B.Cu,SOCKET-C49352235,switch stem axis; pads supplied in PCB top view,,,
+D4,GL6028RGB01H-W reverse RGB,-20,-15.2,0,B.Cu,LED_GL6028RGB01H-W_ReverseMount,,,,
+SW7,SAMZO 28115181DM + C49352235 hot-swap,0,-10,0,B.Cu,SOCKET-C49352235,switch stem axis; pads supplied in PCB top view,,,
+D5,GL6028RGB01H-W reverse RGB,0,-15.2,0,B.Cu,LED_GL6028RGB01H-W_ReverseMount,,,,
+SW8,SAMZO 28115181DM + C49352235 hot-swap,20,-10,0,B.Cu,SOCKET-C49352235,switch stem axis; pads supplied in PCB top view,,,
+D6,GL6028RGB01H-W reverse RGB,20,-15.2,0,B.Cu,LED_GL6028RGB01H-W_ReverseMount,,,,
+ENC1,Bourns PEC11L-4115K-S0020,20,10,0,F.Cu,ENCODER-PRINT06,,,,
+J1,GT-USB-7010ANS,0,22.2,180,F.Cu,USB-C-SMD_GT-USB-7010ANS,,,,
+SW2,RESET / C2762970,-30.4,7.0,90,F.Cu,SW-C2762970,midpoint of two locating posts; seating surface app y=13.6,"[-30.4, 13.6, -7.0]","[-1, 0, 0]","[1, 0, 0]"
+SW3,BOOT / C2762970,-30.4,-7.0,90,F.Cu,SW-C2762970,midpoint of two locating posts; seating surface app y=13.6,"[-30.4, 13.6, 7.0]","[-1, 0, 0]","[1, 0, 0]"
+SW1,C963206 / MK-12C02-G020 body center,23,23.9,0,F.Cu,,,,,

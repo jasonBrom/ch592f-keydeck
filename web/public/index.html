@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#121923" />
+    <title>KeyDeck · 设备控制台</title>
+    <link rel="stylesheet" href="config/console.css?v=1.13" />
+    <link rel="stylesheet" href="config/haptic-editor.css?v=1.13" />
+    <link rel="stylesheet" href="config/console-shell.css?v=1.13" />
+    <link rel="stylesheet" href="config/console-light.css" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="./"
+        ><b>K<span>↗</span></b
+        ><span>KeyDeck <small>CH592F · 自定义小键盘</small></span></a
+      ><span id="connectionBadge" class="badge">未连接</span
+      ><button id="connectDevice" class="primary">连接设备</button
+      ><button id="disconnect" hidden>断开</button>
+      <details id="connectionOptions" class="connection-options">
+        <summary>连接选项</summary>
+        <div>
+          <button id="connectUSB">USB · 首次授权或手动连接</button
+          ><button id="connectBLE">蓝牙 · 自动选择可用通道</button>
+          <p>自动连接优先已授权 USB，再尝试 Windows 已配对蓝牙。浏览器首次访问需要你选择设备。</p>
+        </div>
+      </details>
+    </header>
+    <main>
+      <aside class="model-area">
+        <div class="model-heading">
+          <span class="eyebrow">KEYDECK / CH592F</span>
+          <h1>把常用操作，<br />留在手边。</h1>
+          <p id="connectionHint">连接后可读取设置；也可先离线编辑。</p>
+        </div>
+        <div class="device-tools">
+          <span>点击按键，开始配置</span
+          ><button id="toggleModel" aria-pressed="false">3D 视图 ↗</button>
+        </div>
+        <div id="deviceStage" class="device-stage">
+          <div class="device-case" aria-label="五键旋钮键盘示意图">
+            <button class="keycap key-dark key-01" data-input="0" aria-label="编辑按键 01">
+              <span>⌘</span><small>01</small>
+            </button>
+            <button class="keycap key-dark key-02" data-input="1" aria-label="编辑按键 02">
+              <span>⌥</span><small>02</small>
+            </button>
+            <button class="keycap dial-cap" data-input="5" aria-label="编辑旋钮按下">
+              <span></span><small>旋钮</small>
+            </button>
+            <button class="keycap key-03" data-input="2" aria-label="编辑按键 03">
+              <span>−</span><small>03</small>
+            </button>
+            <button class="keycap key-04" data-input="3" aria-label="编辑按键 04">
+              <span>▷</span><small>04</small>
+            </button>
+            <button class="keycap key-05" data-input="4" aria-label="编辑按键 05">
+              <span>＋</span><small>05</small>
+            </button>
+            <span class="device-led"></span>
+          </div>
+          <span class="stage-label">FIVE KEYS. ONE DIAL. YOUR WAY.</span>
+        </div>
+        <iframe
+          hidden
+          loading="lazy"
+          id="model"
+          data-src="assembly.html?embedded=1&amp;v=1.13"
+          title="设备输入预览"
+        ></iframe>
+        <div class="model-foot">
+          <div><span id="liveDot" class="dot"></span><span id="modelState">离线预览</span></div>
+          <span id="battery">电量 —</span>
+        </div>
+        <div class="input-strip" role="group" aria-label="选择输入">
+          <button data-input="0">01</button><button data-input="1">02</button
+          ><button data-input="2">03</button><button data-input="3">04</button
+          ><button data-input="4">05</button><button data-input="5">按压</button
+          ><button data-input="6">↶</button><button data-input="7">↷</button>
+        </div>
+        <div class="device-live">
+          <span>设备正在使用</span><strong id="liveProfile">未连接</strong
+          ><span id="liveMode">—</span>
+          <div id="layerLegend" class="layer-legend"></div>
+        </div>
+        <p class="model-caption">点选模型或输入编号编辑。滚轮在预览区域也能滚动配置页面。</p>
+      </aside>
+      <section class="editor">
+        <div class="editor-top">
+          <div>
+            <span class="eyebrow">WORKSPACE</span>
+            <h2>让每一键，都顺手。</h2>
+          </div>
+          <label id="profilePicker" class="profile-picker"
+            >编辑配置层<select id="profile" aria-label="编辑配置层">
+              <option value="0">配置 1</option>
+              <option value="1">配置 2</option>
+              <option value="2">配置 3</option>
+            </select></label
+          >
+        </div>
+        <div class="tabs" role="tablist" aria-label="设置分类">
+          <button role="tab" aria-selected="true" data-tab="keys">按键</button
+          ><button role="tab" aria-selected="false" data-tab="dial">旋钮</button
+          ><button role="tab" aria-selected="false" data-tab="haptics">触觉</button
+          ><button role="tab" aria-selected="false" data-tab="lights">灯光</button
+          ><button role="tab" data-tab="macros">宏</button
+          ><button role="tab" data-tab="device">设备</button>
+          <details id="moreSettings">
+            <summary>更多</summary>
+            <div>
+              <button data-tab="firmware" id="firmwareNav">固件与烧录</button
+              ><a href="assembly.html" target="_blank">3D 装配 ↗</a>
+            </div>
+          </details>
+        </div>
+        <p id="editingContext" class="editing-context">正在编辑配置 1；保存后才写入设备。</p>
+        <div id="environmentNotice" class="environment-notice" role="note"></div>
+        <p id="profileWarning" class="profile-warning" hidden></p>
+        <div id="settingsPanels" class="panels">
+          <section id="keys" role="tabpanel">
+            <div class="section-title">
+              <h3 id="inputTitle">按键 01</h3>
+              <span id="pinLabel" class="mono">PA4</span>
+            </div>
+            <div id="specialFunctions" class="special-functions">
+              <h4>快捷功能</h4>
+              <label
+                >特殊功能<select id="specialFunction">
+                  <option value="">选择一个功能…</option>
+                </select></label
+              ><button data-special-bind>绑定到此按键</button>
+              <p data-special-hint class="hint"></p>
+              <details>
+                <summary>五键音频方案</summary>
+                <p class="hint">
+                  当前层的 01–05 依次设为：音量减、音量加、扬声器静音、Windows
+                  麦克风开关、播放暂停。先载入草稿，再临时应用或保存。麦克风项发送 Win + Alt +
+                  K，仅在支持的 Windows 应用中生效。
+                </p>
+                <button data-audio-keys>载入五键音频方案</button>
+              </details>
+            </div>
+            <label
+              >触发动作<select id="bindingType">
+                <option value="0">不执行动作</option>
+                <option value="1">键盘快捷键</option>
+                <option value="2">多媒体控制</option>
+                <option value="3">鼠标滚轮</option>
+                <option value="4">运行宏</option>
+                <option value="5">切换配置层</option>
+                <option value="6">鼠标按键</option>
+                <option value="7" disabled>Fn · 在配置层中设置</option>
+              </select></label
+            >
+            <div id="bindingFields"></div>
+            <p id="bindingHint" class="hint"></p>
+            <div id="layerEditor"></div>
+            <div class="rule"></div>
+            <h4>当前编辑层的全部输入</h4>
+            <div id="mappingList" class="mapping-list"></div>
+          </section>
+          <section id="dial" role="tabpanel" hidden>
+            <h3>旋钮用途</h3>
+            <div class="two rotary-purpose">
+              <button data-rotary-mode="2">网页滚动 · 即时响应</button
+              ><button data-rotary-mode="0">轮盘菜单 · 一项一响</button>
+            </div>
+            <p id="rotaryPresetNotice" class="hint"></p>
+            <p class="hint">
+              <a href="downloads/C5-Rotary-Modes-20261020.txt" target="_blank"
+                >用途、转动幅度与本机实测说明 ↗</a
+              >
+            </p>
+            <p id="dialModeHint" class="source-note"></p>
+            <label
+              >旋转与按压<select id="encoderMode">
+                <option value="0">Windows 原生轮盘 · 应用与系统控制</option>
+                <option value="1">系统音量 · 按下静音</option>
+                <option value="2">网页滚动 · 直接鼠标滚轮</option>
+                <option value="3">自定义 · 使用按键页的三个映射</option>
+              </select></label
+            >
+            <p class="hint">
+              Surface Dial 模式发送原生 Radial Controller 角度和按压。Windows
+              轮盘菜单与应用行为由系统决定；本设备没有屏上位置检测。
+            </p>
+            <div id="dialPrecision">
+              <label
+                >切换一项需要转多少<select id="dialTravel">
+                  <option value="1">小幅 · 约 4.5°（1 边沿）</option>
+                  <option value="2">适中 · 约 9°（2 边沿）</option>
+                  <option value="4">大幅 · 约 18°（4 边沿）</option>
+                  <option value="custom" disabled>自定义边沿</option>
+                </select></label
+              >
+              <p class="hint">
+                角度按本机 20 脉冲／圈估算。每个触觉刻度累计发送 10°；1.15
+                按边沿细分发送，触觉间距不变。应用可以自行定义其他阈值。
+              </p>
+              <details>
+                <summary>应用角度预设（高级）</summary>
+                <div class="dial-presets" role="group" aria-label="轮盘灵敏度预设">
+                  <button data-dial-angle="10" aria-pressed="false">更细 · 1°</button
+                  ><button data-dial-angle="25" aria-pressed="false">精细 · 2.5°</button
+                  ><button data-dial-angle="45" aria-pressed="false">细分 · 4.5°</button
+                  ><button data-dial-angle="100" aria-pressed="false">菜单刻度 · 10°</button>
+                </div>
+                <p class="hint">
+                  这里改变发送给 Windows
+                  的逻辑角度，保留上方的物理转动幅度。小于应用阈值时会累积多次才切一项；本地震动不等于应用已切换。
+                </p>
+              </details>
+            </div>
+            <details>
+              <summary>编码器精度（高级）</summary>
+              <div class="two">
+                <label
+                  >每个触觉刻度累计角度（°）<input
+                    id="angle"
+                    type="number"
+                    min="0.1"
+                    max="360"
+                    step="0.1" /></label
+                ><label
+                  >每个触觉刻度边沿数<select id="transitions">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select></label
+                >
+              </div>
+              <p class="hint">
+                20 脉冲/圈的无定位旋钮可选每刻度 4 边沿，约 18°实体转动。1.15
+                的原生轮盘逐边沿发送细分角度；其他模式按各自规则计步。上方累计角度决定发送给 Windows
+                的总量。
+              </p>
+            </details>
+            <button id="editEncoder">编辑旋钮按下映射</button>
+          </section>
+          <section id="haptics" role="tabpanel" hidden>
+            <p id="noHapticsNotice" class="variant-notice" hidden>
+              当前连接的是无震动版固件。按键、旋钮、宏与灯光可正常配置；此版本不启用马达驱动。
+            </p>
+            <fieldset id="hapticControls">
+              <div id="hapticBasic"></div>
+              <details id="waveformDetails" class="settings-card">
+                <summary>自定义波形与事件（高级）</summary>
+                <div id="hapticEditor"></div>
+              </details>
+              <details id="calibrationDetails" class="settings-card">
+                <summary>马达校准、诊断与安装对比（高级）</summary>
+                <div id="calibrationEditor"></div>
+              </details>
+            </fieldset>
+          </section>
+          <section id="lights" role="tabpanel" hidden>
+            <h3>键盘背光</h3>
+            <p id="lightingSource" class="source-note"></p>
+            <p class="hint">
+              通过 USB 或蓝牙连接时，可由
+              Windows「动态灯光」接管五颗背光。主机退出接管后恢复设备灯效；双连接的支持状态见「设备」页。
+            </p>
+            <label
+              >灯效<select id="effect">
+                <option value="0">关闭</option>
+                <option value="1">常亮</option>
+                <option value="2">流动彩虹</option>
+                <option value="3">呼吸</option>
+                <option value="4">按键反馈</option>
+              </select></label
+            ><label
+              >亮度 <output id="brightnessOut"></output
+              ><input id="brightness" type="range" min="0" max="100" /></label
+            ><label>灯光颜色<input id="color" type="color" /></label
+            ><label
+              >闲置熄灯时间（秒，0 为保持）<input id="idle" type="number" min="0" max="3600"
+            /></label>
+            <details class="settings-card">
+              <summary>独立指示灯设置</summary>
+              <div id="statusLightEditor"></div>
+            </details>
+          </section>
+          <section id="macros" role="tabpanel" hidden>
+            <div class="section-title">
+              <h3>宏编辑器 · 三层共用</h3>
+              <select id="macroSlot" aria-label="宏槽"></select>
+            </div>
+            <label
+              >触发方式<select id="macroMode">
+                <option value="0">按一次，执行一次</option>
+                <option value="1">按住重复，松开停止</option>
+                <option value="2">按下开始循环，再按停止</option>
+              </select></label
+            >
+            <div class="macro-toolbar">
+              <button id="recordMacro" class="primary">● 开始录制</button
+              ><button id="macroCombo">＋ 添加组合键</button
+              ><button id="addStep">＋ 添加步骤</button>
+            </div>
+            <div class="record-options">
+              <label><input id="recordTiming" type="checkbox" checked /> 记录真实间隔</label
+              ><label
+                >固定间隔
+                <input id="fixedDelay" type="number" min="0" max="10000" value="50" /> ms</label
+              >
+            </div>
+            <div
+              id="recordArea"
+              tabindex="0"
+              class="record-area"
+              hidden
+              role="group"
+              aria-label="宏录制区域"
+            >
+              正在录制 · 可在这里按键或点击鼠标<br /><small>Esc 结束；录制自动预留释放步骤。</small>
+            </div>
+            <div class="section-title macro-meta">
+              <span id="macroSummary">0 / 16 步 · 0 ms</span>
+              <div>
+                <button id="macroExample" class="small-button">复制示例</button
+                ><button id="clearMacro" class="small-button">清空</button>
+              </div>
+            </div>
+            <div id="macroRows"></div>
+            <p id="macroWarning" class="hint"></p>
+            <p class="hint">
+              键值和组合键可直接选择；每步支持调整间隔、移动、复制、删除。浏览器保留的快捷键请手动添加。编辑后，在按键页选择「运行宏」并保存到设备。
+            </p>
+          </section>
+          <section id="device" role="tabpanel" hidden>
+            <h3>设备与备份</h3>
+            <details class="settings-card">
+              <summary>回报率与输入通道（高级）</summary>
+              <div class="two">
+                <label
+                  >USB 回报率<select id="usbRate">
+                    <option value="1">125 Hz · 8 ms</option>
+                    <option value="2">250 Hz · 4 ms</option>
+                    <option value="3">500 Hz · 2 ms</option>
+                    <option value="4">1000 Hz · 1 ms</option>
+                  </select></label
+                ><label
+                  >蓝牙连接间隔请求<select id="bleInterval">
+                    <option value="1">7.5 ms · 优先响应</option>
+                    <option value="2">15 ms · 均衡</option>
+                    <option value="3">30 ms · 减少无线交互</option>
+                  </select></label
+                >
+              </div>
+              <p class="hint">
+                USB
+                设置改变设备端点的实际轮询间隔，保存后需短暂重连。蓝牙连接间隔由主机协商，以下显示设备返回的实际值；不能将蓝牙设置为
+                1000 Hz。
+              </p>
+              <div class="rate-readouts">
+                <div><span>实际 USB 端点间隔</span><strong id="actualUSB">—</strong></div>
+                <div><span>实际蓝牙连接间隔</span><strong id="actualBLE">—</strong></div>
+              </div>
+              <button id="activateRates" data-device>启用已保存的回报率设置</button>
+              <p id="rateNotice" class="hint">
+                需 R2 固件。回报率不随临时应用改变；先保存配置，再让设备启用设置。
+              </p>
+              <label
+                >按键输入发送到<select id="transport">
+                  <option value="0">自动 · USB 已枚举时优先</option>
+                  <option value="1">仅 USB</option>
+                  <option value="2">仅蓝牙</option>
+                </select></label
+              >
+            </details>
+            <div class="rule"></div>
+            <h3>设备状态</h3>
+            <dl class="diagnostics">
+              <div>
+                <dt>固件版本</dt>
+                <dd id="fwVersion">—</dd>
+              </div>
+              <div>
+                <dt>Windows 主机接口</dt>
+                <dd id="windowsFeatures">—</dd>
+              </div>
+              <div>
+                <dt>实际输入通道</dt>
+                <dd id="activeTransport">—</dd>
+              </div>
+              <div>
+                <dt>设备当前层</dt>
+                <dd id="activeProfile">—</dd>
+              </div>
+              <div>
+                <dt>充电状态</dt>
+                <dd id="chargeStatus">—</dd>
+              </div>
+              <div>
+                <dt>编码器累计格数</dt>
+                <dd id="encoderCount">—</dd>
+              </div>
+            </dl>
+            <div class="rule"></div>
+            <h3>配置文件</h3>
+            <div class="two">
+              <button id="export">导出全部配置</button><button id="import">导入配置</button
+              ><input type="file" id="importFile" accept="application/json,.json" hidden />
+            </div>
+            <button id="defaults" class="text-button">恢复默认到编辑器</button>
+            <p class="hint">
+              旧版 JSON
+              会自动补充默认回报率和单次宏模式。所有编辑先保留为草稿，点击保存后才写入设备。
+            </p>
+          </section>
+          <section id="firmware" role="tabpanel" hidden>
+            <div class="section-title">
+              <h3>选择你的固件</h3>
+              <span class="pill">1.15 · KeyDeck</span>
+            </div>
+            <p class="hint">
+              两种构建共用按键、旋钮、USB /
+              BLE、宏与灯光逻辑。请根据实际硬件选择；网页会识别连接设备的版本。
+            </p>
+            <div class="firmware-options">
+              <article class="settings-card">
+                <span class="eyebrow">HAPTIC</span>
+                <h3>带震动版</h3>
+                <p>DRV2605L + AAC0809，包含触觉效果与校准。</p>
+                <a href="downloads/KeyDeck-CH592F-haptic.hex" download>下载 HEX ↓</a>
+              </article>
+              <article class="settings-card">
+                <span class="eyebrow">NO HAPTIC</span>
+                <h3>无震动版</h3>
+                <p>跳过马达驱动与 I²C 初始化，适合不装震动组件的硬件。</p>
+                <a href="downloads/KeyDeck-CH592F-no-haptic.hex" download>下载 HEX ↓</a>
+              </article>
+            </div>
+            <p class="hint">新构建已通过软件检查，尚待对应实物验证。切换版本前建议导出配置备份。</p>
+            <details>
+              <summary>烧录步骤</summary>
+              <ol class="steps">
+                <li>按住 BOOT，复位或重新上电进入 USB ISP。</li>
+                <li>在 WCH 官方下载工具载入 HEX，保留 DataFlash 配置与蓝牙配对。</li>
+                <li>烧录后松开 BOOT，重新上电并连接网页。</li>
+              </ol>
+              <a href="downloads/KeyDeck-ISP.ini" download>下载 ISP 配置参考</a> ·
+              <a href="downloads/firmware-guide.md">查看构建与烧录说明</a>
+            </details>
+          </section>
+        </div>
+        <footer class="savebar">
+          <div class="save-meta">
+            <span id="draftStatus" class="pill">尚未修改</span>
+            <details class="save-help">
+              <summary>试用和保存有什么区别？</summary>
+              <p>
+                试用立即应用草稿，重启后恢复已保存设置；保存会写入设备并回读校验，断电保留。高级校准通过后也要保存。
+              </p>
+            </details>
+          </div>
+          <div id="message" role="status" aria-live="polite">
+            先连接设备读取现有设置，或离线准备草稿。
+          </div>
+          <progress id="progress" value="0" max="1" hidden></progress>
+          <div class="save-actions">
+            <details>
+              <summary>更多操作</summary>
+              <button id="read" data-device>重新读取设备</button>
+            </details>
+            <button id="apply" data-device>试用</button
+            ><button id="save" class="primary" data-device>保存到设备</button>
+          </div>
+        </footer>
+      </section>
+    </main>
+    <dialog id="keyPicker">
+      <div class="picker-head">
+        <h3>选择按键或组合键</h3>
+        <button id="closePicker" aria-label="关闭按键选择">×</button>
+      </div>
+      <input
+        id="keySearch"
+        type="search"
+        placeholder="搜索按键，例如 F13、Enter、右 Ctrl"
+        aria-label="搜索按键"
+      />
+      <div id="pickerModifiers" class="modifiers"></div>
+      <div id="keyGrid" class="key-grid"></div>
+      <div class="picker-foot">
+        <strong id="pickerPreview">—</strong
+        ><button id="confirmPicker" class="primary">使用此按键</button>
+      </div>
+    </dialog>
+    <script type="module" src="config/console.js"></script>
+    <script type="module" src="config/console-experience.js"></script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+name: Verify web and firmware
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - run: npm test
+        working-directory: web
+      - run: python3 -m unittest discover -s web/tests -p 'test_*.py'
+      - run: bash firmware/scripts/fetch_sdk.sh
+      - run: sha256sum --check SHA256SUMS.txt
+        working-directory: firmware/vendor
+      - run: bash firmware/scripts/verify_host.sh
+      - run: bash firmware/tests/run_integration_tests.sh
+      - run: npm run build
+        working-directory: web
+  firmware:
+    needs: tests
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        variant: [haptic, no-haptic]
+    steps:
+      - uses: actions/checkout@v6
+      - run: bash firmware/scripts/fetch_sdk.sh
+      - run: bash firmware/scripts/fetch_toolchain.sh
+      - run: make -j4 VARIANT=${{ matrix.variant }} CROSS_COMPILE="$HOME/.cache/c5-dial-tools/riscv-none-embed-gcc-8-linux-1.91/bin/riscv-none-embed-"
+        working-directory: firmware
+      - uses: actions/upload-artifact@v4
+        with:
+          name: KeyDeck-CH592F-${{ matrix.variant }}
+          path: |
+            firmware/build/${{ matrix.variant }}/*.hex
+            firmware/build/${{ matrix.variant }}/*.bin
+            firmware/build/${{ matrix.variant }}/*.elf
+            firmware/build/${{ matrix.variant }}/*.map

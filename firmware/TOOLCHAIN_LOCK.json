@@ -1,0 +1,17 @@
+{
+  "sdk_repository": "https://github.com/openwch/ch592",
+  "sdk_commit": "a46e0086f1ffb5e5502703970bff94888e67f4cb",
+  "ble_library": "CH59x_BLE_LIB_V1.4",
+  "gcc_version": "WCH-modified xPack GNU RISC-V Embedded GCC 8.2.0, MounRiver toolchain 1.91",
+  "gcc_archive": "https://github.com/ch32-riscv-ug/MounRiver_Studio_Community_miror/releases/download/1.91-toolchain/riscv-none-embed-gcc-8-linux-1.91.zip",
+  "gcc_sha256": "a8d24953b5194146409be434e4fb2bb33fc4648f7e556154bd4a5489ebaeca64",
+  "architecture": "rv32imac",
+  "abi": "ilp32",
+  "clock_hz": 60000000,
+  "rtc_clock_hz": 32768,
+  "flash_start": 0,
+  "flash_length": 458752,
+  "ram_start": 536870912,
+  "ram_length": 26624,
+  "stack_reserved_bytes": 2048
+}

@@ -1,0 +1,3444 @@
+{
+  "format": "CH592_PCB_MECHANICAL_PRINT06",
+  "units": "mm",
+  "status": "Structural placement proposal; ENC1 is a proposed Bourns replacement, not confirmed user hardware. Not routed PCB, not released Gerber.",
+  "coordinate_system": {
+    "view": "top",
+    "origin": "board center",
+    "x_positive": "right",
+    "y_positive": "rear / USB edge",
+    "app_transform": "app(x,y,z) = (X, pcb_height, -Y)",
+    "lower_left_bounding_box_transform": "Xll=X+32.8; Yll=Y+25.8",
+    "plane": "board plane before enclosure 6 degree tilt"
+  },
+  "board": {
+    "width": 65.6,
+    "height": 51.6,
+    "thickness": 1.6,
+    "corner_radius": 3.6
+  },
+  "components": [
+    {
+      "ref": "SW4",
+      "name": "SAMZO 28115181DM + C49352235 hot-swap",
+      "x": -20,
+      "y": 10,
+      "rotation_deg": 0,
+      "footprint": "SOCKET-C49352235",
+      "layer": "B.Cu",
+      "centering_xy": [
+        0,
+        0
+      ],
+      "socket": "C49352235",
+      "switch": "SAMZO 28115181DM",
+      "datum": "switch stem axis; pads supplied in PCB top view"
+    },
+    {
+      "ref": "D2",
+      "name": "GL6028RGB01H-W reverse RGB",
+      "x": -20,
+      "y": 4.8,
+      "rotation_deg": 0,
+      "footprint": "LED_GL6028RGB01H-W_ReverseMount",
+      "layer": "B.Cu",
+      "centering_xy": [
+        0,
+        0
+      ]
+    },
+    {
+      "ref": "SW5",
+      "name": "SAMZO 28115181DM + C49352235 hot-swap",
+      "x": 0,
+      "y": 10,
+      "rotation_deg": 0,
+      "footprint": "SOCKET-C49352235",
+      "layer": "B.Cu",
+      "centering_xy": [
+        0,
+        0
+      ],
+      "socket": "C49352235",
+      "switch": "SAMZO 28115181DM",
+      "datum": "switch stem axis; pads supplied in PCB top view"
+    },
+    {
+      "ref": "D3",
+      "name": "GL6028RGB01H-W reverse RGB",
+      "x": 0,
+      "y": 4.8,
+      "rotation_deg": 0,
+      "footprint": "LED_GL6028RGB01H-W_ReverseMount",
+      "layer": "B.Cu",
+      "centering_xy": [
+        0,
+        0
+      ]
+    },
+    {
+      "ref": "SW6",
+      "name": "SAMZO 28115181DM + C49352235 hot-swap",
+      "x": -20,
+      "y": -10,
+      "rotation_deg": 0,
+      "footprint": "SOCKET-C49352235",
+      "layer": "B.Cu",
+      "centering_xy": [
+        0,
+        0
+      ],
+      "socket": "C49352235",
+      "switch": "SAMZO 28115181DM",
+      "datum": "switch stem axis; pads supplied in PCB top view"
+    },
+    {
+      "ref": "D4",
+      "name": "GL6028RGB01H-W reverse RGB",
+      "x": -20,
+      "y": -15.2,
+      "rotation_deg": 0,
+      "footprint": "LED_GL6028RGB01H-W_ReverseMount",
+      "layer": "B.Cu",
+      "centering_xy": [
+        0,
+        0
+      ]
+    },
+    {
+      "ref": "SW7",
+      "name": "SAMZO 28115181DM + C49352235 hot-swap",
+      "x": 0,
+      "y": -10,
+      "rotation_deg": 0,
+      "footprint": "SOCKET-C49352235",
+      "layer": "B.Cu",
+      "centering_xy": [
+        0,
+        0
+      ],
+      "socket": "C49352235",
+      "switch": "SAMZO 28115181DM",
+      "datum": "switch stem axis; pads supplied in PCB top view"
+    },
+    {
+      "ref": "D5",
+      "name": "GL6028RGB01H-W reverse RGB",
+      "x": 0,
+      "y": -15.2,
+      "rotation_deg": 0,
+      "footprint": "LED_GL6028RGB01H-W_ReverseMount",
+      "layer": "B.Cu",
+      "centering_xy": [
+        0,
+        0
+      ]
+    },
+    {
+      "ref": "SW8",
+      "name": "SAMZO 28115181DM + C49352235 hot-swap",
+      "x": 20,
+      "y": -10,
+      "rotation_deg": 0,
+      "footprint": "SOCKET-C49352235",
+      "layer": "B.Cu",
+      "centering_xy": [
+        0,
+        0
+      ],
+      "socket": "C49352235",
+      "switch": "SAMZO 28115181DM",
+      "datum": "switch stem axis; pads supplied in PCB top view"
+    },
+    {
+      "ref": "D6",
+      "name": "GL6028RGB01H-W reverse RGB",
+      "x": 20,
+      "y": -15.2,
+      "rotation_deg": 0,
+      "footprint": "LED_GL6028RGB01H-W_ReverseMount",
+      "layer": "B.Cu",
+      "centering_xy": [
+        0,
+        0
+      ]
+    },
+    {
+      "ref": "ENC1",
+      "name": "Bourns PEC11L-4115K-S0020",
+      "x": 20,
+      "y": 10,
+      "rotation_deg": 0,
+      "footprint": "ENCODER-PRINT06",
+      "layer": "F.Cu",
+      "centering_xy": [
+        0,
+        0
+      ],
+      "selection_status": "Proposed replacement; user hardware swap not confirmed; LCSC stock for K shaft not verified",
+      "manufacturer": "Bourns",
+      "mpn": "PEC11L-4115K-S0020"
+    },
+    {
+      "ref": "J1",
+      "name": "GT-USB-7010ANS",
+      "x": 0,
+      "y": 22.2,
+      "rotation_deg": 180,
+      "footprint": "USB-C-SMD_GT-USB-7010ANS",
+      "layer": "F.Cu",
+      "centering_xy": [
+        0,
+        0
+      ]
+    },
+    {
+      "ref": "SW2",
+      "name": "RESET / C2762970",
+      "x": -30.4,
+      "y": 7.0,
+      "rotation_deg": 90,
+      "footprint": "SW-C2762970",
+      "layer": "F.Cu",
+      "centering_xy": [
+        0,
+        0
+      ],
+      "datum": "midpoint of two locating posts; seating surface app y=13.6",
+      "app_base": [
+        -30.4,
+        13.6,
+        -7.0
+      ],
+      "actuator_outward_app": [
+        -1,
+        0,
+        0
+      ],
+      "press_direction_app": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "ref": "SW3",
+      "name": "BOOT / C2762970",
+      "x": -30.4,
+      "y": -7.0,
+      "rotation_deg": 90,
+      "footprint": "SW-C2762970",
+      "layer": "F.Cu",
+      "centering_xy": [
+        0,
+        0
+      ],
+      "datum": "midpoint of two locating posts; seating surface app y=13.6",
+      "app_base": [
+        -30.4,
+        13.6,
+        7.0
+      ],
+      "actuator_outward_app": [
+        -1,
+        0,
+        0
+      ],
+      "press_direction_app": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "ref": "SW1",
+      "name": "C963206 / MK-12C02-G020 body center",
+      "x": 23,
+      "y": 23.9,
+      "rotation_deg": 0,
+      "footprint": null,
+      "layer": "F.Cu",
+      "centering_xy": [
+        0,
+        0
+      ]
+    }
+  ],
+  "features": [
+    {
+      "id": "SW4-pad-1",
+      "ref": "SW4",
+      "kind": "pad",
+      "x": -27.36,
+      "y": 12.54,
+      "width": 2.9,
+      "height": 2.5,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "pad_number": "1",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "LCSC official EasyEDA library land; original maker drawing labels reference land width (2.55) and height (2.5), so 2.90mm is the EDA library choice, not the drawing nominal."
+    },
+    {
+      "id": "SW4-pad-2",
+      "ref": "SW4",
+      "kind": "pad",
+      "x": -13.91,
+      "y": 15.08,
+      "width": 2.9,
+      "height": 2.5,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "pad_number": "2",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "LCSC official EasyEDA library land; original maker drawing labels reference land width (2.55) and height (2.5), so 2.90mm is the EDA library choice, not the drawing nominal."
+    },
+    {
+      "id": "SW4-drill-3",
+      "ref": "SW4",
+      "kind": "drill",
+      "x": -23.81,
+      "y": 12.54,
+      "width": 3.0,
+      "height": 3.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "SOCKET1",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "manufacturer_recommended; socket drawing positional/hole tolerance ±0.05mm"
+    },
+    {
+      "id": "SW4-drill-4",
+      "ref": "SW4",
+      "kind": "drill",
+      "x": -17.46,
+      "y": 15.08,
+      "width": 3.0,
+      "height": 3.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "SOCKET2",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "manufacturer_recommended; socket drawing positional/hole tolerance ±0.05mm"
+    },
+    {
+      "id": "SW4-drill-5",
+      "ref": "SW4",
+      "kind": "drill",
+      "x": -20.0,
+      "y": 10.0,
+      "width": 4.0,
+      "height": 4.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "CENTER",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "existing_design_assumption; SAMZO drawing specifies column diameters 3.85 and 1.65, not PCB drill sizes. Retained prototype drill must be verified on first article."
+    },
+    {
+      "id": "SW4-drill-6",
+      "ref": "SW4",
+      "kind": "drill",
+      "x": -25.08,
+      "y": 10.0,
+      "width": 2.0,
+      "height": 2.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "LOC_L",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "existing_design_assumption; SAMZO drawing specifies column diameters 3.85 and 1.65, not PCB drill sizes. Retained prototype drill must be verified on first article."
+    },
+    {
+      "id": "SW4-drill-7",
+      "ref": "SW4",
+      "kind": "drill",
+      "x": -14.92,
+      "y": 10.0,
+      "width": 2.0,
+      "height": 2.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "LOC_R",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "existing_design_assumption; SAMZO drawing specifies column diameters 3.85 and 1.65, not PCB drill sizes. Retained prototype drill must be verified on first article."
+    },
+    {
+      "id": "RGB1-window",
+      "ref": "D2",
+      "kind": "window",
+      "x": -20,
+      "y": 4.8,
+      "width": 3.4,
+      "height": 3,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "corner_radius": 0.15,
+      "plating": "none",
+      "source": "Rev.D RGB footprint window + assembly proposal corner relief"
+    },
+    {
+      "id": "D2-pad-1",
+      "ref": "D2",
+      "kind": "pad",
+      "x": -22.7,
+      "y": 5.57,
+      "width": 1.7,
+      "height": 0.8,
+      "rotation_deg": 0.0,
+      "layer": "PCB",
+      "pad_number": "1",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "Rev.D/LED_GL6028RGB01H-W_ReverseMount.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "D2-pad-2",
+      "ref": "D2",
+      "kind": "pad",
+      "x": -22.7,
+      "y": 4.03,
+      "width": 1.7,
+      "height": 0.8,
+      "rotation_deg": 0.0,
+      "layer": "PCB",
+      "pad_number": "2",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "Rev.D/LED_GL6028RGB01H-W_ReverseMount.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "D2-pad-3",
+      "ref": "D2",
+      "kind": "pad",
+      "x": -17.3,
+      "y": 4.03,
+      "width": 1.7,
+      "height": 0.8,
+      "rotation_deg": 0.0,
+      "layer": "PCB",
+      "pad_number": "3",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "Rev.D/LED_GL6028RGB01H-W_ReverseMount.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "D2-pad-4",
+      "ref": "D2",
+      "kind": "pad",
+      "x": -17.3,
+      "y": 5.57,
+      "width": 1.7,
+      "height": 0.8,
+      "rotation_deg": 0.0,
+      "layer": "PCB",
+      "pad_number": "4",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "Rev.D/LED_GL6028RGB01H-W_ReverseMount.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "SW5-pad-1",
+      "ref": "SW5",
+      "kind": "pad",
+      "x": -7.36,
+      "y": 12.54,
+      "width": 2.9,
+      "height": 2.5,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "pad_number": "1",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "LCSC official EasyEDA library land; original maker drawing labels reference land width (2.55) and height (2.5), so 2.90mm is the EDA library choice, not the drawing nominal."
+    },
+    {
+      "id": "SW5-pad-2",
+      "ref": "SW5",
+      "kind": "pad",
+      "x": 6.09,
+      "y": 15.08,
+      "width": 2.9,
+      "height": 2.5,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "pad_number": "2",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "LCSC official EasyEDA library land; original maker drawing labels reference land width (2.55) and height (2.5), so 2.90mm is the EDA library choice, not the drawing nominal."
+    },
+    {
+      "id": "SW5-drill-3",
+      "ref": "SW5",
+      "kind": "drill",
+      "x": -3.81,
+      "y": 12.54,
+      "width": 3.0,
+      "height": 3.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "SOCKET1",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "manufacturer_recommended; socket drawing positional/hole tolerance ±0.05mm"
+    },
+    {
+      "id": "SW5-drill-4",
+      "ref": "SW5",
+      "kind": "drill",
+      "x": 2.54,
+      "y": 15.08,
+      "width": 3.0,
+      "height": 3.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "SOCKET2",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "manufacturer_recommended; socket drawing positional/hole tolerance ±0.05mm"
+    },
+    {
+      "id": "SW5-drill-5",
+      "ref": "SW5",
+      "kind": "drill",
+      "x": 0.0,
+      "y": 10.0,
+      "width": 4.0,
+      "height": 4.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "CENTER",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "existing_design_assumption; SAMZO drawing specifies column diameters 3.85 and 1.65, not PCB drill sizes. Retained prototype drill must be verified on first article."
+    },
+    {
+      "id": "SW5-drill-6",
+      "ref": "SW5",
+      "kind": "drill",
+      "x": -5.08,
+      "y": 10.0,
+      "width": 2.0,
+      "height": 2.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "LOC_L",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "existing_design_assumption; SAMZO drawing specifies column diameters 3.85 and 1.65, not PCB drill sizes. Retained prototype drill must be verified on first article."
+    },
+    {
+      "id": "SW5-drill-7",
+      "ref": "SW5",
+      "kind": "drill",
+      "x": 5.08,
+      "y": 10.0,
+      "width": 2.0,
+      "height": 2.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "LOC_R",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "existing_design_assumption; SAMZO drawing specifies column diameters 3.85 and 1.65, not PCB drill sizes. Retained prototype drill must be verified on first article."
+    },
+    {
+      "id": "RGB2-window",
+      "ref": "D3",
+      "kind": "window",
+      "x": 0,
+      "y": 4.8,
+      "width": 3.4,
+      "height": 3,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "corner_radius": 0.15,
+      "plating": "none",
+      "source": "Rev.D RGB footprint window + assembly proposal corner relief"
+    },
+    {
+      "id": "D3-pad-1",
+      "ref": "D3",
+      "kind": "pad",
+      "x": -2.7,
+      "y": 5.57,
+      "width": 1.7,
+      "height": 0.8,
+      "rotation_deg": 0.0,
+      "layer": "PCB",
+      "pad_number": "1",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "Rev.D/LED_GL6028RGB01H-W_ReverseMount.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "D3-pad-2",
+      "ref": "D3",
+      "kind": "pad",
+      "x": -2.7,
+      "y": 4.03,
+      "width": 1.7,
+      "height": 0.8,
+      "rotation_deg": 0.0,
+      "layer": "PCB",
+      "pad_number": "2",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "Rev.D/LED_GL6028RGB01H-W_ReverseMount.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "D3-pad-3",
+      "ref": "D3",
+      "kind": "pad",
+      "x": 2.7,
+      "y": 4.03,
+      "width": 1.7,
+      "height": 0.8,
+      "rotation_deg": 0.0,
+      "layer": "PCB",
+      "pad_number": "3",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "Rev.D/LED_GL6028RGB01H-W_ReverseMount.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "D3-pad-4",
+      "ref": "D3",
+      "kind": "pad",
+      "x": 2.7,
+      "y": 5.57,
+      "width": 1.7,
+      "height": 0.8,
+      "rotation_deg": 0.0,
+      "layer": "PCB",
+      "pad_number": "4",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "Rev.D/LED_GL6028RGB01H-W_ReverseMount.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "SW6-pad-1",
+      "ref": "SW6",
+      "kind": "pad",
+      "x": -27.36,
+      "y": -7.46,
+      "width": 2.9,
+      "height": 2.5,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "pad_number": "1",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "LCSC official EasyEDA library land; original maker drawing labels reference land width (2.55) and height (2.5), so 2.90mm is the EDA library choice, not the drawing nominal."
+    },
+    {
+      "id": "SW6-pad-2",
+      "ref": "SW6",
+      "kind": "pad",
+      "x": -13.91,
+      "y": -4.92,
+      "width": 2.9,
+      "height": 2.5,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "pad_number": "2",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "LCSC official EasyEDA library land; original maker drawing labels reference land width (2.55) and height (2.5), so 2.90mm is the EDA library choice, not the drawing nominal."
+    },
+    {
+      "id": "SW6-drill-3",
+      "ref": "SW6",
+      "kind": "drill",
+      "x": -23.81,
+      "y": -7.46,
+      "width": 3.0,
+      "height": 3.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "SOCKET1",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "manufacturer_recommended; socket drawing positional/hole tolerance ±0.05mm"
+    },
+    {
+      "id": "SW6-drill-4",
+      "ref": "SW6",
+      "kind": "drill",
+      "x": -17.46,
+      "y": -4.92,
+      "width": 3.0,
+      "height": 3.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "SOCKET2",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "manufacturer_recommended; socket drawing positional/hole tolerance ±0.05mm"
+    },
+    {
+      "id": "SW6-drill-5",
+      "ref": "SW6",
+      "kind": "drill",
+      "x": -20.0,
+      "y": -10.0,
+      "width": 4.0,
+      "height": 4.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "CENTER",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "existing_design_assumption; SAMZO drawing specifies column diameters 3.85 and 1.65, not PCB drill sizes. Retained prototype drill must be verified on first article."
+    },
+    {
+      "id": "SW6-drill-6",
+      "ref": "SW6",
+      "kind": "drill",
+      "x": -25.08,
+      "y": -10.0,
+      "width": 2.0,
+      "height": 2.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "LOC_L",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "existing_design_assumption; SAMZO drawing specifies column diameters 3.85 and 1.65, not PCB drill sizes. Retained prototype drill must be verified on first article."
+    },
+    {
+      "id": "SW6-drill-7",
+      "ref": "SW6",
+      "kind": "drill",
+      "x": -14.92,
+      "y": -10.0,
+      "width": 2.0,
+      "height": 2.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "LOC_R",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "existing_design_assumption; SAMZO drawing specifies column diameters 3.85 and 1.65, not PCB drill sizes. Retained prototype drill must be verified on first article."
+    },
+    {
+      "id": "RGB3-window",
+      "ref": "D4",
+      "kind": "window",
+      "x": -20,
+      "y": -15.2,
+      "width": 3.4,
+      "height": 3,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "corner_radius": 0.15,
+      "plating": "none",
+      "source": "Rev.D RGB footprint window + assembly proposal corner relief"
+    },
+    {
+      "id": "D4-pad-1",
+      "ref": "D4",
+      "kind": "pad",
+      "x": -22.7,
+      "y": -14.43,
+      "width": 1.7,
+      "height": 0.8,
+      "rotation_deg": 0.0,
+      "layer": "PCB",
+      "pad_number": "1",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "Rev.D/LED_GL6028RGB01H-W_ReverseMount.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "D4-pad-2",
+      "ref": "D4",
+      "kind": "pad",
+      "x": -22.7,
+      "y": -15.97,
+      "width": 1.7,
+      "height": 0.8,
+      "rotation_deg": 0.0,
+      "layer": "PCB",
+      "pad_number": "2",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "Rev.D/LED_GL6028RGB01H-W_ReverseMount.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "D4-pad-3",
+      "ref": "D4",
+      "kind": "pad",
+      "x": -17.3,
+      "y": -15.97,
+      "width": 1.7,
+      "height": 0.8,
+      "rotation_deg": 0.0,
+      "layer": "PCB",
+      "pad_number": "3",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "Rev.D/LED_GL6028RGB01H-W_ReverseMount.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "D4-pad-4",
+      "ref": "D4",
+      "kind": "pad",
+      "x": -17.3,
+      "y": -14.43,
+      "width": 1.7,
+      "height": 0.8,
+      "rotation_deg": 0.0,
+      "layer": "PCB",
+      "pad_number": "4",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "Rev.D/LED_GL6028RGB01H-W_ReverseMount.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "SW7-pad-1",
+      "ref": "SW7",
+      "kind": "pad",
+      "x": -7.36,
+      "y": -7.46,
+      "width": 2.9,
+      "height": 2.5,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "pad_number": "1",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "LCSC official EasyEDA library land; original maker drawing labels reference land width (2.55) and height (2.5), so 2.90mm is the EDA library choice, not the drawing nominal."
+    },
+    {
+      "id": "SW7-pad-2",
+      "ref": "SW7",
+      "kind": "pad",
+      "x": 6.09,
+      "y": -4.92,
+      "width": 2.9,
+      "height": 2.5,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "pad_number": "2",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "LCSC official EasyEDA library land; original maker drawing labels reference land width (2.55) and height (2.5), so 2.90mm is the EDA library choice, not the drawing nominal."
+    },
+    {
+      "id": "SW7-drill-3",
+      "ref": "SW7",
+      "kind": "drill",
+      "x": -3.81,
+      "y": -7.46,
+      "width": 3.0,
+      "height": 3.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "SOCKET1",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "manufacturer_recommended; socket drawing positional/hole tolerance ±0.05mm"
+    },
+    {
+      "id": "SW7-drill-4",
+      "ref": "SW7",
+      "kind": "drill",
+      "x": 2.54,
+      "y": -4.92,
+      "width": 3.0,
+      "height": 3.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "SOCKET2",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "manufacturer_recommended; socket drawing positional/hole tolerance ±0.05mm"
+    },
+    {
+      "id": "SW7-drill-5",
+      "ref": "SW7",
+      "kind": "drill",
+      "x": 0.0,
+      "y": -10.0,
+      "width": 4.0,
+      "height": 4.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "CENTER",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "existing_design_assumption; SAMZO drawing specifies column diameters 3.85 and 1.65, not PCB drill sizes. Retained prototype drill must be verified on first article."
+    },
+    {
+      "id": "SW7-drill-6",
+      "ref": "SW7",
+      "kind": "drill",
+      "x": -5.08,
+      "y": -10.0,
+      "width": 2.0,
+      "height": 2.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "LOC_L",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "existing_design_assumption; SAMZO drawing specifies column diameters 3.85 and 1.65, not PCB drill sizes. Retained prototype drill must be verified on first article."
+    },
+    {
+      "id": "SW7-drill-7",
+      "ref": "SW7",
+      "kind": "drill",
+      "x": 5.08,
+      "y": -10.0,
+      "width": 2.0,
+      "height": 2.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "LOC_R",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "existing_design_assumption; SAMZO drawing specifies column diameters 3.85 and 1.65, not PCB drill sizes. Retained prototype drill must be verified on first article."
+    },
+    {
+      "id": "RGB4-window",
+      "ref": "D5",
+      "kind": "window",
+      "x": 0,
+      "y": -15.2,
+      "width": 3.4,
+      "height": 3,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "corner_radius": 0.15,
+      "plating": "none",
+      "source": "Rev.D RGB footprint window + assembly proposal corner relief"
+    },
+    {
+      "id": "D5-pad-1",
+      "ref": "D5",
+      "kind": "pad",
+      "x": -2.7,
+      "y": -14.43,
+      "width": 1.7,
+      "height": 0.8,
+      "rotation_deg": 0.0,
+      "layer": "PCB",
+      "pad_number": "1",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "Rev.D/LED_GL6028RGB01H-W_ReverseMount.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "D5-pad-2",
+      "ref": "D5",
+      "kind": "pad",
+      "x": -2.7,
+      "y": -15.97,
+      "width": 1.7,
+      "height": 0.8,
+      "rotation_deg": 0.0,
+      "layer": "PCB",
+      "pad_number": "2",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "Rev.D/LED_GL6028RGB01H-W_ReverseMount.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "D5-pad-3",
+      "ref": "D5",
+      "kind": "pad",
+      "x": 2.7,
+      "y": -15.97,
+      "width": 1.7,
+      "height": 0.8,
+      "rotation_deg": 0.0,
+      "layer": "PCB",
+      "pad_number": "3",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "Rev.D/LED_GL6028RGB01H-W_ReverseMount.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "D5-pad-4",
+      "ref": "D5",
+      "kind": "pad",
+      "x": 2.7,
+      "y": -14.43,
+      "width": 1.7,
+      "height": 0.8,
+      "rotation_deg": 0.0,
+      "layer": "PCB",
+      "pad_number": "4",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "Rev.D/LED_GL6028RGB01H-W_ReverseMount.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "SW8-pad-1",
+      "ref": "SW8",
+      "kind": "pad",
+      "x": 12.64,
+      "y": -7.46,
+      "width": 2.9,
+      "height": 2.5,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "pad_number": "1",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "LCSC official EasyEDA library land; original maker drawing labels reference land width (2.55) and height (2.5), so 2.90mm is the EDA library choice, not the drawing nominal."
+    },
+    {
+      "id": "SW8-pad-2",
+      "ref": "SW8",
+      "kind": "pad",
+      "x": 26.09,
+      "y": -4.92,
+      "width": 2.9,
+      "height": 2.5,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "pad_number": "2",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "LCSC official EasyEDA library land; original maker drawing labels reference land width (2.55) and height (2.5), so 2.90mm is the EDA library choice, not the drawing nominal."
+    },
+    {
+      "id": "SW8-drill-3",
+      "ref": "SW8",
+      "kind": "drill",
+      "x": 16.19,
+      "y": -7.46,
+      "width": 3.0,
+      "height": 3.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "SOCKET1",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "manufacturer_recommended; socket drawing positional/hole tolerance ±0.05mm"
+    },
+    {
+      "id": "SW8-drill-4",
+      "ref": "SW8",
+      "kind": "drill",
+      "x": 22.54,
+      "y": -4.92,
+      "width": 3.0,
+      "height": 3.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "SOCKET2",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "manufacturer_recommended; socket drawing positional/hole tolerance ±0.05mm"
+    },
+    {
+      "id": "SW8-drill-5",
+      "ref": "SW8",
+      "kind": "drill",
+      "x": 20.0,
+      "y": -10.0,
+      "width": 4.0,
+      "height": 4.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "CENTER",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "existing_design_assumption; SAMZO drawing specifies column diameters 3.85 and 1.65, not PCB drill sizes. Retained prototype drill must be verified on first article."
+    },
+    {
+      "id": "SW8-drill-6",
+      "ref": "SW8",
+      "kind": "drill",
+      "x": 14.92,
+      "y": -10.0,
+      "width": 2.0,
+      "height": 2.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "LOC_L",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "existing_design_assumption; SAMZO drawing specifies column diameters 3.85 and 1.65, not PCB drill sizes. Retained prototype drill must be verified on first article."
+    },
+    {
+      "id": "SW8-drill-7",
+      "ref": "SW8",
+      "kind": "drill",
+      "x": 25.08,
+      "y": -10.0,
+      "width": 2.0,
+      "height": 2.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "LOC_R",
+      "source": "https://item.szlcsc.com/51853006.html",
+      "classification_note": "existing_design_assumption; SAMZO drawing specifies column diameters 3.85 and 1.65, not PCB drill sizes. Retained prototype drill must be verified on first article."
+    },
+    {
+      "id": "RGB5-window",
+      "ref": "D6",
+      "kind": "window",
+      "x": 20,
+      "y": -15.2,
+      "width": 3.4,
+      "height": 3,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "corner_radius": 0.15,
+      "plating": "none",
+      "source": "Rev.D RGB footprint window + assembly proposal corner relief"
+    },
+    {
+      "id": "D6-pad-1",
+      "ref": "D6",
+      "kind": "pad",
+      "x": 17.3,
+      "y": -14.43,
+      "width": 1.7,
+      "height": 0.8,
+      "rotation_deg": 0.0,
+      "layer": "PCB",
+      "pad_number": "1",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "Rev.D/LED_GL6028RGB01H-W_ReverseMount.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "D6-pad-2",
+      "ref": "D6",
+      "kind": "pad",
+      "x": 17.3,
+      "y": -15.97,
+      "width": 1.7,
+      "height": 0.8,
+      "rotation_deg": 0.0,
+      "layer": "PCB",
+      "pad_number": "2",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "Rev.D/LED_GL6028RGB01H-W_ReverseMount.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "D6-pad-3",
+      "ref": "D6",
+      "kind": "pad",
+      "x": 22.7,
+      "y": -15.97,
+      "width": 1.7,
+      "height": 0.8,
+      "rotation_deg": 0.0,
+      "layer": "PCB",
+      "pad_number": "3",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "Rev.D/LED_GL6028RGB01H-W_ReverseMount.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "D6-pad-4",
+      "ref": "D6",
+      "kind": "pad",
+      "x": 22.7,
+      "y": -14.43,
+      "width": 1.7,
+      "height": 0.8,
+      "rotation_deg": 0.0,
+      "layer": "PCB",
+      "pad_number": "4",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "B.Cu",
+      "source": "Rev.D/LED_GL6028RGB01H-W_ReverseMount.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "ENC1-drill-1",
+      "ref": "ENC1",
+      "kind": "drill",
+      "x": 17.5,
+      "y": 2.5,
+      "width": 1.0,
+      "height": 1.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "PTH",
+      "pad_number": "A",
+      "source": "https://www.bourns.com/docs/product-datasheets/pec11l.pdf",
+      "classification_note": "OEM hole position and Ø1.0 +0.2/-0 drill. Size field denotes hole only; copper annulus intentionally unspecified. Signal PTH is design intent."
+    },
+    {
+      "id": "ENC1-drill-2",
+      "ref": "ENC1",
+      "kind": "drill",
+      "x": 20.0,
+      "y": 2.5,
+      "width": 1.0,
+      "height": 1.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "PTH",
+      "pad_number": "C",
+      "source": "https://www.bourns.com/docs/product-datasheets/pec11l.pdf",
+      "classification_note": "OEM hole position and Ø1.0 +0.2/-0 drill. Size field denotes hole only; copper annulus intentionally unspecified. Signal PTH is design intent."
+    },
+    {
+      "id": "ENC1-drill-3",
+      "ref": "ENC1",
+      "kind": "drill",
+      "x": 22.5,
+      "y": 2.5,
+      "width": 1.0,
+      "height": 1.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "PTH",
+      "pad_number": "B",
+      "source": "https://www.bourns.com/docs/product-datasheets/pec11l.pdf",
+      "classification_note": "OEM hole position and Ø1.0 +0.2/-0 drill. Size field denotes hole only; copper annulus intentionally unspecified. Signal PTH is design intent."
+    },
+    {
+      "id": "ENC1-drill-4",
+      "ref": "ENC1",
+      "kind": "drill",
+      "x": 17.5,
+      "y": 17.0,
+      "width": 1.0,
+      "height": 1.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "PTH",
+      "pad_number": "SW1",
+      "source": "https://www.bourns.com/docs/product-datasheets/pec11l.pdf",
+      "classification_note": "OEM hole position and Ø1.0 +0.2/-0 drill. Size field denotes hole only; copper annulus intentionally unspecified. Signal PTH is design intent."
+    },
+    {
+      "id": "ENC1-drill-5",
+      "ref": "ENC1",
+      "kind": "drill",
+      "x": 22.5,
+      "y": 17.0,
+      "width": 1.0,
+      "height": 1.0,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "PTH",
+      "pad_number": "SW2",
+      "source": "https://www.bourns.com/docs/product-datasheets/pec11l.pdf",
+      "classification_note": "OEM hole position and Ø1.0 +0.2/-0 drill. Size field denotes hole only; copper annulus intentionally unspecified. Signal PTH is design intent."
+    },
+    {
+      "id": "ENC1-drill-6",
+      "ref": "ENC1",
+      "kind": "drill",
+      "x": 14.3,
+      "y": 10.0,
+      "width": 1.4,
+      "height": 2.1,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "rect",
+      "plating": "UNSPECIFIED",
+      "pad_number": "SHIELD_LEFT",
+      "source": "https://www.bourns.com/docs/product-datasheets/pec11l.pdf",
+      "classification_note": "OEM 1.40 x 2.10 rectangular mounting envelope; corner radius, plating and copper unspecified. Must be selected by PCB engineer. Slot-center pitch derived as 12.80 outside span - 1.40 width = 11.40."
+    },
+    {
+      "id": "ENC1-drill-7",
+      "ref": "ENC1",
+      "kind": "drill",
+      "x": 25.7,
+      "y": 10.0,
+      "width": 1.4,
+      "height": 2.1,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "rect",
+      "plating": "UNSPECIFIED",
+      "pad_number": "SHIELD_RIGHT",
+      "source": "https://www.bourns.com/docs/product-datasheets/pec11l.pdf",
+      "classification_note": "OEM 1.40 x 2.10 rectangular mounting envelope; corner radius, plating and copper unspecified. Must be selected by PCB engineer. Slot-center pitch derived as 12.80 outside span - 1.40 width = 11.40."
+    },
+    {
+      "id": "J1-pad-1",
+      "ref": "J1",
+      "kind": "pad",
+      "x": -3.2,
+      "y": 19.82,
+      "width": 0.6,
+      "height": 1.14,
+      "rotation_deg": 180.0,
+      "layer": "PCB",
+      "pad_number": "B1A12",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "F.Cu",
+      "source": "Rev.D/USB-C-SMD_GT-USB-7010ANS.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "J1-pad-2",
+      "ref": "J1",
+      "kind": "pad",
+      "x": -2.4,
+      "y": 19.82,
+      "width": 0.6,
+      "height": 1.14,
+      "rotation_deg": 180.0,
+      "layer": "PCB",
+      "pad_number": "B4A9",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "F.Cu",
+      "source": "Rev.D/USB-C-SMD_GT-USB-7010ANS.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "J1-pad-3",
+      "ref": "J1",
+      "kind": "pad",
+      "x": -1.75,
+      "y": 19.82,
+      "width": 0.3,
+      "height": 1.14,
+      "rotation_deg": 180.0,
+      "layer": "PCB",
+      "pad_number": "B5",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "F.Cu",
+      "source": "Rev.D/USB-C-SMD_GT-USB-7010ANS.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "J1-pad-4",
+      "ref": "J1",
+      "kind": "pad",
+      "x": -1.25,
+      "y": 19.82,
+      "width": 0.3,
+      "height": 1.14,
+      "rotation_deg": 180.0,
+      "layer": "PCB",
+      "pad_number": "A8",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "F.Cu",
+      "source": "Rev.D/USB-C-SMD_GT-USB-7010ANS.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "J1-pad-5",
+      "ref": "J1",
+      "kind": "pad",
+      "x": -0.75,
+      "y": 19.82,
+      "width": 0.3,
+      "height": 1.14,
+      "rotation_deg": 180.0,
+      "layer": "PCB",
+      "pad_number": "B6",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "F.Cu",
+      "source": "Rev.D/USB-C-SMD_GT-USB-7010ANS.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "J1-pad-6",
+      "ref": "J1",
+      "kind": "pad",
+      "x": -0.25,
+      "y": 19.82,
+      "width": 0.3,
+      "height": 1.14,
+      "rotation_deg": 180.0,
+      "layer": "PCB",
+      "pad_number": "A7",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "F.Cu",
+      "source": "Rev.D/USB-C-SMD_GT-USB-7010ANS.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "J1-pad-7",
+      "ref": "J1",
+      "kind": "pad",
+      "x": 0.25,
+      "y": 19.82,
+      "width": 0.3,
+      "height": 1.14,
+      "rotation_deg": 180.0,
+      "layer": "PCB",
+      "pad_number": "A6",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "F.Cu",
+      "source": "Rev.D/USB-C-SMD_GT-USB-7010ANS.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "J1-pad-8",
+      "ref": "J1",
+      "kind": "pad",
+      "x": 0.75,
+      "y": 19.82,
+      "width": 0.3,
+      "height": 1.14,
+      "rotation_deg": 180.0,
+      "layer": "PCB",
+      "pad_number": "B7",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "F.Cu",
+      "source": "Rev.D/USB-C-SMD_GT-USB-7010ANS.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "J1-pad-9",
+      "ref": "J1",
+      "kind": "pad",
+      "x": 1.25,
+      "y": 19.82,
+      "width": 0.3,
+      "height": 1.14,
+      "rotation_deg": 180.0,
+      "layer": "PCB",
+      "pad_number": "A5",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "F.Cu",
+      "source": "Rev.D/USB-C-SMD_GT-USB-7010ANS.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "J1-pad-10",
+      "ref": "J1",
+      "kind": "pad",
+      "x": 1.75,
+      "y": 19.82,
+      "width": 0.3,
+      "height": 1.14,
+      "rotation_deg": 180.0,
+      "layer": "PCB",
+      "pad_number": "B8",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "F.Cu",
+      "source": "Rev.D/USB-C-SMD_GT-USB-7010ANS.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "J1-pad-11",
+      "ref": "J1",
+      "kind": "pad",
+      "x": 2.4,
+      "y": 19.82,
+      "width": 0.6,
+      "height": 1.14,
+      "rotation_deg": 180.0,
+      "layer": "PCB",
+      "pad_number": "A4B9",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "F.Cu",
+      "source": "Rev.D/USB-C-SMD_GT-USB-7010ANS.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "J1-pad-12",
+      "ref": "J1",
+      "kind": "pad",
+      "x": 3.2,
+      "y": 19.82,
+      "width": 0.6,
+      "height": 1.14,
+      "rotation_deg": 180.0,
+      "layer": "PCB",
+      "pad_number": "A1B12",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "F.Cu",
+      "source": "Rev.D/USB-C-SMD_GT-USB-7010ANS.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "J1-pad-13",
+      "ref": "J1",
+      "kind": "pad",
+      "x": 4.32,
+      "y": 20.4,
+      "width": 1.0,
+      "height": 2.1,
+      "rotation_deg": 180.0,
+      "layer": "PCB",
+      "pad_number": "1",
+      "pad_shape": "oval",
+      "pad_type": "thru_hole",
+      "copper_layer": "*.Cu",
+      "source": "Rev.D/USB-C-SMD_GT-USB-7010ANS.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "J1-drill-13",
+      "ref": "J1",
+      "kind": "drill",
+      "x": 4.32,
+      "y": 20.4,
+      "width": 0.599998,
+      "height": 1.699997,
+      "rotation_deg": 180.0,
+      "layer": "PCB",
+      "hole_shape": "oval",
+      "plating": "PTH",
+      "pad_number": "1",
+      "source": "Rev.D/USB-C-SMD_GT-USB-7010ANS.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "J1-pad-14",
+      "ref": "J1",
+      "kind": "pad",
+      "x": 4.32,
+      "y": 24.58,
+      "width": 1.0,
+      "height": 1.8,
+      "rotation_deg": 180.0,
+      "layer": "PCB",
+      "pad_number": "4",
+      "pad_shape": "oval",
+      "pad_type": "thru_hole",
+      "copper_layer": "*.Cu",
+      "source": "Rev.D/USB-C-SMD_GT-USB-7010ANS.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "J1-drill-14",
+      "ref": "J1",
+      "kind": "drill",
+      "x": 4.32,
+      "y": 24.58,
+      "width": 0.599998,
+      "height": 1.399997,
+      "rotation_deg": 180.0,
+      "layer": "PCB",
+      "hole_shape": "oval",
+      "plating": "PTH",
+      "pad_number": "4",
+      "source": "Rev.D/USB-C-SMD_GT-USB-7010ANS.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "J1-pad-15",
+      "ref": "J1",
+      "kind": "pad",
+      "x": -4.32,
+      "y": 24.58,
+      "width": 1.0,
+      "height": 1.8,
+      "rotation_deg": 180.0,
+      "layer": "PCB",
+      "pad_number": "3",
+      "pad_shape": "oval",
+      "pad_type": "thru_hole",
+      "copper_layer": "*.Cu",
+      "source": "Rev.D/USB-C-SMD_GT-USB-7010ANS.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "J1-drill-15",
+      "ref": "J1",
+      "kind": "drill",
+      "x": -4.32,
+      "y": 24.58,
+      "width": 0.599998,
+      "height": 1.399997,
+      "rotation_deg": 180.0,
+      "layer": "PCB",
+      "hole_shape": "oval",
+      "plating": "PTH",
+      "pad_number": "3",
+      "source": "Rev.D/USB-C-SMD_GT-USB-7010ANS.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "J1-pad-16",
+      "ref": "J1",
+      "kind": "pad",
+      "x": -4.32,
+      "y": 20.39,
+      "width": 1.0,
+      "height": 2.1,
+      "rotation_deg": 180.0,
+      "layer": "PCB",
+      "pad_number": "2",
+      "pad_shape": "oval",
+      "pad_type": "thru_hole",
+      "copper_layer": "*.Cu",
+      "source": "Rev.D/USB-C-SMD_GT-USB-7010ANS.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "J1-drill-16",
+      "ref": "J1",
+      "kind": "drill",
+      "x": -4.32,
+      "y": 20.39,
+      "width": 0.599998,
+      "height": 1.700022,
+      "rotation_deg": 180.0,
+      "layer": "PCB",
+      "hole_shape": "oval",
+      "plating": "PTH",
+      "pad_number": "2",
+      "source": "Rev.D/USB-C-SMD_GT-USB-7010ANS.kicad_mod",
+      "classification_note": ""
+    },
+    {
+      "id": "J1-drill-17",
+      "ref": "J1",
+      "kind": "drill",
+      "x": -2.89,
+      "y": 20.9,
+      "width": 0.65,
+      "height": 0.65,
+      "rotation_deg": 180,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "",
+      "source": "Rev.D/USB-C-SMD_GT-USB-7010ANS.kicad_mod",
+      "classification_note": "Source uses blank-number thru_hole; treated as mechanical NPTH in this proposal."
+    },
+    {
+      "id": "J1-drill-18",
+      "ref": "J1",
+      "kind": "drill",
+      "x": 2.89,
+      "y": 20.9,
+      "width": 0.65,
+      "height": 0.65,
+      "rotation_deg": 180,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "",
+      "source": "Rev.D/USB-C-SMD_GT-USB-7010ANS.kicad_mod",
+      "classification_note": "Source uses blank-number thru_hole; treated as mechanical NPTH in this proposal."
+    },
+    {
+      "id": "SW2-pad-1",
+      "ref": "SW2",
+      "kind": "pad",
+      "x": -29.2,
+      "y": 5.325,
+      "width": 0.65,
+      "height": 0.9,
+      "rotation_deg": 90,
+      "layer": "PCB",
+      "pad_number": "1",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "F.Cu",
+      "source": "https://datasheet.lcsc.com/datasheet/pdf/8c19e09b9abd1bb54aeb693a8cdb347b.pdf?productCode=C2762970",
+      "classification_note": "Position dimensioned. Copper size proposed. Signal numbers 1/2 assigned for this project; vendor drawing labels both A."
+    },
+    {
+      "id": "SW2-pad-2",
+      "ref": "SW2",
+      "kind": "pad",
+      "x": -29.2,
+      "y": 8.675,
+      "width": 0.65,
+      "height": 0.9,
+      "rotation_deg": 90,
+      "layer": "PCB",
+      "pad_number": "2",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "F.Cu",
+      "source": "https://datasheet.lcsc.com/datasheet/pdf/8c19e09b9abd1bb54aeb693a8cdb347b.pdf?productCode=C2762970",
+      "classification_note": "Position dimensioned. Copper size proposed. Signal numbers 1/2 assigned for this project; vendor drawing labels both A."
+    },
+    {
+      "id": "SW2-pad-3",
+      "ref": "SW2",
+      "kind": "pad",
+      "x": -30.775,
+      "y": 4.75,
+      "width": 0.5,
+      "height": 0.75,
+      "rotation_deg": 90,
+      "layer": "PCB",
+      "pad_number": "MP1",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "F.Cu",
+      "source": "https://datasheet.lcsc.com/datasheet/pdf/8c19e09b9abd1bb54aeb693a8cdb347b.pdf?productCode=C2762970",
+      "classification_note": "X position dimensioned. Center Y and copper size proposed. Anchor labels MP1/MP2 assigned for this project."
+    },
+    {
+      "id": "SW2-pad-4",
+      "ref": "SW2",
+      "kind": "pad",
+      "x": -30.775,
+      "y": 9.25,
+      "width": 0.5,
+      "height": 0.75,
+      "rotation_deg": 90,
+      "layer": "PCB",
+      "pad_number": "MP2",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "F.Cu",
+      "source": "https://datasheet.lcsc.com/datasheet/pdf/8c19e09b9abd1bb54aeb693a8cdb347b.pdf?productCode=C2762970",
+      "classification_note": "X position dimensioned. Center Y and copper size proposed. Anchor labels MP1/MP2 assigned for this project."
+    },
+    {
+      "id": "SW2-drill-5",
+      "ref": "SW2",
+      "kind": "drill",
+      "x": -30.4,
+      "y": 6.15,
+      "width": 0.65,
+      "height": 0.65,
+      "rotation_deg": 90,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "NP1",
+      "source": "https://datasheet.lcsc.com/datasheet/pdf/8c19e09b9abd1bb54aeb693a8cdb347b.pdf?productCode=C2762970",
+      "classification_note": "0.65 proposed PCB clearance for the verified 0.50 locating peg; not a manufacturer hole specification"
+    },
+    {
+      "id": "SW2-drill-6",
+      "ref": "SW2",
+      "kind": "drill",
+      "x": -30.4,
+      "y": 7.85,
+      "width": 0.65,
+      "height": 0.65,
+      "rotation_deg": 90,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "NP2",
+      "source": "https://datasheet.lcsc.com/datasheet/pdf/8c19e09b9abd1bb54aeb693a8cdb347b.pdf?productCode=C2762970",
+      "classification_note": "0.65 proposed PCB clearance for the verified 0.50 locating peg; not a manufacturer hole specification"
+    },
+    {
+      "id": "SW3-pad-1",
+      "ref": "SW3",
+      "kind": "pad",
+      "x": -29.2,
+      "y": -8.675,
+      "width": 0.65,
+      "height": 0.9,
+      "rotation_deg": 90,
+      "layer": "PCB",
+      "pad_number": "1",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "F.Cu",
+      "source": "https://datasheet.lcsc.com/datasheet/pdf/8c19e09b9abd1bb54aeb693a8cdb347b.pdf?productCode=C2762970",
+      "classification_note": "Position dimensioned. Copper size proposed. Signal numbers 1/2 assigned for this project; vendor drawing labels both A."
+    },
+    {
+      "id": "SW3-pad-2",
+      "ref": "SW3",
+      "kind": "pad",
+      "x": -29.2,
+      "y": -5.325,
+      "width": 0.65,
+      "height": 0.9,
+      "rotation_deg": 90,
+      "layer": "PCB",
+      "pad_number": "2",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "F.Cu",
+      "source": "https://datasheet.lcsc.com/datasheet/pdf/8c19e09b9abd1bb54aeb693a8cdb347b.pdf?productCode=C2762970",
+      "classification_note": "Position dimensioned. Copper size proposed. Signal numbers 1/2 assigned for this project; vendor drawing labels both A."
+    },
+    {
+      "id": "SW3-pad-3",
+      "ref": "SW3",
+      "kind": "pad",
+      "x": -30.775,
+      "y": -9.25,
+      "width": 0.5,
+      "height": 0.75,
+      "rotation_deg": 90,
+      "layer": "PCB",
+      "pad_number": "MP1",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "F.Cu",
+      "source": "https://datasheet.lcsc.com/datasheet/pdf/8c19e09b9abd1bb54aeb693a8cdb347b.pdf?productCode=C2762970",
+      "classification_note": "X position dimensioned. Center Y and copper size proposed. Anchor labels MP1/MP2 assigned for this project."
+    },
+    {
+      "id": "SW3-pad-4",
+      "ref": "SW3",
+      "kind": "pad",
+      "x": -30.775,
+      "y": -4.75,
+      "width": 0.5,
+      "height": 0.75,
+      "rotation_deg": 90,
+      "layer": "PCB",
+      "pad_number": "MP2",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "F.Cu",
+      "source": "https://datasheet.lcsc.com/datasheet/pdf/8c19e09b9abd1bb54aeb693a8cdb347b.pdf?productCode=C2762970",
+      "classification_note": "X position dimensioned. Center Y and copper size proposed. Anchor labels MP1/MP2 assigned for this project."
+    },
+    {
+      "id": "SW3-drill-5",
+      "ref": "SW3",
+      "kind": "drill",
+      "x": -30.4,
+      "y": -7.85,
+      "width": 0.65,
+      "height": 0.65,
+      "rotation_deg": 90,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "NP1",
+      "source": "https://datasheet.lcsc.com/datasheet/pdf/8c19e09b9abd1bb54aeb693a8cdb347b.pdf?productCode=C2762970",
+      "classification_note": "0.65 proposed PCB clearance for the verified 0.50 locating peg; not a manufacturer hole specification"
+    },
+    {
+      "id": "SW3-drill-6",
+      "ref": "SW3",
+      "kind": "drill",
+      "x": -30.4,
+      "y": -6.15,
+      "width": 0.65,
+      "height": 0.65,
+      "rotation_deg": 90,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "NP2",
+      "source": "https://datasheet.lcsc.com/datasheet/pdf/8c19e09b9abd1bb54aeb693a8cdb347b.pdf?productCode=C2762970",
+      "classification_note": "0.65 proposed PCB clearance for the verified 0.50 locating peg; not a manufacturer hole specification"
+    },
+    {
+      "id": "SW2-wall-access",
+      "ref": "SW2",
+      "kind": "case_opening",
+      "x": -35,
+      "y": 7,
+      "width": 1.6,
+      "height": 1.6,
+      "rotation_deg": 0,
+      "layer": "CASE_ONLY",
+      "plating": "none",
+      "hole_shape": "circle",
+      "source": "Enclosure Print06: left sidewall access only; no PCB drill",
+      "app_x": -35,
+      "app_y": 14.55,
+      "app_z": -7,
+      "bore_axis_app": [
+        1,
+        0,
+        0
+      ],
+      "width_axis": "app Z",
+      "height_axis": "app Y",
+      "opening_plane": "left wall; width and height are not in PCB plane"
+    },
+    {
+      "id": "SW3-wall-access",
+      "ref": "SW3",
+      "kind": "case_opening",
+      "x": -35,
+      "y": -7,
+      "width": 1.6,
+      "height": 1.6,
+      "rotation_deg": 0,
+      "layer": "CASE_ONLY",
+      "plating": "none",
+      "hole_shape": "circle",
+      "source": "Enclosure Print06: left sidewall access only; no PCB drill",
+      "app_x": -35,
+      "app_y": 14.55,
+      "app_z": 7,
+      "bore_axis_app": [
+        1,
+        0,
+        0
+      ],
+      "width_axis": "app Z",
+      "height_axis": "app Y",
+      "opening_plane": "left wall; width and height are not in PCB plane"
+    },
+    {
+      "id": "J1-case-opening",
+      "ref": "J1",
+      "kind": "case_opening",
+      "x": 0,
+      "y": 28,
+      "width": 9.6,
+      "height": 3.8,
+      "rotation_deg": 0,
+      "layer": "CASE_ONLY",
+      "corner_radius": 1.2,
+      "plating": "none",
+      "hole_shape": "roundrect",
+      "source": "Enclosure Print06: USB rear sidewall throat only; no PCB drill",
+      "app_x": 0,
+      "app_y": 15.28,
+      "app_z": -28,
+      "bore_axis_app": [
+        0,
+        0,
+        1
+      ],
+      "width_axis": "app X",
+      "height_axis": "app Y",
+      "opening_plane": "rear wall; width and height are not in PCB plane"
+    },
+    {
+      "id": "SW1-pad-1",
+      "ref": "SW1",
+      "kind": "pad",
+      "x": 25.250059,
+      "y": 22.053674,
+      "width": 0.8999982,
+      "height": 1.999996,
+      "rotation_deg": 0.0,
+      "layer": "PCB",
+      "pad_number": "1",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "F.Cu",
+      "source": "LCSC / EasyEDA C963206 footprint; enlarged lands compared with vendor PDF"
+    },
+    {
+      "id": "SW1-pad-2",
+      "ref": "SW1",
+      "kind": "pad",
+      "x": 22.250065,
+      "y": 22.053674,
+      "width": 0.8999982,
+      "height": 1.999996,
+      "rotation_deg": 0.0,
+      "layer": "PCB",
+      "pad_number": "2",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "F.Cu",
+      "source": "LCSC / EasyEDA C963206 footprint; enlarged lands compared with vendor PDF"
+    },
+    {
+      "id": "SW1-pad-3",
+      "ref": "SW1",
+      "kind": "pad",
+      "x": 20.750195,
+      "y": 22.053674,
+      "width": 0.8999982,
+      "height": 1.999996,
+      "rotation_deg": 0.0,
+      "layer": "PCB",
+      "pad_number": "3",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "F.Cu",
+      "source": "LCSC / EasyEDA C963206 footprint; enlarged lands compared with vendor PDF"
+    },
+    {
+      "id": "SW1-pad-4",
+      "ref": "SW1",
+      "kind": "pad",
+      "x": 19.200033,
+      "y": 22.765128,
+      "width": 1.0999978,
+      "height": 0.9299956,
+      "rotation_deg": 0.0,
+      "layer": "PCB",
+      "pad_number": "4",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "F.Cu",
+      "source": "LCSC / EasyEDA C963206 footprint; enlarged lands compared with vendor PDF"
+    },
+    {
+      "id": "SW1-pad-5",
+      "ref": "SW1",
+      "kind": "pad",
+      "x": 19.200033,
+      "y": 25.035126,
+      "width": 1.0999978,
+      "height": 0.9299956,
+      "rotation_deg": 0.0,
+      "layer": "PCB",
+      "pad_number": "5",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "F.Cu",
+      "source": "LCSC / EasyEDA C963206 footprint; enlarged lands compared with vendor PDF"
+    },
+    {
+      "id": "SW1-pad-6",
+      "ref": "SW1",
+      "kind": "pad",
+      "x": 26.799967,
+      "y": 25.035126,
+      "width": 1.0999978,
+      "height": 0.9299956,
+      "rotation_deg": 0.0,
+      "layer": "PCB",
+      "pad_number": "6",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "F.Cu",
+      "source": "LCSC / EasyEDA C963206 footprint; enlarged lands compared with vendor PDF"
+    },
+    {
+      "id": "SW1-pad-7",
+      "ref": "SW1",
+      "kind": "pad",
+      "x": 26.799967,
+      "y": 22.765128,
+      "width": 1.0999978,
+      "height": 0.9299956,
+      "rotation_deg": 180.0,
+      "layer": "PCB",
+      "pad_number": "7",
+      "pad_shape": "rect",
+      "pad_type": "smd",
+      "copper_layer": "F.Cu",
+      "source": "LCSC / EasyEDA C963206 footprint; enlarged lands compared with vendor PDF"
+    },
+    {
+      "id": "SW1-locator-gge42",
+      "ref": "SW1",
+      "kind": "drill",
+      "x": 21.500003,
+      "y": 23.9,
+      "width": 0.8499856,
+      "height": 0.8499856,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "",
+      "source": "LCSC / EasyEDA C963206 locator hole"
+    },
+    {
+      "id": "SW1-locator-gge51",
+      "ref": "SW1",
+      "kind": "drill",
+      "x": 24.499997,
+      "y": 23.9,
+      "width": 0.8499856,
+      "height": 0.8499856,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "",
+      "source": "LCSC / EasyEDA C963206 locator hole"
+    },
+    {
+      "id": "H1",
+      "ref": "H1",
+      "kind": "drill",
+      "x": -30,
+      "y": 22,
+      "width": 2.4,
+      "height": 2.4,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "",
+      "source": "Enclosure Print06 / M2 clearance mounting hole"
+    },
+    {
+      "id": "H2",
+      "ref": "H2",
+      "kind": "drill",
+      "x": 30,
+      "y": 22,
+      "width": 2.4,
+      "height": 2.4,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "",
+      "source": "Enclosure Print06 / M2 clearance mounting hole"
+    },
+    {
+      "id": "H3",
+      "ref": "H3",
+      "kind": "drill",
+      "x": -30,
+      "y": -22,
+      "width": 2.4,
+      "height": 2.4,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "",
+      "source": "Enclosure Print06 / M2 clearance mounting hole"
+    },
+    {
+      "id": "H4",
+      "ref": "H4",
+      "kind": "drill",
+      "x": 30,
+      "y": -22,
+      "width": 2.4,
+      "height": 2.4,
+      "rotation_deg": 0,
+      "layer": "PCB",
+      "hole_shape": "circle",
+      "plating": "NPTH",
+      "pad_number": "",
+      "source": "Enclosure Print06 / M2 clearance mounting hole"
+    },
+    {
+      "id": "ENC1-lid-shaft-opening",
+      "ref": "ENC1",
+      "kind": "case_opening",
+      "x": 20,
+      "y": 10,
+      "width": 7.4,
+      "height": 7.4,
+      "rotation_deg": 0,
+      "layer": "CASE_ONLY",
+      "plating": "none",
+      "hole_shape": "circle",
+      "source": "Enclosure Print06: M7 bushing clearance in lid; not PCB hole",
+      "app_x": 20,
+      "app_y": 20,
+      "app_z": -10,
+      "bore_axis_app": [
+        0,
+        -1,
+        0
+      ],
+      "width_axis": "app X",
+      "height_axis": "app Z",
+      "opening_plane": "lid top; not PCB plane"
+    },
+    {
+      "id": "SW4-plate-opening",
+      "ref": "SW4",
+      "kind": "plate_opening",
+      "x": -20,
+      "y": 10,
+      "width": 14.1,
+      "height": 14.1,
+      "rotation_deg": 0,
+      "layer": "CASE_ONLY",
+      "corner_radius": 0.15,
+      "plating": "none",
+      "hole_shape": "roundrect",
+      "source": "Enclosure Print06 integral switch retention ledge",
+      "app_x": -20,
+      "app_y": 18.6,
+      "app_z": -10,
+      "bore_axis_app": [
+        0,
+        1,
+        0
+      ],
+      "width_axis": "app X",
+      "height_axis": "app Z",
+      "opening_plane": "lid horizontal switch retention plane; not PCB drill"
+    },
+    {
+      "id": "SW5-plate-opening",
+      "ref": "SW5",
+      "kind": "plate_opening",
+      "x": 0,
+      "y": 10,
+      "width": 14.1,
+      "height": 14.1,
+      "rotation_deg": 0,
+      "layer": "CASE_ONLY",
+      "corner_radius": 0.15,
+      "plating": "none",
+      "hole_shape": "roundrect",
+      "source": "Enclosure Print06 integral switch retention ledge",
+      "app_x": 0,
+      "app_y": 18.6,
+      "app_z": -10,
+      "bore_axis_app": [
+        0,
+        1,
+        0
+      ],
+      "width_axis": "app X",
+      "height_axis": "app Z",
+      "opening_plane": "lid horizontal switch retention plane; not PCB drill"
+    },
+    {
+      "id": "SW6-plate-opening",
+      "ref": "SW6",
+      "kind": "plate_opening",
+      "x": -20,
+      "y": -10,
+      "width": 14.1,
+      "height": 14.1,
+      "rotation_deg": 0,
+      "layer": "CASE_ONLY",
+      "corner_radius": 0.15,
+      "plating": "none",
+      "hole_shape": "roundrect",
+      "source": "Enclosure Print06 integral switch retention ledge",
+      "app_x": -20,
+      "app_y": 18.6,
+      "app_z": 10,
+      "bore_axis_app": [
+        0,
+        1,
+        0
+      ],
+      "width_axis": "app X",
+      "height_axis": "app Z",
+      "opening_plane": "lid horizontal switch retention plane; not PCB drill"
+    },
+    {
+      "id": "SW7-plate-opening",
+      "ref": "SW7",
+      "kind": "plate_opening",
+      "x": 0,
+      "y": -10,
+      "width": 14.1,
+      "height": 14.1,
+      "rotation_deg": 0,
+      "layer": "CASE_ONLY",
+      "corner_radius": 0.15,
+      "plating": "none",
+      "hole_shape": "roundrect",
+      "source": "Enclosure Print06 integral switch retention ledge",
+      "app_x": 0,
+      "app_y": 18.6,
+      "app_z": 10,
+      "bore_axis_app": [
+        0,
+        1,
+        0
+      ],
+      "width_axis": "app X",
+      "height_axis": "app Z",
+      "opening_plane": "lid horizontal switch retention plane; not PCB drill"
+    },
+    {
+      "id": "SW8-plate-opening",
+      "ref": "SW8",
+      "kind": "plate_opening",
+      "x": 20,
+      "y": -10,
+      "width": 14.1,
+      "height": 14.1,
+      "rotation_deg": 0,
+      "layer": "CASE_ONLY",
+      "corner_radius": 0.15,
+      "plating": "none",
+      "hole_shape": "roundrect",
+      "source": "Enclosure Print06 integral switch retention ledge",
+      "app_x": 20,
+      "app_y": 18.6,
+      "app_z": 10,
+      "bore_axis_app": [
+        0,
+        1,
+        0
+      ],
+      "width_axis": "app X",
+      "height_axis": "app Z",
+      "opening_plane": "lid horizontal switch retention plane; not PCB drill"
+    }
+  ],
+  "case_interfaces": {
+    "revision": "Print06",
+    "units": "mm",
+    "coordinate_system": "app local coordinates before complete product tilt / translation",
+    "usb": {
+      "app_center": [
+        0,
+        15.28,
+        -28
+      ],
+      "throat_width": 9.6,
+      "throat_height": 3.8,
+      "throat_radius": 1.2,
+      "mouth_chamfer": 0.2,
+      "mouth_width": 10.0,
+      "mouth_height": 4.2,
+      "mouth_radius": 1.4
+    },
+    "tactiles": {
+      "part": "G-Switch GT-TC018B-H0375-L1 / C2762970",
+      "datum": "midpoint of two locating posts on PCB top plane",
+      "datum_centers": [
+        [
+          -30.4,
+          13.6,
+          -7.0
+        ],
+        [
+          -30.4,
+          13.6,
+          7.0
+        ]
+      ],
+      "rotation_deg": 90,
+      "actuator_outward_app": [
+        -1,
+        0,
+        0
+      ],
+      "press_direction_app": [
+        1,
+        0,
+        0
+      ],
+      "body_width": 4.7,
+      "body_depth": 3.75,
+      "body_height": 1.9,
+      "envelope_note": "Overall width x total axial length including actuator x mounted thickness; body depth itself is about 2.3 mm, derived from drawing.",
+      "access_centers": [
+        [
+          -35,
+          14.55,
+          -7
+        ],
+        [
+          -35,
+          14.55,
+          7
+        ]
+      ],
+      "access_diameter": 1.6,
+      "mouth_diameter": 2.1,
+      "mouth_depth": 0.25,
+      "locator_hole_diameter": 0.65,
+      "locator_diameter_status": "Proposed PCB clearance, not a manufacturer drilling specification"
+    },
+    "fastening": {
+      "pcb_hole_diameter": 2.4,
+      "pilot_diameter": 1.8,
+      "pilot_depth": 4.9,
+      "pilot_entry_app_y": 14.1,
+      "screw_outer_diameter": 2.0,
+      "front_screw_length": 14.0,
+      "rear_screw_length": 18.0,
+      "style": "M2 self-tapping into resin lid; no insert",
+      "head_seat_above_local_floor": 3.0
+    },
+    "switch_plate": {
+      "status": "Print06 structural fit reference; sample-fit before PCB release",
+      "part": "SAMZO 28115181DM",
+      "socket": "C49352235",
+      "key_centers_xy": [
+        [
+          -20,
+          10
+        ],
+        [
+          0,
+          10
+        ],
+        [
+          -20,
+          -10
+        ],
+        [
+          0,
+          -10
+        ],
+        [
+          20,
+          -10
+        ]
+      ],
+      "coordinate_system": "PCB X/Y, separate plate plane",
+      "openings": [
+        {
+          "id": "SW4-plate-opening",
+          "ref": "SW4",
+          "x": -20,
+          "y": 10,
+          "app_center": [
+            -20,
+            18.6,
+            -10
+          ],
+          "width": 14.1,
+          "height": 14.1,
+          "corner_radius": 0.15,
+          "layer": "CASE_ONLY"
+        },
+        {
+          "id": "SW5-plate-opening",
+          "ref": "SW5",
+          "x": 0,
+          "y": 10,
+          "app_center": [
+            0,
+            18.6,
+            -10
+          ],
+          "width": 14.1,
+          "height": 14.1,
+          "corner_radius": 0.15,
+          "layer": "CASE_ONLY"
+        },
+        {
+          "id": "SW6-plate-opening",
+          "ref": "SW6",
+          "x": -20,
+          "y": -10,
+          "app_center": [
+            -20,
+            18.6,
+            10
+          ],
+          "width": 14.1,
+          "height": 14.1,
+          "corner_radius": 0.15,
+          "layer": "CASE_ONLY"
+        },
+        {
+          "id": "SW7-plate-opening",
+          "ref": "SW7",
+          "x": 0,
+          "y": -10,
+          "app_center": [
+            0,
+            18.6,
+            10
+          ],
+          "width": 14.1,
+          "height": 14.1,
+          "corner_radius": 0.15,
+          "layer": "CASE_ONLY"
+        },
+        {
+          "id": "SW8-plate-opening",
+          "ref": "SW8",
+          "x": 20,
+          "y": -10,
+          "app_center": [
+            20,
+            18.6,
+            10
+          ],
+          "width": 14.1,
+          "height": 14.1,
+          "corner_radius": 0.15,
+          "layer": "CASE_ONLY"
+        }
+      ],
+      "pcb_top_app_y": 13.6,
+      "pcb_bottom_app_y": 12.0,
+      "seating_plane_app_y": 18.6,
+      "underside_app_y": 17.1,
+      "effective_thickness": 1.5,
+      "seat_above_pcb": 5.0,
+      "opening_width": 14.1,
+      "opening_height": 14.1,
+      "opening_corner_radius": 0.15,
+      "flange_clearance_width": 17.2,
+      "flange_clearance_height": 17.2,
+      "flange_clearance_radius": 1.0,
+      "flange_clearance_from_app_y": 18.6,
+      "flange_clearance_to_app_y": 20.0,
+      "sample_opening_widths": [
+        14.0,
+        14.1,
+        14.2
+      ],
+      "datum": "switch stem centers remain shared with PCB; openings are lid-only"
+    },
+    "encoder": {
+      "mpn": "PEC11L-4115K-S0020",
+      "status": "Recommended substitution for preview; not user-purchased or final procurement; no verified LCSC part number for K shaft",
+      "app_base": [
+        20,
+        13.6,
+        -10
+      ],
+      "pcb_center_xy": [
+        20,
+        10
+      ],
+      "body_height_above_pcb": 4.5,
+      "shaft_tip_above_pcb": 19.5,
+      "shaft_tip_app_y": 33.1,
+      "lid_shaft_bore": 7.4,
+      "shaft_diameter": 6.0,
+      "shaft_teeth": 18,
+      "max_press_travel": 0.9,
+      "source_url": "https://www.bourns.com/docs/product-datasheets/pec11l.pdf",
+      "lid_shaft_bore_center_app": [
+        20,
+        20,
+        -10
+      ],
+      "internal_clearance_width_x": 14.2,
+      "internal_clearance_depth_y": 13.0,
+      "internal_clearance_corner_radius": 0.2,
+      "internal_clearance_top_app_y": 18.65,
+      "minimum_lid_roof_thickness": 1.35,
+      "internal_clearance_center_xy": [
+        20,
+        10
+      ],
+      "clearance_basis": "OEM above-PCB envelope 13.2 including ears in X, 12.0 in Y; general +0.5 on envelope then 0.25 assembly clearance per side"
+    }
+  },
+  "source_packages": {
+    "socket": {
+      "name": "HanElectricity CPG151101S11-2 / C49352235 with SAMZO locating holes",
+      "units": "mm",
+      "source_url": "https://item.szlcsc.com/51853006.html",
+      "source": "HanElectricity drawing supplied by LCSC plus LCSC-owned EasyEDA library",
+      "retrieved": "2026-09-07",
+      "coordinate_system": {
+        "origin": "SAMZO key stem/central PCB positioning hole",
+        "x": "right",
+        "y": "toward pair of electrical contacts, matching drawing6 board convention",
+        "z": "PCB top reference for pads only; body placement requires PCB bottom reference",
+        "socket_center_xy": [
+          -0.635,
+          3.81
+        ],
+        "nominal_pin_1_xy": [
+          -3.81,
+          2.54
+        ],
+        "nominal_pin_2_xy": [
+          2.54,
+          5.08
+        ],
+        "samzo_left_pin_x_discrepancy": "SAMZO drawing says -3.80, socket standard nominal -3.81; 0.01mm difference is within published socket positional tolerance."
+      },
+      "manufacturer": {
+        "name": "HanElectricity Co.,LTD",
+        "brand_zh": "瀚源",
+        "mpn": "CPG151101S11-2",
+        "lcsc": "C49352235",
+        "description_zh": "热插拔底座白色"
+      },
+      "compatibility": {
+        "type": "MX-format mechanical keyboard switch geometry",
+        "status": "inferred_from_pin_spacing_and_socket_geometry",
+        "caution": "The manufacturer drawing does not explicitly list Cherry, Outemu, SAMZO, MX, Choc, or supported switch model compatibility. Do not present universal MX compatibility as manufacturer guarantee.",
+        "samzo": "SAMZO 28115181DM pin coordinate pattern matches nominal spacing; mating-fit needs a real part check."
+      },
+      "mount": {
+        "pcb_side": "bottom, opposite switch body",
+        "status": "engineering assembly interpretation based on socket bosses and mating path",
+        "pcb_thickness_mm": null,
+        "pcb_thickness_note": "No applicable PCB thickness range specified in HanElectricity drawing or LCSC official page. Boss protrusion is 3.05 - 1.80 = 1.25mm; 1.60mm PCB is a project candidate, not stated manufacturer requirement.",
+        "body_below_pcb_bottom_mm": 1.8,
+        "conservative_metal_envelope_below_pcb_bottom_mm": 1.95,
+        "boss_into_pcb_mm": 1.25,
+        "boss_insertion_derivation": "3.05±0.05 total - 1.80±0.05 body = 1.25 nominal (derived tolerance can stack ±0.10)",
+        "metal_section_height_mm": 1.85,
+        "metal_section_height_tolerance_mm": 0.1
+      },
+      "dimensions": {
+        "overall_metal_length_front_mm": {
+          "value": 14.5,
+          "tolerance": 0.15
+        },
+        "overall_length_other_view_mm": {
+          "value": 14.8,
+          "tolerance_plus": 0.1,
+          "tolerance_minus": 0.2,
+          "note": "The drawing contains both 14.50 and 14.80 dimensioned views. Use 14.90 clearance envelope; raw EDA 3D overall x is 14.50."
+        },
+        "body_front_length_mm": {
+          "value": 11.3,
+          "tolerance": 0.15
+        },
+        "body_bottom_outline_length_mm": {
+          "value": 10.9,
+          "tolerance": 0.05
+        },
+        "body_width_mm": {
+          "value": 5.89,
+          "tolerance": 0.05
+        },
+        "full_height_with_boss_mm": {
+          "value": 3.05,
+          "tolerance": 0.05
+        },
+        "body_height_mm": {
+          "value": 1.8,
+          "tolerance": 0.05
+        },
+        "socket_boss_diameter_mm": {
+          "value": 2.9,
+          "tolerance": 0.05
+        },
+        "electrical_boss_spacing_xy_mm": [
+          6.35,
+          2.54
+        ],
+        "electrical_boss_spacing_tolerance_mm": 0.05,
+        "manufacturer_pad_reference_mm": [
+          2.55,
+          2.5
+        ],
+        "official_eda_pad_mm": [
+          2.9,
+          2.5
+        ]
+      },
+      "pads": [
+        {
+          "number": "1",
+          "type": "smd",
+          "shape": "rect",
+          "at3d": [
+            -7.36,
+            2.54,
+            0
+          ],
+          "size": [
+            2.9,
+            2.5
+          ],
+          "copper_layer": "B.Cu",
+          "classification_note": "LCSC official EasyEDA library land; original maker drawing labels reference land width (2.55) and height (2.5), so 2.90mm is the EDA library choice, not the drawing nominal."
+        },
+        {
+          "number": "2",
+          "type": "smd",
+          "shape": "rect",
+          "at3d": [
+            6.09,
+            5.08,
+            0
+          ],
+          "size": [
+            2.9,
+            2.5
+          ],
+          "copper_layer": "B.Cu",
+          "classification_note": "LCSC official EasyEDA library land; original maker drawing labels reference land width (2.55) and height (2.5), so 2.90mm is the EDA library choice, not the drawing nominal."
+        },
+        {
+          "number": "SOCKET1",
+          "type": "npth",
+          "shape": "circle",
+          "at3d": [
+            -3.81,
+            2.54,
+            0
+          ],
+          "size": [
+            3.0,
+            3.0
+          ],
+          "drill": {
+            "shape": "circle",
+            "size": [
+              3.0,
+              3.0
+            ]
+          },
+          "copper_layer": null,
+          "classification_note": "manufacturer_recommended; socket drawing positional/hole tolerance ±0.05mm"
+        },
+        {
+          "number": "SOCKET2",
+          "type": "npth",
+          "shape": "circle",
+          "at3d": [
+            2.54,
+            5.08,
+            0
+          ],
+          "size": [
+            3.0,
+            3.0
+          ],
+          "drill": {
+            "shape": "circle",
+            "size": [
+              3.0,
+              3.0
+            ]
+          },
+          "copper_layer": null,
+          "classification_note": "manufacturer_recommended; socket drawing positional/hole tolerance ±0.05mm"
+        },
+        {
+          "number": "CENTER",
+          "type": "npth",
+          "shape": "circle",
+          "at3d": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            4.0,
+            4.0
+          ],
+          "drill": {
+            "shape": "circle",
+            "size": [
+              4.0,
+              4.0
+            ]
+          },
+          "copper_layer": null,
+          "classification_note": "existing_design_assumption; SAMZO drawing specifies column diameters 3.85 and 1.65, not PCB drill sizes. Retained prototype drill must be verified on first article."
+        },
+        {
+          "number": "LOC_L",
+          "type": "npth",
+          "shape": "circle",
+          "at3d": [
+            -5.08,
+            0,
+            0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ],
+          "drill": {
+            "shape": "circle",
+            "size": [
+              2.0,
+              2.0
+            ]
+          },
+          "copper_layer": null,
+          "classification_note": "existing_design_assumption; SAMZO drawing specifies column diameters 3.85 and 1.65, not PCB drill sizes. Retained prototype drill must be verified on first article."
+        },
+        {
+          "number": "LOC_R",
+          "type": "npth",
+          "shape": "circle",
+          "at3d": [
+            5.08,
+            0,
+            0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ],
+          "drill": {
+            "shape": "circle",
+            "size": [
+              2.0,
+              2.0
+            ]
+          },
+          "copper_layer": null,
+          "classification_note": "existing_design_assumption; SAMZO drawing specifies column diameters 3.85 and 1.65, not PCB drill sizes. Retained prototype drill must be verified on first article."
+        }
+      ],
+      "outline": [
+        {
+          "source_path": "M 3978.5432 2988.4055 L 3978.5432 3011.5945 L 4021.4568 3011.5945 L 4021.4568 2995.8464 L 4000.7205 2995.8464 L 4000.7204 2995.8465 A 7.4409 7.4409 0 0 1 3993.2795 2988.4056 L 3993.2795 2988.4055 L 3978.5432 2988.4055 Z ",
+          "source_origin": [
+            4000,
+            3000
+          ],
+          "source_units_to_mm": 0.254,
+          "source_axes": "x right, y down in EasyEDA footprint",
+          "meaning": "LCSC component-body layer outline, use as representative shape; datasheet also specifies an 11.30mm feature wider than this 10.90mm bottom outline"
+        }
+      ],
+      "official_eda": {
+        "api_url": "https://lceda.cn/api/products/C49352235/components?version=6.5.51",
+        "owner": "LCSC",
+        "footprint_uuid": "d5bdb149ecae4ae4b02a218785768fe6",
+        "footprint_title": "TH_L10.9-W5.9-CPG151101S11-2",
+        "native_json": "CPG151101S11-2_easyeda_native_footprint.json",
+        "native_origin": [
+          4000,
+          3000
+        ],
+        "native_units_mm": 0.254,
+        "native_hole_center_relative_mm": [
+          [
+            -3.175,
+            -1.27
+          ],
+          [
+            3.175,
+            1.27
+          ]
+        ],
+        "native_pad_centers_relative_mm": [
+          [
+            -6.725,
+            -1.27
+          ],
+          [
+            6.725,
+            1.27
+          ]
+        ],
+        "body_outline_points_note": "Translate normalized EasyEDA body XY by socket_center_xy. Shape is an S-style two-boss housing, not a rectangle."
+      },
+      "model_3d": {
+        "source": "LCSC official footprint linked shared 3D model; not labeled manufacturer STEP",
+        "title": "TH_L10.9-W5.9-CPG151101S11",
+        "uuid": "b226c46d9f4847bc837da2470e6ffcc9",
+        "step_url": "https://modules.easyeda.com/qAxj6KHrDKw4blvCG8QJPs7Y/b226c46d9f4847bc837da2470e6ffcc9",
+        "obj_url": "https://modules.easyeda.com/3dmodel/b226c46d9f4847bc837da2470e6ffcc9",
+        "files": [
+          "CPG151101S11_easyeda.step",
+          "CPG151101S11_easyeda.obj"
+        ],
+        "raw_obj_bbox_mm": {
+          "min": [
+            -7.25,
+            -2.945,
+            -1.25
+          ],
+          "max": [
+            7.25,
+            2.945,
+            1.8
+          ]
+        },
+        "raw_z": "body 0..+1.8; insertion bosses -1.25..0",
+        "pcb_bottom_placement": {
+          "formula": "X=x-0.635; Y=-y+3.81; Z=-z+PCB_BOTTOM_Z",
+          "rotation_about_model_x_deg": 180,
+          "note": "This maps source OBJ Y-up into drawing6 physical placement with the requested positive-y contact band and puts socket housing below PCB. Verify pin-hole overlay after app coordinate mapping."
+        },
+        "quality_limit": "Nominal shared library model; misses/averages some maker-drawing details, including 14.80 envelope and 11.30 view.",
+        "browser_mesh_file": "C49352235-mesh.json",
+        "origin_app_offset": [
+          -0.635,
+          0,
+          -3.81
+        ],
+        "app_mapping": {
+          "source_xyz_to_app_local": [
+            "x",
+            "-z",
+            "y"
+          ],
+          "formula": [
+            "SW_APP_X + x - 0.635",
+            "PCB_BOTTOM_APP_Y - z",
+            "SW_APP_Z + y - 3.81"
+          ],
+          "pcb_bottom_app_y_nominal": 12.0,
+          "matrix4_source_to_app_keycenter_pcb_bottom": [
+            [
+              1,
+              0,
+              0,
+              -0.635
+            ],
+            [
+              0,
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              -3.81
+            ],
+            [
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "matrix4_source_to_cad_keycenter_pcb_bottom": [
+            [
+              1,
+              0,
+              0,
+              -0.635
+            ],
+            [
+              0,
+              -1,
+              0,
+              3.81
+            ],
+            [
+              0,
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "CAD_axes": "X=appx, Y=-appz, Z=appy"
+        }
+      },
+      "samzo_mounting": {
+        "mpn": "28115181DM",
+        "source_url": "https://atta.szlcsc.com/upload/public/pdf/source/20250402/893A25C4C627E3BF90757626E4862131.pdf",
+        "datasheet": "SAMZO_28115181DM_datasheet.pdf",
+        "body_under_flange_square_mm": {
+          "value": 13.95,
+          "tolerance": 0.05
+        },
+        "flange_square_mm": {
+          "value": 15.6,
+          "tolerance": 0.1
+        },
+        "flange_underside_above_pcb_mm": 5.0,
+        "flange_upper_side_above_pcb_mm": 6.0,
+        "manufacturer_plate_hole_mm": null,
+        "manufacturer_plate_thickness_mm": null,
+        "plate_top_above_pcb_mm": {
+          "value": 5.0,
+          "status": "engineering seating inference from flange underside"
+        },
+        "mx_reference": {
+          "source": "CHERRY manufacturer mechanical drawing, third-party-hosted historical copy",
+          "source_url": "https://www.smcelectronics.com/DOWNLOADS/CHERRYMX.PDF",
+          "file": "CHERRY_MX_reference.pdf",
+          "page_1_based": 3,
+          "hole_square_mm": 14.0,
+          "hole_tolerance_mm": 0.05,
+          "corner_radius_max_mm": 0.3,
+          "plate_thickness_mm": 1.5,
+          "plate_thickness_tolerance_mm": 0.1,
+          "scope": "CHERRY MX only; not an explicit SAMZO requirement"
+        },
+        "prototype_plate_candidate": {
+          "hole_square_mm": 14.1,
+          "effective_thickness_mm": 1.5,
+          "top_above_pcb_mm": 5.0,
+          "underside_above_pcb_mm": 3.5,
+          "fit_coupon_holes_mm": [
+            14.0,
+            14.1,
+            14.2
+          ],
+          "status": "engineering prototype, printer/material calibration and real-switch snap-fit validation required"
+        },
+        "source_mesh_warning": "Original project mesh flange underside reported by mechanical6 at PCB+5.40004; authoritative SAMZO dimensional drawing gives +5.00. Use +5.00 physical locating plane and locally calibrate visualization rather than shifting whole switch and disturbing its base/pins. Additional native-mesh mismatch reported by clearance6: lateral positioning columns are at key X=-5.515/+5.485 instead of original PCB footprint X=±5.08. Root will locally relocate only these columns to ±5.08 while retaining Ø1.65; do not enlarge PCB holes or describe native mesh as exact manufacturer geometry.",
+        "lateral_locator_coordinate_evidence": "±5.08 retained from original PCB footprint and MX geometry. The SAMZO bottom view shows two Ø1.65 lateral columns but its explicit 5.08 callout is not an unambiguous lateral-column X-center dimension; do not overstate an explicit maker coordinate guarantee."
+      }
+    },
+    "encoder": {
+      "manufacturer": "Bourns",
+      "mpn": "PEC11L-4115K-S0020",
+      "status": "Recommended substitution for preview; not user-purchased or final procurement; no verified LCSC part number for K shaft",
+      "source": {
+        "url": "https://www.bourns.com/docs/product-datasheets/pec11l.pdf",
+        "revision": "04/26",
+        "dimension_page_1_based": 2,
+        "local_pdf": "PEC11L_Bourns_datasheet.pdf",
+        "download_url": "https://bourns.com/docs/product-datasheets/pec11l.pdf?sfvrsn=7b1089f1_11",
+        "local_full_dimension_image": "PEC11L_Bourns_dimensions.png",
+        "local_footprint_detail_image": "PEC11L_Bourns_pins_detail.png",
+        "validation": "High-resolution local PDF rendering independently inspected by encoder6 and drawing6; this supersedes earlier low-resolution web-image readings."
+      },
+      "units": "mm",
+      "coordinates": {
+        "origin": "shaft axis at PCB top surface",
+        "x_positive": "right",
+        "y_positive": "toward two switch contacts/rear/USB",
+        "z_positive": "above PCB",
+        "view": "component top view, shaft facing viewer; use the terminal labels in OEM outline and verify pad numbering in ECAD"
+      },
+      "mounting": "Through-hole five signal pins plus two side shell anchor slots",
+      "encoder": {
+        "detents": 20,
+        "pulses_per_revolution": 20,
+        "output": "2-bit quadrature mechanical contact",
+        "contact_rating_mA": 10,
+        "contact_rating_VDC": 5
+      },
+      "body": {
+        "height_above_pcb": 4.5,
+        "nominal_x_core": 11.8,
+        "nominal_y_core": 12.0,
+        "y_core_derivation": "OEM top view gives 6.0 from shaft center to each Y edge",
+        "outer_x_with_shell_ears": 13.2,
+        "outer_x_lower_hook_envelope": 13.6,
+        "conservative_xy_nominal_envelope": [
+          13.6,
+          12.0
+        ],
+        "note": "13.2 and 13.6 are lateral X extents in different views/features; 13.2 is not Y body length. Mechanical clearance may use 13.6 x 13.6 square as an explicitly conservative design choice. No exact OEM STEP downloaded.",
+        "outer_x_lower_hook_envelope_note": "13.6 refers to lower anchor-hook lateral span below seating plane, not PCB-top main-body width."
+      },
+      "shaft": {
+        "style": "metal knurled split shaft",
+        "teeth": 18,
+        "diameter": 6.0,
+        "diameter_tolerance_minus": 0.1,
+        "diameter_tolerance_plus": 0.0,
+        "L_from_body_top": 15.0,
+        "L_tolerance_plus_minus": 0.5,
+        "tip_z_nominal": 19.5,
+        "tip_z_nominal_derivation": "4.5 mm PCB-to-body top + 15 mm actuator L",
+        "thread": "M7 x 0.75",
+        "bushing_height_B": 5.0,
+        "knurl_P": 7.0,
+        "slot_A": 6.0,
+        "drawing_dimension_C": 7.0,
+        "drawing_dimension_F_for_flat_version_only": 7.0,
+        "cap_compatibility": "Compatible only if existing knob insert is for 6 mm / 18 teeth knurl; user cap tooth count and insertion depth not yet verified",
+        "bushing_top_z_nominal": 9.5,
+        "bushing_top_z_derivation": "4.5 mm body + B=5.0 mm M7 bushing"
+      },
+      "push_switch": {
+        "type": "Momentary SPST normally open",
+        "travel_nominal": 0.5,
+        "travel_spec_page_min": 0.2,
+        "travel_spec_page_max": 0.8,
+        "travel_drawing_page_min": 0.2,
+        "travel_drawing_page_max": 0.9,
+        "conservative_travel_clearance": 0.9,
+        "actuation_force_gf": 610,
+        "force_tolerance_plus_minus_gf": 306,
+        "note": "OEM page 1 specification says 0.5 +/-0.3; page 2 drawing says 0.5 +0.4/-0.3. Reserve at least 0.9 travel plus design clearance; do not collapse this discrepancy."
+      },
+      "signal_holes": [
+        {
+          "terminal": "A",
+          "x": -2.5,
+          "y": -7.5,
+          "drill": 1.0,
+          "drill_tolerance_plus": 0.2,
+          "drill_tolerance_minus": 0
+        },
+        {
+          "terminal": "C",
+          "x": 0.0,
+          "y": -7.5,
+          "drill": 1.0,
+          "drill_tolerance_plus": 0.2,
+          "drill_tolerance_minus": 0
+        },
+        {
+          "terminal": "B",
+          "x": 2.5,
+          "y": -7.5,
+          "drill": 1.0,
+          "drill_tolerance_plus": 0.2,
+          "drill_tolerance_minus": 0
+        },
+        {
+          "terminal": "SW1",
+          "x": -2.5,
+          "y": 7.0,
+          "drill": 1.0,
+          "drill_tolerance_plus": 0.2,
+          "drill_tolerance_minus": 0
+        },
+        {
+          "terminal": "SW2",
+          "x": 2.5,
+          "y": 7.0,
+          "drill": 1.0,
+          "drill_tolerance_plus": 0.2,
+          "drill_tolerance_minus": 0
+        }
+      ],
+      "shell_anchor_slots": [
+        {
+          "id": "left",
+          "x": -5.7,
+          "y": 0.0,
+          "width_x": 1.4,
+          "length_y": 2.1,
+          "shape": "rect",
+          "corner_radius": "not specified by OEM drawing"
+        },
+        {
+          "id": "right",
+          "x": 5.7,
+          "y": 0.0,
+          "width_x": 1.4,
+          "length_y": 2.1,
+          "shape": "rect",
+          "corner_radius": "not specified by OEM drawing"
+        }
+      ],
+      "pcb_notes": [
+        "Hole/slot values are OEM recommended PCB mounting hole dimensions. Copper annuli and any plated shell-pad choice must be added by PCB designer.",
+        "Encoder A-C-B adjacent pitch 2.5 mm, outer A-B span 5.0. Switch contacts span 5.0 mm.",
+        "OEM 12.8 callout runs between the outside edges of the two 1.4-wide slots (not their center lines). Center-to-center distance = 12.8 - 1.4 = 11.4, giving x=±5.7 about shaft center. Encoder A-B total span is 5.0, giving A/C/B x=-2.5/0/+2.5.",
+        "Five signal pin insertion length is nominal 3.0 mm below body seating plane.",
+        "OEM general dimension tolerance: <10 mm +/-0.3; >=10 mm +/-0.5 unless explicitly stated.",
+        "Manufacturer recommends wave soldering Sn95.5/Ag2.8/Cu0.7, no-clean flux, 260 +/-5 C for 3-5 seconds. Hand soldering not recommended."
+      ],
+      "comparison": {
+        "original_mpn": "ALPS EC11N1525404",
+        "original_tip_z_as_given": 24.5,
+        "new_tip_z": 19.5,
+        "nominal_reduction": 5.0,
+        "knob_outer_diameter_unchanged": 20.0,
+        "knob_outer_height_unchanged": 10.0,
+        "knob_top_z_formula": "19.5 + 10 - shaft_insertion_depth",
+        "important": "Original ALPS item is a flat shaft; existing flower insert compatibility cannot be assumed for that original item."
+      },
+      "name": "Bourns PEC11L-4115K-S0020",
+      "source_url": "https://www.bourns.com/docs/product-datasheets/pec11l.pdf",
+      "retrieved": "2026-09-07",
+      "procurement": {
+        "lcsc": null,
+        "lcsc_note": "K shaft exact SKU not found/verified at LCSC; F shaft C143799 is NOT the same shaft style.",
+        "retail_url": "https://www.digikey.com/en/products/detail/bourns-inc/PEC11L-4115K-S0020/4699169",
+        "retail_part": "118-PEC11L-4115K-S0020-ND",
+        "retail_stock_at_lookup": 1035,
+        "retail_min_qty": 1,
+        "retail_price_1_usd_at_lookup": 2.75,
+        "status": "Preview recommendation only; user has not selected/purchased replacement."
+      },
+      "pads": [
+        {
+          "number": "A",
+          "type": "pth",
+          "shape": "circle",
+          "at3d": [
+            -2.5,
+            -7.5,
+            0
+          ],
+          "size": [
+            1.0,
+            1.0
+          ],
+          "drill": {
+            "shape": "circle",
+            "size": [
+              1.0,
+              1.0
+            ]
+          },
+          "copper_layer": null,
+          "copper_annulus_specified": false,
+          "classification_note": "OEM hole position and Ø1.0 +0.2/-0 drill. Size field denotes hole only; copper annulus intentionally unspecified. Signal PTH is design intent.",
+          "omit_copper": true
+        },
+        {
+          "number": "C",
+          "type": "pth",
+          "shape": "circle",
+          "at3d": [
+            0.0,
+            -7.5,
+            0
+          ],
+          "size": [
+            1.0,
+            1.0
+          ],
+          "drill": {
+            "shape": "circle",
+            "size": [
+              1.0,
+              1.0
+            ]
+          },
+          "copper_layer": null,
+          "copper_annulus_specified": false,
+          "classification_note": "OEM hole position and Ø1.0 +0.2/-0 drill. Size field denotes hole only; copper annulus intentionally unspecified. Signal PTH is design intent.",
+          "omit_copper": true
+        },
+        {
+          "number": "B",
+          "type": "pth",
+          "shape": "circle",
+          "at3d": [
+            2.5,
+            -7.5,
+            0
+          ],
+          "size": [
+            1.0,
+            1.0
+          ],
+          "drill": {
+            "shape": "circle",
+            "size": [
+              1.0,
+              1.0
+            ]
+          },
+          "copper_layer": null,
+          "copper_annulus_specified": false,
+          "classification_note": "OEM hole position and Ø1.0 +0.2/-0 drill. Size field denotes hole only; copper annulus intentionally unspecified. Signal PTH is design intent.",
+          "omit_copper": true
+        },
+        {
+          "number": "SW1",
+          "type": "pth",
+          "shape": "circle",
+          "at3d": [
+            -2.5,
+            7.0,
+            0
+          ],
+          "size": [
+            1.0,
+            1.0
+          ],
+          "drill": {
+            "shape": "circle",
+            "size": [
+              1.0,
+              1.0
+            ]
+          },
+          "copper_layer": null,
+          "copper_annulus_specified": false,
+          "classification_note": "OEM hole position and Ø1.0 +0.2/-0 drill. Size field denotes hole only; copper annulus intentionally unspecified. Signal PTH is design intent.",
+          "omit_copper": true
+        },
+        {
+          "number": "SW2",
+          "type": "pth",
+          "shape": "circle",
+          "at3d": [
+            2.5,
+            7.0,
+            0
+          ],
+          "size": [
+            1.0,
+            1.0
+          ],
+          "drill": {
+            "shape": "circle",
+            "size": [
+              1.0,
+              1.0
+            ]
+          },
+          "copper_layer": null,
+          "copper_annulus_specified": false,
+          "classification_note": "OEM hole position and Ø1.0 +0.2/-0 drill. Size field denotes hole only; copper annulus intentionally unspecified. Signal PTH is design intent.",
+          "omit_copper": true
+        },
+        {
+          "number": "SHIELD_LEFT",
+          "type": "npth",
+          "shape": "rect",
+          "at3d": [
+            -5.7,
+            0.0,
+            0
+          ],
+          "size": [
+            1.4,
+            2.1
+          ],
+          "drill": {
+            "shape": "rect",
+            "size": [
+              1.4,
+              2.1
+            ]
+          },
+          "copper_layer": null,
+          "classification_note": "OEM 1.40 x 2.10 rectangular mounting envelope; corner radius, plating and copper unspecified. Must be selected by PCB engineer. Slot-center pitch derived as 12.80 outside span - 1.40 width = 11.40.",
+          "omit_copper": true,
+          "plating_override": "UNSPECIFIED"
+        },
+        {
+          "number": "SHIELD_RIGHT",
+          "type": "npth",
+          "shape": "rect",
+          "at3d": [
+            5.7,
+            0.0,
+            0
+          ],
+          "size": [
+            1.4,
+            2.1
+          ],
+          "drill": {
+            "shape": "rect",
+            "size": [
+              1.4,
+              2.1
+            ]
+          },
+          "copper_layer": null,
+          "classification_note": "OEM 1.40 x 2.10 rectangular mounting envelope; corner radius, plating and copper unspecified. Must be selected by PCB engineer. Slot-center pitch derived as 12.80 outside span - 1.40 width = 11.40.",
+          "omit_copper": true,
+          "plating_override": "UNSPECIFIED"
+        }
+      ],
+      "shell_anchor_outer_edge_span": 12.8,
+      "shell_anchor_center_span": 11.4,
+      "derived_dimension_note": "OEM 12.8 callout runs between the outside edges of the two 1.4-wide slots (not their center lines). Center-to-center distance = 12.8 - 1.4 = 11.4, giving x=±5.7 about shaft center. Encoder A-B total span is 5.0, giving A/C/B x=-2.5/0/+2.5.",
+      "footprint_crosscheck": {
+        "description": "Same PEC11L body F shaft variant C143799 LCSC-owned EasyEDA footprint independently confirms signal and shell center positions; do not use flat-shaft model as K-shaft geometry.",
+        "url": "https://lceda.cn/api/products/C143799/components?version=6.5.51",
+        "local_file": "PEC11L_F_variant_easyeda_crosscheck.json",
+        "native_origin_shaft": [
+          4000.0,
+          3016.339
+        ],
+        "native_units_to_mm": 0.254,
+        "native_anchor_x": [
+          3977.559,
+          4022.441
+        ],
+        "derived_anchor_x_mm": [
+          -5.700014,
+          5.700014
+        ],
+        "native_acb_x": [
+          3990.158,
+          4000.0,
+          4009.843
+        ],
+        "derived_acb_x_mm": [
+          -2.499868,
+          0.0,
+          2.500122
+        ],
+        "note": "Native EDA copper/drill sizes are library design choices and were not copied into OEM-only drawing source."
+      },
+      "drawing_notes": [
+        "PEC11L-4115K-S0020: recommended replacement; 20 detents / 20 pulses; not yet purchased.",
+        "PCB top to shaft tip 19.5 = body 4.5 + L15; Ø6 knurled shaft, 18 teeth.",
+        "Signal holes Ø1.0 +0.2/-0: A/C/B at (-2.5,-7.5)/(0,-7.5)/(2.5,-7.5); SW at (±2.5,7).",
+        "Shell slots 1.4 × 2.1 at (±5.7,0); 12.8 outside-edge span gives 11.4 centers. Copper/plating TBD.",
+        "Press travel 0.5 nominal; reserve 0.9 + clearance. K-shaft cap tooth count/fit to be checked."
+      ]
+    }
+  },
+  "notes": [
+    "All dimensions are millimetres; CSV preserves source decimal values.",
+    "Source blank-number drill-only thru_hole pads are classified as NPTH mechanical holes for this proposal; confirm in the final PCB.",
+    "RGB pads are source footprint placed on B.Cu, mirrored in X in top view. Socket pads are already normalized to top-view B.Cu; do not mirror them again. Confirm pin-1 and chain direction before routing.",
+    "C963206 lands follow LCSC/EasyEDA enlarged footprint, not the smaller copper lands drawn in manufacturer PDF.",
+    "CASE_ONLY sidewall openings must not be drilled in the PCB; full app x/y/z centers and bore axes define their sidewall planes.",
+    "SW2 and SW3 use C2762970 side-actuated switches with the button pointing toward the left sidewall.",
+    "PCB screw clearance remains Ø2.40 NPTH; Print06 lid uses resin self-tapping pilots, no inserts.",
+    "C49352235 uses two Ø3.00 NPTH pin passages plus two B.Cu SMT lands; the previous key Ø1.20 PTH solder pads are removed.",
+    "Integral lid switch retention ledge is 1.50 mm thick, with 14.10 square R0.15 openings at app y=18.60; these are CASE_ONLY, not PCB holes.",
+    "This is a mechanical placement reference only. No copper routing, net assignment, DRC or manufacturing release is supplied."
+  ]
+}

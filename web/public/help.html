@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>KeyDeck · 连接帮助</title>
+    <link rel="icon" href="favicon.svg" />
+    <style>
+      body {
+        max-width: 720px;
+        margin: 60px auto;
+        padding: 0 24px;
+        font:
+          15px/1.9 'Segoe UI',
+          'Microsoft YaHei',
+          sans-serif;
+        color: #28394c;
+        background: #f6f8fa;
+      }
+      h1 {
+        font-size: 30px;
+        letter-spacing: -1px;
+      }
+      h2 {
+        font-size: 19px;
+        margin-top: 34px;
+      }
+      a {
+        color: #0969da;
+      }
+      p,
+      li {
+        color: #627489;
+      }
+      code {
+        background: #eaf0f6;
+        padding: 3px 6px;
+        border-radius: 4px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 13px;
+      }
+      td,
+      th {
+        border-bottom: 1px solid #dce4ec;
+        padding: 12px 8px;
+        text-align: left;
+      }
+      small {
+        color: #8092a5;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="./">← 返回 KeyDeck</a>
+    <h1>连接小键盘</h1>
+    <p>配置保存在设备本地。网页支持先离线编辑，连接后再试用或保存。</p>
+    <h2>USB · 推荐首次连接</h2>
+    <ol>
+      <li>用数据线连接正常运行的小键盘。</li>
+      <li>在桌面 Chrome / Edge 打开此页面，点击「连接设备」，再从连接选项选择 USB。</li>
+      <li>在浏览器设备列表中授权对应设备；控制台随后读取配置。</li>
+    </ol>
+    <p>请使用系统 HID 驱动。ISP 烧录模式下不能用此页面改键。</p>
+    <h2>蓝牙</h2>
+    <p>
+      在连接选项中选择蓝牙，使用 Web Bluetooth 授权设备。若搜不到设备，正常开机时长按 BOOT 约 2
+      秒进入配对，再搜索；不要按 RESET。设备只支持一个 BLE 外围连接。
+    </p>
+    <h2>Windows 已配对蓝牙</h2>
+    <p>
+      在线页面无法运行本地 Python 服务。需要管理 Windows 已配对的设备时，下载工程并双击
+      <code>web/StartConsole.cmd</code>，在
+      <code>http://localhost:8792/</code> 打开本地控制台。在线站点和本地站点的授权分别管理。
+    </p>
+    <h2>试用与保存</h2>
+    <table>
+      <tr>
+        <th>操作</th>
+        <th>结果</th>
+      </tr>
+      <tr>
+        <td>离线编辑</td>
+        <td>只修改当前页面草稿，可导出 JSON。</td>
+      </tr>
+      <tr>
+        <td>试用</td>
+        <td>分包写入设备 RAM；重启恢复已保存配置。</td>
+      </tr>
+      <tr>
+        <td>保存到设备</td>
+        <td>写入 Flash，设备确认后完整回读校验。</td>
+      </tr>
+    </table>
+    <p>
+      连接不会覆盖已有未保存草稿。手动重新读取配置会先询问是否覆盖草稿。无震动版固件会禁用触觉编辑，保留其他功能。
+    </p>
+    <h2>仍然连不上</h2>
+    <p>
+      检查是否通过 HTTPS 或 localhost
+      打开、浏览器是否提供设备接口、数据线是否支持传输、设备是否正常运行。另一页面占用连接时应先断开；更换固件的
+      HID 描述符后，可能需要删除旧蓝牙配对并重新配对。
+    </p>
+    <small>KeyDeck · 基于CH592F的自定义小键盘</small>
+  </body>
+</html>
