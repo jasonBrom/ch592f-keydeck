@@ -8,14 +8,13 @@
     <link rel="stylesheet" href="config/console.css?v=1.13" />
     <link rel="stylesheet" href="config/haptic-editor.css?v=1.13" />
     <link rel="stylesheet" href="config/console-shell.css?v=1.13" />
-    <link rel="stylesheet" href="config/console-light.css" />
+    <link rel="stylesheet" href="config/connection-ui.css" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   </head>
   <body>
     <header>
       <a class="brand" href="./"
-        ><b>K<span>↗</span></b
-        ><span>KeyDeck <small>CH592F · 自定义小键盘</small></span></a
+        ><b>KeyDeck</b><span>设备控制台<small>FIVE KEYS · ONE DIAL</small></span></a
       ><span id="connectionBadge" class="badge">未连接</span
       ><button id="connectDevice" class="primary">连接设备</button
       ><button id="disconnect" hidden>断开</button>
@@ -23,53 +22,33 @@
         <summary>连接选项</summary>
         <div>
           <button id="connectUSB">USB · 首次授权或手动连接</button
-          ><button id="connectBLE">蓝牙 · 自动选择可用通道</button>
-          <p>自动连接优先已授权 USB，再尝试 Windows 已配对蓝牙。浏览器首次访问需要你选择设备。</p>
+          ><button id="connectPairedBLE">Windows 已配对 · 直接管理</button
+          ><button id="connectBLE">浏览器蓝牙 · 搜索并授权</button>
+          <p>
+            USB 首次连接需要网页授权。已在 Windows 蓝牙设置中连接的设备，请选择「Windows 已配对」。
+          </p>
+          <p class="hint">
+            Windows 管理需先运行
+            <code>web/StartConsole.cmd</code>，再允许浏览器访问本机服务。服务需保持运行。
+          </p>
+          <div class="bridge-links">
+            <a href="http://localhost:8792/" target="_blank" rel="noopener">打开本地控制台 ↗</a
+            ><a href="https://github.com/jasonBrom/ch592f-keydeck/archive/refs/heads/main.zip"
+              >下载控制台与桥接服务 ↓</a
+            ><a href="help.html" target="_blank" rel="noopener">连接帮助 ↗</a>
+          </div>
         </div>
       </details>
     </header>
     <main>
       <aside class="model-area">
         <div class="model-heading">
-          <span class="eyebrow">KEYDECK / CH592F</span>
-          <h1>把常用操作，<br />留在手边。</h1>
+          <span class="eyebrow">YOUR DEVICE</span>
+          <h1>五个按键，一个旋钮。</h1>
           <p id="connectionHint">连接后可读取设置；也可先离线编辑。</p>
+          <p id="environmentNotice" class="hint environment-notice"></p>
         </div>
-        <div class="device-tools">
-          <span>点击按键，开始配置</span
-          ><button id="toggleModel" aria-pressed="false">3D 视图 ↗</button>
-        </div>
-        <div id="deviceStage" class="device-stage">
-          <div class="device-case" aria-label="五键旋钮键盘示意图">
-            <button class="keycap key-dark key-01" data-input="0" aria-label="编辑按键 01">
-              <span>⌘</span><small>01</small>
-            </button>
-            <button class="keycap key-dark key-02" data-input="1" aria-label="编辑按键 02">
-              <span>⌥</span><small>02</small>
-            </button>
-            <button class="keycap dial-cap" data-input="5" aria-label="编辑旋钮按下">
-              <span></span><small>旋钮</small>
-            </button>
-            <button class="keycap key-03" data-input="2" aria-label="编辑按键 03">
-              <span>−</span><small>03</small>
-            </button>
-            <button class="keycap key-04" data-input="3" aria-label="编辑按键 04">
-              <span>▷</span><small>04</small>
-            </button>
-            <button class="keycap key-05" data-input="4" aria-label="编辑按键 05">
-              <span>＋</span><small>05</small>
-            </button>
-            <span class="device-led"></span>
-          </div>
-          <span class="stage-label">FIVE KEYS. ONE DIAL. YOUR WAY.</span>
-        </div>
-        <iframe
-          hidden
-          loading="lazy"
-          id="model"
-          data-src="assembly.html?embedded=1&amp;v=1.13"
-          title="设备输入预览"
-        ></iframe>
+        <iframe id="model" src="assembly.html?embedded=1&amp;v=1.13" title="设备输入预览"></iframe>
         <div class="model-foot">
           <div><span id="liveDot" class="dot"></span><span id="modelState">离线预览</span></div>
           <span id="battery">电量 —</span>
@@ -90,8 +69,8 @@
       <section class="editor">
         <div class="editor-top">
           <div>
-            <span class="eyebrow">WORKSPACE</span>
-            <h2>让每一键，都顺手。</h2>
+            <span class="eyebrow">CUSTOMIZE</span>
+            <h2>设备设置</h2>
           </div>
           <label id="profilePicker" class="profile-picker"
             >编辑配置层<select id="profile" aria-label="编辑配置层">
@@ -105,19 +84,17 @@
           <button role="tab" aria-selected="true" data-tab="keys">按键</button
           ><button role="tab" aria-selected="false" data-tab="dial">旋钮</button
           ><button role="tab" aria-selected="false" data-tab="haptics">触觉</button
-          ><button role="tab" aria-selected="false" data-tab="lights">灯光</button
-          ><button role="tab" data-tab="macros">宏</button
-          ><button role="tab" data-tab="device">设备</button>
+          ><button role="tab" aria-selected="false" data-tab="lights">灯光</button>
           <details id="moreSettings">
             <summary>更多</summary>
             <div>
-              <button data-tab="firmware" id="firmwareNav">固件与烧录</button
+              <button data-tab="macros">宏编辑</button><button data-tab="device">设备与备份</button
+              ><button data-tab="firmware" id="firmwareNav">固件与烧录</button
               ><a href="assembly.html" target="_blank">3D 装配 ↗</a>
             </div>
           </details>
         </div>
         <p id="editingContext" class="editing-context">正在编辑配置 1；保存后才写入设备。</p>
-        <div id="environmentNotice" class="environment-notice" role="note"></div>
         <p id="profileWarning" class="profile-warning" hidden></p>
         <div id="settingsPanels" class="panels">
           <section id="keys" role="tabpanel">

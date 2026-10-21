@@ -16,15 +16,6 @@ guide.rel = 'noopener';
 guide.textContent = '连接帮助 ↗';
 $('environmentNotice').append(guide);
 
-$('toggleModel').onclick = () => {
-  const showing = $('model').hidden;
-  if (showing && !$('model').src) $('model').src = $('model').dataset.src;
-  $('model').hidden = !showing;
-  $('deviceStage').hidden = showing;
-  $('toggleModel').setAttribute('aria-pressed', String(showing));
-  $('toggleModel').textContent = showing ? '按键视图 ↙' : '3D 视图 ↗';
-};
-
 function syncVariant() {
   const motorless = link.connected && Boolean(link.noHaptics);
   $('hapticControls').disabled = motorless;

@@ -1,6 +1,7 @@
 import { cp, mkdir, readdir, readFile, rm, writeFile, stat } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { resolve, dirname, relative, extname } from 'node:path';
+import { createHash } from 'node:crypto';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const source = resolve(root, 'public'),
@@ -23,6 +24,36 @@ async function walk(dir) {
   }
 }
 await walk(output);
+// Pages caches static assets. Use one content revision throughout the module
+// graph so a refreshed HTML file cannot load an older connection controller.
+// The shared console import must have the same URL in both entry modules.
+const revisionHash = createHash('sha256');
+for (const path of [...files].sort()) {
+  if (relative(output, path).startsWith('config') || extname(path) === '.html')
+    revisionHash.update(relative(output, path)).update(await readFile(path));
+}
+const revision = revisionHash.digest('hex').slice(0, 12);
+for (const path of files) {
+  if (relative(output, path).startsWith('config') && extname(path) === '.js') {
+    const text = await readFile(path, 'utf8');
+    await writeFile(
+      path,
+      text.replace(
+        /((?:from\s*|import\s*)['"])([.][^'"?]+\.js)(?:\?[^'"]*)?(['"])/g,
+        `$1$2?v=${revision}$3`,
+      ),
+    );
+  } else if (extname(path) === '.html') {
+    const text = await readFile(path, 'utf8');
+    await writeFile(
+      path,
+      text.replace(
+        /((?:src|href)="config\/[^"?]+\.(?:js|css))(?:\?[^" ]*)?"/g,
+        `$1?v=${revision}"`,
+      ),
+    );
+  }
+}
 const errors = [];
 for (const path of files) {
   const extension = extname(path);
@@ -56,5 +87,5 @@ for (const path of files) {
 }
 if (errors.length) throw Error(errors.join('\n'));
 console.log(
-  `Pages build: ${files.length} files; local links/imports verified; repository subpaths supported.`,
+  `Pages build: ${files.length} files; revision ${revision}; local links/imports verified; repository subpaths supported.`,
 );

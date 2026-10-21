@@ -43,9 +43,9 @@ class ServerTests(unittest.TestCase):
         cls.server.shutdown()
         cls.server.server_close()
 
-    def request(self, path, body=None, headers=None):
+    def request(self, path, body=None, headers=None, method=None):
         req = urllib.request.Request(self.origin+path, data=json.dumps(body).encode() if body is not None else None,
-                                     headers=headers or {})
+                                     headers=headers or {}, method=method)
         try:
             with urllib.request.urlopen(req) as response:
                 return response.status, response.read(), response.headers
@@ -60,7 +60,7 @@ class ServerTests(unittest.TestCase):
         self.assertEqual(status, 200)
         self.assertIn(b'connectDevice', body)
         status, body, headers = self.request('/api/windows-ble/status')
-        self.assertEqual(json.loads(body), {'available': True, 'reason': '', 'token': 'test-token'})
+        self.assertEqual(json.loads(body), {'available': True, 'reason': '', 'token': 'test-token', 'bridgeVersion': 2})
         self.assertIn('no-store', ','.join(headers.get_all('Cache-Control')))
 
     def test_cross_origin_and_rebinding_cannot_access_bridge(self):
@@ -70,6 +70,44 @@ class ServerTests(unittest.TestCase):
         self.assertEqual(self.request('/api/windows-ble/connect', {}, {'Content-Type': 'application/json'})[0], 403)
         self.assertEqual(self.request('/api/windows-ble/connect', {}, {'Origin': self.origin, 'Content-Type': 'application/json', 'X-C5-Token': 'wrong'})[0], 403)
         self.assertEqual(len(self.server.bridge.calls), before)
+
+    def test_official_online_console_has_scoped_token_and_cors(self):
+        origin = module.ONLINE_ORIGIN
+        headers = {'Origin': origin, 'Sec-Fetch-Site': 'cross-site'}
+        status, body, response = self.request('/api/windows-ble/status', headers=headers)
+        self.assertEqual(status, 200)
+        token = json.loads(body)['token']
+        self.assertNotEqual(token, self.server.api_token)
+        self.assertEqual(response['Access-Control-Allow-Origin'], origin)
+        self.assertEqual(response['Vary'], 'Origin')
+        headers.update({'Content-Type': 'application/json', 'X-C5-Token': token})
+        self.assertEqual(self.request('/api/windows-ble/connect', {}, headers)[0], 200)
+        headers['X-C5-Token'] = self.server.api_token
+        self.assertEqual(self.request('/api/windows-ble/connect', {}, headers)[0], 403)
+        headers['Origin'] = self.origin
+        headers['Sec-Fetch-Site'] = 'same-origin'
+        headers['X-C5-Token'] = token
+        self.assertEqual(self.request('/api/windows-ble/connect', {}, headers)[0], 403)
+
+    def test_preflight_only_allows_official_origin_and_bounded_api(self):
+        headers = {'Origin': module.ONLINE_ORIGIN,
+                   'Access-Control-Request-Method': 'POST',
+                   'Access-Control-Request-Headers': 'content-type,x-c5-token',
+                   'Access-Control-Request-Private-Network': 'true'}
+        status, _, response = self.request('/api/windows-ble/frame', headers=headers, method='OPTIONS')
+        self.assertEqual(status, 204)
+        self.assertEqual(response['Access-Control-Allow-Origin'], module.ONLINE_ORIGIN)
+        self.assertEqual(response['Access-Control-Allow-Private-Network'], 'true')
+        for path in ('/', '/api/windows-ble/flash', '/windows_ble.py'):
+            self.assertEqual(self.request(path, headers=headers, method='OPTIONS')[0], 403)
+            self.assertEqual(self.request(path, headers={'Origin': module.ONLINE_ORIGIN})[0], 403)
+        for change in ({'Origin': 'https://evil.example'}, {'Host': 'evil.example'},
+                       {'Access-Control-Request-Method': 'DELETE'},
+                       {'Access-Control-Request-Headers': 'authorization'}):
+            rejected = self.request('/api/windows-ble/frame', headers={**headers, **change}, method='OPTIONS')
+            self.assertEqual(rejected[0], 403)
+            if 'Origin' in change or 'Host' in change:
+                self.assertIsNone(rejected[2].get('Access-Control-Allow-Origin'))
 
     def test_same_origin_token_can_connect_but_unknown_paths_are_rejected(self):
         headers = {'Origin': self.origin, 'Content-Type': 'application/json', 'X-C5-Token': 'test-token'}

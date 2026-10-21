@@ -17,7 +17,7 @@ test('online, local and unsupported environments describe only available connect
   assert.match(online.text, /在线控制台/);
   assert.match(online.text, /USB \/ WebHID/);
   assert(!online.text.includes('蓝牙 / Web Bluetooth'));
-  assert.match(online.text, /本地控制台/);
+  assert.match(online.text, /本地服务/);
   assert(
     describeEnvironment({ hostname: 'localhost', secure: true, hid: true, bluetooth: true }).local,
   );

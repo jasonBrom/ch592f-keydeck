@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { DeviceLink } from '../public/config/transport.js';
-import { windowsBluetoothStatus } from '../public/config/windows-bluetooth.js';
+import { windowsBluetoothStatus, windowsBridgeBase } from '../public/config/windows-bluetooth.js';
 import { defaults, encode, frame, parseFrame } from '../public/config/schema.js';
 
 function fixture(
@@ -13,6 +13,8 @@ function fixture(
     identity = true,
     networkLoss = false,
     oldBridge = false,
+    hosted = false,
+    bridgeVersion = 2,
   } = {},
 ) {
   const originals = ['location', 'fetch', 'isSecureContext'].map((key) => [
@@ -29,18 +31,35 @@ function fixture(
     draft,
     saved,
     active = false;
-  const calls = [];
+  const calls = [],
+    urls = [];
   Object.defineProperty(globalThis, 'location', {
     configurable: true,
-    value: { hostname: 'localhost' },
+    value: hosted
+      ? {
+          hostname: 'jasonbrom.github.io',
+          origin: 'https://jasonbrom.github.io',
+          pathname: '/ch592f-keydeck/',
+        }
+      : { hostname: 'localhost' },
   });
   Object.defineProperty(globalThis, 'isSecureContext', { configurable: true, value: true });
   Object.defineProperty(globalThis, 'fetch', {
     configurable: true,
     value: async (url, options = {}) => {
+      urls.push(url);
+      if (hosted) {
+        assert(url.startsWith('http://127.0.0.1:8792/api/windows-ble/'));
+        assert.equal(options.mode, 'cors');
+        assert.equal(options.targetAddressSpace, 'loopback');
+        assert.equal(options.credentials, 'omit');
+        assert.equal(options.redirect, 'error');
+      }
       const action = url.split('/').at(-1);
       if (action === 'status')
-        return new Response(JSON.stringify({ available, token: available ? 'test-token' : null }));
+        return new Response(
+          JSON.stringify({ available, bridgeVersion, token: available ? 'test-token' : null }),
+        );
       assert.equal(options.method, 'POST');
       assert.equal(options.headers['Content-Type'], 'application/json');
       assert.equal(options.headers['X-C5-Token'], 'test-token');
@@ -80,6 +99,7 @@ function fixture(
   return {
     link: new DeviceLink(),
     calls,
+    urls,
     get config() {
       return config;
     },
@@ -137,10 +157,37 @@ test('expired native session disconnects browser state and rejects pending work'
   assert(!f.link.connected);
   assert(!f.calls.some((x) => typeof x === 'number'));
 });
-test('hosted pages never probe local paired-device access', async (t) => {
-  fixture(t);
-  location.hostname = 'example.com';
+test('official hosted page does not probe loopback during automatic discovery', async (t) => {
+  const f = fixture(t, { hosted: true });
   assert.deepEqual(await windowsBluetoothStatus(), { available: false });
+  assert.deepEqual(f.urls, []);
+});
+
+test('explicit online Windows connection reads the paired device over the loopback bridge', async (t) => {
+  const f = fixture(t, { hosted: true }),
+    before = f.config.slice();
+  await f.link.connect('windows-ble');
+  assert.equal(f.link.kind, 'windows-ble');
+  assert.deepEqual(await f.link.read(), before);
+  assert(!f.calls.some((op) => [3, 4, 5, 6].includes(op)), 'connection must not write settings');
+  await f.link.disconnect();
+  assert(!f.active);
+});
+
+test('other sites and unsupported older bridges cannot acquire the native session', async (t) => {
+  const f = fixture(t, { hosted: true, bridgeVersion: 1 });
+  await assert.rejects(f.link.connect('windows-ble'), /更新.*本地桥接/);
+  assert.deepEqual(f.calls, []);
+  for (const page of [
+    { hostname: 'evil.example', origin: 'https://evil.example', pathname: '/ch592f-keydeck/' },
+    {
+      hostname: 'jasonbrom.github.io',
+      origin: 'http://jasonbrom.github.io',
+      pathname: '/ch592f-keydeck/',
+    },
+    { hostname: 'jasonbrom.github.io', origin: 'https://jasonbrom.github.io', pathname: '/other/' },
+  ])
+    assert.equal(windowsBridgeBase({ interactive: true, page }), null);
 });
 test('stopped local server clears the connected badge state and rejects configuration access', async (t) => {
   const f = fixture(t, { networkLoss: true });

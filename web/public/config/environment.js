@@ -13,7 +13,7 @@ export function describeEnvironment({
   return {
     local,
     text: methods.length
-      ? `${local ? '本地控制台' : '在线控制台'} · 可用：${methods.join('、')}。${local ? 'Windows 已配对蓝牙需本地服务。' : 'Windows 已配对蓝牙管理需启动本地控制台。'}`
+      ? `${local ? '本地控制台' : '在线控制台'} · 可用：${methods.join('、')}。${local ? 'Windows 已配对蓝牙需本地服务。' : 'Windows 已配对：启动本地服务后，在连接选项中直接管理。'}`
       : '当前浏览器未提供 WebHID / Web Bluetooth。可离线编辑与导出配置；连接请用支持这些接口的桌面版 Chrome / Edge。',
   };
 }

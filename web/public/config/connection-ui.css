@@ -1,0 +1,46 @@
+/* Connection guidance extends the original local console's dark theme. */
+.environment-notice {
+  font-size: 11px;
+  line-height: 1.6;
+}
+.environment-notice a {
+  display: inline-block;
+  margin-left: 6px;
+}
+.bridge-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 12px;
+}
+.connection-options > div {
+  max-width: min(440px, calc(100vw - 32px));
+}
+.connection-options > div > button {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  text-align: left;
+}
+#hapticControls {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+#hapticControls:disabled {
+  opacity: 0.55;
+}
+.firmware-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.firmware-options .settings-card {
+  margin-top: 0;
+}
+@media (max-width: 600px) {
+  .firmware-options {
+    grid-template-columns: 1fr;
+  }
+}

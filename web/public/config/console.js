@@ -770,7 +770,8 @@ function setControls() {
   document
     .querySelectorAll('[data-device]')
     .forEach((b) => (b.disabled = locked || !link.connected));
-  for (const id of ['connectDevice', 'connectUSB', 'connectBLE']) $(id).disabled = locked;
+  for (const id of ['connectDevice', 'connectUSB', 'connectBLE', 'connectPairedBLE'])
+    $(id).disabled = locked;
   $('connectDevice').hidden = link.connected;
   $('connectionOptions').hidden = link.connected;
   $('disconnect').hidden = !link.connected;
@@ -841,7 +842,9 @@ function setInfo(info) {
 async function connect(kind = 'auto') {
   await operation(async (progress) => {
     expectedReconnect = false;
-    setMessage('正在判断可用连接…');
+    setMessage(
+      kind === 'windows-ble' ? '正在通过本机服务连接 Windows 已配对设备…' : '正在判断可用连接…',
+    );
     try {
       const info =
         kind === 'auto'
@@ -864,7 +867,7 @@ async function connect(kind = 'auto') {
         setMessage('已连接并读取设备配置。', 'success');
       } else setMessage('设备已连接，保留本页未保存草稿。', 'success');
     } catch (e) {
-      if (e.needsChoice) $('connectionOptions').open = true;
+      if (e.needsChoice || kind === 'windows-ble') $('connectionOptions').open = true;
       throw e;
     }
   });
@@ -1011,6 +1014,7 @@ const specialEditor = mountSpecialFunctions({
 $('connectDevice').onclick = () => connect('auto');
 $('connectUSB').onclick = () => connect('usb');
 $('connectBLE').onclick = () => connect('ble');
+$('connectPairedBLE').onclick = () => connect('windows-ble');
 $('disconnect').onclick = () => link.disconnect();
 link.addEventListener('connect', () => {
   lastKeys = -1;
@@ -1248,18 +1252,13 @@ window.addEventListener('message', (e) => {
   if (e.data.type === 'scroll') {
     const delta = Number(e.data.deltaY);
     if (Number.isFinite(delta))
-      document
-        .querySelector('.panels')
-        .scrollBy({
-          top: Math.max(
-            -2000,
-            Math.min(
-              2000,
-              delta * (e.data.deltaMode === 1 ? 18 : e.data.deltaMode === 2 ? 400 : 1),
-            ),
-          ),
-          behavior: 'instant',
-        });
+      document.querySelector('.panels').scrollBy({
+        top: Math.max(
+          -2000,
+          Math.min(2000, delta * (e.data.deltaMode === 1 ? 18 : e.data.deltaMode === 2 ? 400 : 1)),
+        ),
+        behavior: 'instant',
+      });
     return;
   }
   if (
@@ -1288,7 +1287,7 @@ windowsBluetoothStatus().then((status) => {
   pairedBLEAvailable = status.available === true;
   $('connectionHint').textContent = pairedBLEAvailable
     ? '连接时自动选择已授权 USB 或 Windows 已配对蓝牙。'
-    : '首次连接请授权 USB 或蓝牙，下次自动判断。';
+    : 'USB 可直接授权；Windows 已连接蓝牙请在连接选项中选择「Windows 已配对」。';
   setControls();
 });
 window.addEventListener('pagehide', () => {

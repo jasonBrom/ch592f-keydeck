@@ -10,27 +10,27 @@ npm run build                     # 输出 dist/，并检查资源与相对路�
 
 Windows 可以双击 `StartConsole.cmd`；需要配对蓝牙管理时安装 `requirements-windows.txt`，启动器可安装到本目录 `.runtime/`。不要通过 `file://` 直接打开 HTML。
 
-| 运行方式 | USB | 浏览器蓝牙 | Windows 已配对蓝牙 |
-| --- | --- | --- | --- |
-| GitHub Pages / HTTPS | WebHID | Web Bluetooth | 不提供本地桥接 |
-| Python 本地控制台 | WebHID | Web Bluetooth | Bleak / WinRT，可用时自动识别 |
-| 普通静态 localhost | WebHID | Web Bluetooth | 不可用 |
+| 运行方式             | USB    | 浏览器蓝牙    | Windows 已配对蓝牙                   |
+| -------------------- | ------ | ------------- | ------------------------------------ |
+| GitHub Pages / HTTPS | WebHID | Web Bluetooth | 启动本地服务后点击「Windows 已配对」 |
+| Python 本地控制台    | WebHID | Web Bluetooth | Bleak / WinRT，可用时自动识别        |
+| 普通静态 localhost   | WebHID | Web Bluetooth | 不可用                               |
 
-以上接口还取决于浏览器、系统与权限。首次选设备需点击授权；在线页与本地页的权限分别管理。在线页不探测本机蓝牙服务；没有跨站代理或云端设备数据存储。
+以上接口还取决于浏览器、系统与权限。首次选设备需点击授权；在线页与本地页的权限分别管理。在线页仅在明确点击「Windows 已配对」后访问 `127.0.0.1:8792`；首次可能需要允许浏览器访问本机网络。电脑必须运行本地服务，GitHub Pages 无法直接运行 WinRT。没有云端设备数据存储。
 
 ## 主要代码
 
 - `public/index.html`：页面结构和控件。
-- `public/config/console-light.css`：浅色界面与响应式布局；原组件布局样式保留供编辑器使用。
+- `public/config/console.css`、`console-shell.css`：与原本地版一致的深色界面；`connection-ui.css` 补充连接指引。
 - `public/config/console.js`：草稿、改键、宏和统一试用/保存流程。
-- `public/config/console-experience.js`：视图切换、固件版本提示与键盘导航。
+- `public/config/console-experience.js`：运行环境、无震动版提示与键盘导航。
 - `public/config/schema.js`：1024 字节配置编解码、校验和协议帧。
 - `public/config/transport.js`：USB/BLE 传输、分包、事务、回读。
 - `public/config/connection.js`：已授权设备发现与连接优先级。
-- `public/config/windows-bluetooth.js`：同源本地服务客户端。
+- `public/config/windows-bluetooth.js`：本地服务客户端；官方在线站点可显式连接回环服务。
 - `public/config/*-editor.js`：触觉、配置层、状态灯等独立编辑器。
-- `public/assembly.html`、`app.js`：可选三维装配视图。主界面默认使用可点选按键视图，3D 资源按需加载。
-- `start-console.py`、`windows_ble.py`：本地服务。保留 loopback 监听、Host / Origin 检查、会话令牌与命令白名单。
+- `public/assembly.html`、`app.js`：可选三维装配视图。默认使用原本地版的三维交互视图，保留输入编号选择。
+- `start-console.py`、`windows_ble.py`：本地服务。保留 loopback 监听、Host / Origin 检查、按来源区分的令牌、会话租约与命令白名单。跨站只放行官方 HTTPS Origin 下的配置 API，拒绝任意来源和静态文件跨站读取。
 
 ## 使用顺序
 

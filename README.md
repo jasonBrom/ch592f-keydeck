@@ -41,11 +41,11 @@ flowchart LR
 
 以下截图来自本地浏览器的离线页面，不显示虚构设备读数。封面以实物照片为参考生成，仅用于项目介绍。
 
-### 浅色控制台
+### 设备控制台
 
-点选左侧按键进入对应编辑项。按键、旋钮、触觉、灯光、宏和设备设置分开显示；底部统一处理试用与保存。
+线上与本地使用同一套深色控制台，默认显示可点选的 3D 模型。按键、旋钮、触觉、灯光、宏和设备设置保留；底部统一处理试用与保存。
 
-![浅色控制台：可点选的按键预览、配置层、映射编辑与设备保存](docs/images/console-desktop.png)
+![与本地一致的深色控制台：三维预览、配置层、映射编辑与设备保存](docs/images/console-desktop.png)
 
 <details>
 <summary>查看固件下载与手机布局</summary>
@@ -81,7 +81,7 @@ flowchart LR
 | CH592F / 无震动版    | 不装震动组件的硬件 | 不访问马达驱动，保留改键、旋钮、宏与灯光                     |
 | 桌面 Chrome / Edge   | 连接与配置         | WebHID / Web Bluetooth 的可用性取决于系统和浏览器            |
 | GitHub Pages / HTTPS | 在线静态控制台     | 支持浏览器设备接口，不运行 Python 后端                       |
-| Windows 本地控制台   | 已配对蓝牙管理     | Python + Bleak / WinRT；同源本地服务                         |
+| Windows 本地控制台   | 已配对蓝牙管理     | Python + Bleak / WinRT；本地和在线页面均可使用               |
 | Linux / WSL Ubuntu   | 固件开发           | WCH MounRiver GCC 8.2.0、Make、Python 3；交叉测试需 Node 22+ |
 
 ## 本地快速开始
@@ -168,7 +168,7 @@ bash firmware/tests/run_integration_tests.sh
 
 需要格式化源码时，在 `web/` 中执行 `npm install`、`npm run format`。生产网页的打包脚本只使用 Node 内置模块。
 
-当前验证包含 61 项网页测试、6 项本地服务测试、固件主机验证，以及主协议 34 项 C / JS 交叉检查。带震动 BIN 与原来已实测的 1.15 镜像逐字节一致；无震动版已通过能力位、HID 描述符、命令拒绝与校准配置保留检查。
+当前验证包含 63 项网页测试、8 项本地服务测试、固件主机验证，以及主协议 34 项 C / JS 交叉检查。带震动 BIN 与原来已实测的 1.15 镜像逐字节一致；无震动版已通过能力位、HID 描述符、命令拒绝与校准配置保留检查。
 
 详细范围见 [验证记录](docs/VERIFICATION.md)，配置格式见 [协议速查](docs/PROTOCOL.md)，界面规则见 [设计规范](docs/DESIGN-SYSTEM.md)。
 
@@ -178,7 +178,7 @@ bash firmware/tests/run_integration_tests.sh
 
 仓库已启用 **GitHub Actions** 部署与 HTTPS。后续推送 `main` 会自动更新网页；运行记录见 [Deploy console to GitHub Pages](https://github.com/jasonBrom/ch592f-keydeck/actions/workflows/pages.yml)，首次上线检查见 [部署记录](docs/DEPLOYMENT.md)。
 
-部署任务从当前提交编译两版固件，更新网页下载文件，检查相对路径，再发布 `web/dist/`。Windows 已配对蓝牙仍需本地启动器；在线页不探测本地蓝牙服务。完整步骤见 [发布说明](docs/GITHUB.md)。
+部署任务从当前提交编译两版固件，更新网页下载文件，检查相对路径，再发布 `web/dist/`。Windows 已配对蓝牙需先运行 `web/StartConsole.cmd`，再在在线页的「连接选项」点击「Windows 已配对」。浏览器首次可能询问访问本机网络；允许后直接在在线页管理。完整步骤见 [发布说明](docs/GITHUB.md)。
 
 ## 已知边界
 

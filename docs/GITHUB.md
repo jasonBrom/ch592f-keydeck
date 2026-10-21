@@ -37,7 +37,7 @@ GitHub Free 可为公开仓库提供 Pages；私有仓库的可用性取决于�
 
 在支持 WebHID / Web Bluetooth 的桌面 Chrome / Edge 中打开 HTTPS 页面，点击设备选择并授权。USB 需数据线；蓝牙设备需要正常运行支持配置服务的固件。切勿为了网页连接把正常 HID 接口换成 WinUSB。
 
-Windows 已配对蓝牙服务在用户电脑本地运行，GitHub Pages 不运行 Python。需要该连接方式时，下载仓库并运行 `web/StartConsole.cmd`，使用 `localhost:8792`。在线页不会尝试跨域访问本地服务。
+Windows 已配对蓝牙服务在用户电脑本地运行，GitHub Pages 不运行 Python。需要该连接方式时，下载仓库并运行 `web/StartConsole.cmd`。可使用 `localhost:8792`，也可留在在线页，在「连接选项」点击「Windows 已配对」。在线页仅在明确点击后请求本机服务；如浏览器询问本机网络访问，请允许。服务只接受本地控制台和官方 HTTPS Origin 的限定 API 请求，不开放任意来源。
 
 ## 发布前需要作者决定
 

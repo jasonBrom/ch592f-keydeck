@@ -71,9 +71,30 @@
     </p>
     <h2>Windows 已配对蓝牙</h2>
     <p>
-      在线页面无法运行本地 Python 服务。需要管理 Windows 已配对的设备时，下载工程并双击
-      <code>web/StartConsole.cmd</code>，在
-      <code>http://localhost:8792/</code> 打开本地控制台。在线站点和本地站点的授权分别管理。
+      Windows 系统配对不会自动授予网站设备权限。已在 Windows 连接的
+      C5，可复用系统的蓝牙连接管理，不需要删除配对。
+    </p>
+    <ol>
+      <li>
+        下载最新版工程，双击 <code>web/StartConsole.cmd</code>。首次启动自动安装 Python
+        蓝牙组件；保持服务运行。
+      </li>
+      <li>
+        回到在线页面，展开「连接选项」，点击「Windows 已配对 ·
+        直接管理」。若浏览器询问访问本机网络，请允许。
+      </li>
+      <li>连接后自动读取配置。试用和保存仍由你点击，不会在连接时写入配置。</li>
+    </ol>
+    <p>
+      也可直接使用同一界面的
+      <a href="http://localhost:8792/" target="_blank" rel="noopener">本地控制台</a
+      >。如果旧服务仍在运行，请关闭后重新运行最新版启动器；只刷新网页无法更新 Python 服务。
+    </p>
+    <p>
+      桥接只监听 <code>127.0.0.1:8792</code>，只允许本地控制台和官方站点
+      <code>https://jasonbrom.github.io</code> 访问限定的配置
+      API，并校验独立令牌与设备会话。在线页仅在你点击 Windows 连接入口时请求访问本机；配置数据不经过
+      GitHub 服务器。
     </p>
     <h2>试用与保存</h2>
     <table>

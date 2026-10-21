@@ -1,16 +1,37 @@
-// Same-origin loopback transport to Windows' existing paired C5 GATT link.
-export async function windowsBluetoothStatus() {
-  if (!['localhost', '127.0.0.1'].includes(location.hostname)) return { available: false };
+// Local discovery is silent; the official online console probes loopback only
+// after the user explicitly chooses Windows paired-device management.
+export function windowsBridgeBase({ interactive = false, page = globalThis.location } = {}) {
+  if (['localhost', '127.0.0.1'].includes(page?.hostname)) return '';
+  if (
+    interactive &&
+    page?.origin === 'https://jasonbrom.github.io' &&
+    page?.pathname?.startsWith('/ch592f-keydeck/')
+  )
+    return 'http://127.0.0.1:8792';
+  return null;
+}
+
+export async function windowsBluetoothStatus({ interactive = false } = {}) {
+  const base = windowsBridgeBase({ interactive });
+  if (base === null) return { available: false };
   try {
-    const response = await fetch('/api/windows-ble/status', {
+    const response = await fetch(base + '/api/windows-ble/status', {
       cache: 'no-store',
-      signal: AbortSignal.timeout(1500),
+      credentials: 'omit',
+      redirect: 'error',
+      ...(base ? { mode: 'cors', targetAddressSpace: 'loopback' } : {}),
+      signal: AbortSignal.timeout(interactive ? 30000 : 1500),
     });
     if (!response.ok) return { available: false };
     const status = await response.json();
-    return status.available === true && typeof status.token === 'string'
+    return status.available === true &&
+      typeof status.token === 'string' &&
+      (!base || status.bridgeVersion >= 2)
       ? status
-      : { available: false };
+      : {
+          available: false,
+          reason: status.reason || (base ? '请更新并重新启动本地桥接服务。' : ''),
+        };
   } catch {
     return { available: false };
   }
@@ -20,15 +41,19 @@ export class WindowsBluetooth extends EventTarget {
     super();
     this.session = null;
     this.token = null;
+    this.base = '';
   }
   async post(action, body = {}, keepalive = false) {
     let response, data;
     try {
-      response = await fetch('/api/windows-ble/' + action, {
+      response = await fetch(this.base + '/api/windows-ble/' + action, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'X-C5-Token': this.token },
         body: JSON.stringify({ ...body, session: this.session }),
         keepalive,
+        credentials: 'omit',
+        redirect: 'error',
+        ...(this.base ? { mode: 'cors', targetAddressSpace: 'loopback' } : {}),
         signal: keepalive ? undefined : AbortSignal.timeout(35000),
       });
       data = await response.json();
@@ -62,9 +87,13 @@ export class WindowsBluetooth extends EventTarget {
     return data;
   }
   async connect() {
-    const status = await windowsBluetoothStatus();
+    this.base = windowsBridgeBase({ interactive: true });
+    const status = await windowsBluetoothStatus({ interactive: true });
     if (!status.available)
-      throw new Error('请用 StartConsole.cmd 启动本地控制台，启用 Windows 蓝牙管理。');
+      throw new Error(
+        status.reason ||
+          '请先运行最新版 web/StartConsole.cmd，保持服务运行，再点击「Windows 已配对」。若浏览器询问本机网络访问，请允许；也可直接打开 http://localhost:8792/ 管理。',
+      );
     this.token = status.token;
     const data = await this.post('connect');
     this.session = data.session;
