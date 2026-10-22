@@ -296,19 +296,20 @@ main {
   align-items: center;
   gap: 10px;
 }
-.save-actions > details {
-  margin-right: auto;
-  position: relative;
-}
-.save-actions > details > button {
-  position: absolute;
-  bottom: 30px;
-  left: 0;
-  white-space: nowrap;
-  z-index: 10;
-}
 .save-actions > button {
   min-width: 90px;
+}
+.save-actions > .read-device {
+  margin-right: auto;
+  min-width: 0;
+  padding: 10px 12px;
+  white-space: nowrap;
+}
+.read-device:disabled {
+  opacity: 1;
+  color: var(--muted);
+  background: #192432;
+  border-color: var(--line);
 }
 .savebar #message {
   min-height: 22px;
@@ -485,7 +486,8 @@ main {
     backdrop-filter: blur(12px);
   }
   .save-actions > button {
-    flex: 0 1 110px;
+    flex: 0 1 auto;
+    min-width: 0;
   }
   .save-meta {
     gap: 8px;

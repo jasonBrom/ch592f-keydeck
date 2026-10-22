@@ -99,6 +99,7 @@ main {
 }
 .layer-chips {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
 }
 .layer-chip {
@@ -127,12 +128,14 @@ main {
 }
 .layer-swatch {
   display: block;
+  flex: 0 0 20px;
   margin: 0;
   width: 20px;
   height: 20px;
 }
 .layer-swatch input[type='color'] {
   display: block;
+  margin: 0;
   width: 20px;
   height: 20px;
   padding: 0;

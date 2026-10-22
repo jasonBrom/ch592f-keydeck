@@ -7,9 +7,9 @@
     <title>KeyDeck · 设备控制台</title>
     <link rel="stylesheet" href="config/console.css?v=1.13" />
     <link rel="stylesheet" href="config/haptic-editor.css?v=1.13" />
-    <link rel="stylesheet" href="config/console-shell.css?v=1.13" />
+    <link rel="stylesheet" href="config/console-shell.css?v=layout-20261022" />
     <link rel="stylesheet" href="config/connection-ui.css" />
-    <link rel="stylesheet" href="config/workspace.css" />
+    <link rel="stylesheet" href="config/workspace.css?v=layout-20261022" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   </head>
   <body>
@@ -464,10 +464,9 @@
           </div>
           <progress id="progress" value="0" max="1" hidden></progress>
           <div class="save-actions">
-            <details>
-              <summary>更多操作</summary>
-              <button id="read" data-device>重新读取设备</button>
-            </details>
+            <button id="read" class="read-device" data-device title="重新读取设备当前配置">
+              重新读取设备
+            </button>
             <button id="apply" data-device title="临时应用草稿，重启后恢复已保存设置">测试</button
             ><button id="save" class="primary" data-device>保存到设备</button>
           </div>
