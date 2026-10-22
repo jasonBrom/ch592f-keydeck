@@ -69,6 +69,14 @@ DataFlash 双配置槽偏移 `0x4000/0x5000`，蓝牙绑定区 `0x7000`。下载
 
 ## 验证与发布
 
+GitHub 自动构建入口：[Build and release firmware](https://github.com/jasonBrom/ch592f-keydeck/actions/workflows/firmware-release.yml)，下载入口：[Releases](https://github.com/jasonBrom/ch592f-keydeck/releases)。推送与源码版本一致的 `vX.Y.Z` 标签后，先运行网页、服务、固件主机和交叉测试，再编译 `haptic` / `no-haptic`；两版均成功才发布。预发布标签如 `v1.15.0-rc.1` 自动标记为 Pre-release。
+
+也可在该工作流点击 **Run workflow**：`tag` 留空会从所选分支发布独立的开发预发布；填写已有版本标签则重新执行对应发布。已公开的附件不会被重跑覆盖，未完成的草稿可继续上传。无需添加个人令牌，只有最后的发布任务申请仓库写入权限。完整流程见 [GitHub 发布说明](../docs/GITHUB.md#固件自动编译与发布)。
+
+每次发布提供两个完整 ZIP、可单独下载的 HEX / BIN、`manifest.json`、`SHA256SUMS.txt` 和烧录说明。清单记录源码 SHA、SDK、工具链及四种构建文件的哈希；发布状态不替代实物验收。
+
+本地验证与网页下载打包仍可使用：
+
 ```sh
 bash scripts/verify_host.sh
 bash tests/run_integration_tests.sh
@@ -76,7 +84,7 @@ cd ..
 node scripts/package-release.mjs
 ```
 
-发布脚本生成 `releases/1.15.0/` 的两版 HEX/BIN 和 SHA-256，同时更新网页下载目录。修改描述符后运行并检查两份生成头：
+本地打包脚本按 `web/package.json` 中的版本生成 `releases/<版本>/` 的两版 HEX/BIN 和 SHA-256，同时更新网页下载目录。修改描述符后运行并检查两份生成头：
 
 ```sh
 python3 features/compact_report_map.py

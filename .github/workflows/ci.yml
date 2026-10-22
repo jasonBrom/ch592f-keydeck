@@ -1,8 +1,14 @@
 name: Verify web and firmware
 on:
   push:
+    branches: ['**']
   pull_request:
   workflow_dispatch:
+  workflow_call:
+    inputs:
+      ref:
+        type: string
+        default: ''
 permissions:
   contents: read
 jobs:
@@ -10,12 +16,16 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.ref || github.ref }}
+          persist-credentials: false
       - uses: actions/setup-node@v6
         with:
           node-version: '22'
       - run: npm test
         working-directory: web
       - run: python3 -m unittest discover -s web/tests -p 'test_*.py'
+      - run: python3 -m unittest discover -s scripts/tests -p 'test_*.py'
       - run: bash firmware/scripts/fetch_sdk.sh
       - run: sha256sum --check SHA256SUMS.txt
         working-directory: firmware/vendor
@@ -31,6 +41,9 @@ jobs:
         variant: [haptic, no-haptic]
     steps:
       - uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.ref || github.ref }}
+          persist-credentials: false
       - run: bash firmware/scripts/fetch_sdk.sh
       - run: bash firmware/scripts/fetch_toolchain.sh
       - run: make -j4 VARIANT=${{ matrix.variant }} CROSS_COMPILE="$HOME/.cache/c5-dial-tools/riscv-none-embed-gcc-8-linux-1.91/bin/riscv-none-embed-"
@@ -38,6 +51,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: KeyDeck-CH592F-${{ matrix.variant }}
+          if-no-files-found: error
           path: |
             firmware/build/${{ matrix.variant }}/*.hex
             firmware/build/${{ matrix.variant }}/*.bin

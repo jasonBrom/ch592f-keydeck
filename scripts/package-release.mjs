@@ -4,12 +4,15 @@ import { resolve } from 'node:path';
 import { createHash } from 'node:crypto';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
-const output = resolve(root, 'releases/1.15.0'),
+const { version } = JSON.parse(await readFile(resolve(root, 'web/package.json'), 'utf8'));
+if (!/^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/.test(version))
+  throw new Error('Invalid firmware package version');
+const output = resolve(root, `releases/${version}`),
   downloads = resolve(root, 'web/public/downloads');
 await mkdir(output, { recursive: true });
 await mkdir(downloads, { recursive: true });
 const manifest = {
-  version: '1.15.0',
+  version,
   sdkCommit: 'a46e0086f1ffb5e5502703970bff94888e67f4cb',
   toolchain: 'WCH MounRiver 1.91 / GCC 8.2.0',
   hardwareTested: false,

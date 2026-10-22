@@ -6,7 +6,7 @@
 
 五个机械按键，一个旋钮。把快捷键、音量和常用操作留在手边。
 
-[![Version](https://img.shields.io/badge/Version-1.15.0-5e91d8)](releases/1.15.0)
+[![Version](https://img.shields.io/badge/Version-1.15.0-5e91d8)](https://github.com/jasonBrom/ch592f-keydeck/releases)
 [![MCU](https://img.shields.io/badge/MCU-CH592F-41b8a4)](firmware/README.md)
 [![Connection](https://img.shields.io/badge/Connection-USB%20%2F%20BLE-5a956c)](web/README.md)
 [![Firmware](https://img.shields.io/badge/Firmware-2%20variants-8b75b5)](firmware/README.md)
@@ -104,7 +104,9 @@ Windows 已配对蓝牙需要本地服务；启动器可将 `requirements-window
 
 ## 固件与烧录
 
-预编译文件在 [`releases/1.15.0`](releases/1.15.0)，校验信息见 [`manifest.json`](releases/1.15.0/manifest.json)。网页的固件页也提供两版 HEX。
+自动编译的固件在 [GitHub Releases](https://github.com/jasonBrom/ch592f-keydeck/releases)，提供带震动和无震动两版 HEX / BIN，以及包含 ELF / MAP 的完整 ZIP。每次发布附带 SHA-256、源码提交和编译记录。推送版本标签会自动测试、编译并发布，也可在 [Actions](https://github.com/jasonBrom/ch592f-keydeck/actions/workflows/firmware-release.yml) 手动运行；操作见 [自动发布说明](docs/GITHUB.md#固件自动编译与发布)。
+
+仓库保留的 1.15.0 基线文件在 [`releases/1.15.0`](releases/1.15.0)，校验信息见 [`manifest.json`](releases/1.15.0/manifest.json)。网页的固件页也提供两版 HEX。
 
 | 构建   | HEX                                                  | BIN                                                  |
 | ------ | ---------------------------------------------------- | ---------------------------------------------------- |
@@ -147,7 +149,7 @@ node scripts/package-release.mjs
 │   └── vendor/             固定版本 WCH SDK，保留许可与哈希
 ├── releases/               HEX / BIN 与 SHA-256
 ├── docs/                   设计、协议、发布和验证记录
-└── .github/workflows/      双版本 CI 与 GitHub Pages
+└── .github/workflows/      双版本 CI、固件 Release 与 GitHub Pages
 ```
 
 构建产物 `firmware/build/`、`web/dist/`、本地蓝牙依赖、日志和缓存不提交 Git。README 预览图保存在 `docs/images/`，随文档维护。
