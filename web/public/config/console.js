@@ -852,16 +852,8 @@ async function connect(kind = 'auto') {
       setInfo(info);
       $('connectionOptions').open = false;
       lastEncoder = null;
-      const current = decode(await link.read(progress));
-      deviceConfig = clone(current);
-      if (!dirty) {
-        config = current;
-        editingProfile = current.profile;
-        profileActivationRequested = false;
-        render();
-        $('draftStatus').textContent = '与设备一致';
-        setMessage('已连接并读取设备配置。', 'success');
-      } else setMessage('设备已连接，保留本页未保存草稿。', 'success');
+      await readDevice(progress);
+      setMessage('已连接并读取设备配置。', 'success');
     } catch (e) {
       if (e.needsChoice || kind === 'windows-ble') $('connectionOptions').open = true;
       throw e;

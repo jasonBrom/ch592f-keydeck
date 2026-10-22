@@ -62,7 +62,8 @@ function fixture() {
     get connected() {
       return connected;
     },
-    async connect() {
+    async connect(kind = 'usb') {
+      this.kind = kind;
       connected = true;
       context.statusMonitor.start();
       context.setControls();
@@ -100,6 +101,7 @@ function fixture() {
     lastKeys: -1,
     inputButtons: [],
     decode,
+    autoConnect: (device) => device.connect('usb'),
     encoderDelta,
     chargingStatusText,
     effectiveTransitions,
@@ -122,6 +124,7 @@ function fixture() {
       'updateDeviceStatus',
       'setControls',
       'operation',
+      'readDevice',
       'setInfo',
       'connect',
     ]
@@ -187,6 +190,72 @@ test('real connect/operation/control helpers unlock the editor and deliver live 
     f.context.statusMonitor.stop();
   }
 });
+test('each automatic or manual connection reads once and displays device settings instead of the offline draft', async () => {
+  for (const kind of ['auto', 'usb', 'ble', 'windows-ble']) {
+    const f = fixture();
+    let reads = 0,
+      renders = 0,
+      writes = 0;
+    const device = defaults();
+    device.profile = 2;
+    device.brightness = 73;
+    device.profiles[2][0] = { type: 1, modifiers: 2, value: 28 };
+    const expected = decode(encode(device));
+    f.context.config.brightness = 5;
+    f.context.dirty = true;
+    f.context.editingProfile = 1;
+    f.context.profileActivationRequested = true;
+    f.context.render = () => renders++;
+    f.context.link.read = async (progress) => {
+      reads++;
+      progress(0.5);
+      return encode(device);
+    };
+    f.context.link.apply = async () => writes++;
+    try {
+      // A second click while the first connection is busy must not queue a read.
+      await Promise.all([f.context.connect(kind), f.context.connect(kind)]);
+      assert.equal(reads, 1, kind);
+      assert.equal(renders, 1, kind);
+      assert.equal(writes, 0, kind);
+      assert.deepEqual(f.context.config, expected, kind);
+      assert.deepEqual(f.context.deviceConfig, expected, kind);
+      assert.equal(f.context.editingProfile, 2, kind);
+      assert.equal(f.context.profileActivationRequested, false, kind);
+      assert.equal(f.context.dirty, false, kind);
+      assert.equal(f.node('draftStatus').textContent, '与设备一致', kind);
+      assert.equal(f.node('message').textContent, '已连接并读取设备配置。', kind);
+    } finally {
+      f.context.statusMonitor.stop();
+    }
+  }
+});
+
+test('a failed initial read keeps the current draft and reports failure without retrying or writing', async () => {
+  const f = fixture();
+  let reads = 0;
+  f.context.config.brightness = 9;
+  f.context.dirty = true;
+  f.context.link.read = async () => {
+    reads++;
+    throw Error('设备配置读取失败');
+  };
+  f.context.link.apply = () => assert.fail('Connecting must never write settings');
+  try {
+    await f.context.connect('windows-ble');
+    assert.equal(reads, 1);
+    assert.equal(f.context.config.brightness, 9);
+    assert.equal(f.context.dirty, true);
+    assert.equal(f.context.deviceConfig, null);
+    assert.equal(f.node('message').textContent, '设备配置读取失败');
+    assert.equal(f.context.busy, false);
+    assert.equal(f.node('progress').hidden, true);
+    assert.equal(f.node('read').disabled, false);
+  } finally {
+    f.context.statusMonitor.stop();
+  }
+});
+
 test('editing another layer does not select it for the device and live layer changes preserve the editing view', () => {
   const f = fixture();
   try {

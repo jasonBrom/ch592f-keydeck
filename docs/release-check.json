@@ -5,7 +5,7 @@
   "remoteConfigured": true,
   "remoteUrl": "https://github.com/jasonBrom/ch592f-keydeck.git",
   "githubPagesDeployed": true,
-  "webTestsPassed": 73,
+  "webTestsPassed": 75,
   "pythonTestsPassed": 8,
   "crossLanguageChecksPassed": 34,
   "hapticBinaryMatchesOriginal115": true,
